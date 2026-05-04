@@ -1,0 +1,22 @@
+Transcript:
+User: Hello, I want to check my eligibility for social security benefits.
+Bot: Of course! Are you interested in child benefits, disability, or unemployment?
+User: Child benefits.
+Bot: Please provide your ID number and number of children.
+User: ID 123456789, two children.
+Bot: You are eligible for full child benefits.
+User: How do I receive the payments?
+Bot: Transferred to your registered bank account at the start of each month.
+User: What if the number of children changes later?
+Bot: Update your information on the website or via the service center, and your benefits will adjust accordingly.
+
+Sentiment and Emotions:
+Sentiment: Positive
+Emotions detected: Interest, Relief, Satisfaction, Confidence
+
+Topics Discussed:
+National Insurance guidance,
+Child benefits eligibility,
+Updating personal information,
+Social_Services,
+refrigerator

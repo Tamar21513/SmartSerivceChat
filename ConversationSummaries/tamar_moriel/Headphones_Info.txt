@@ -1,0 +1,20 @@
+Transcript:
+User: I’m looking for comfortable headphones for working from home.
+Bot: Over-ear or in-ear?
+User: Over-ear, comfort is key.
+Bot: The NoiseCancel Pro series offers active noise cancellation, memory foam padding, and 30 hours battery life.
+User: Can I connect to multiple devices?
+Bot: Yes, switch between laptop and phone easily.
+User: Sound quality for calls?
+Bot: Excellent, built-in mic with noise reduction.
+User: Music quality?
+Bot: Deep bass, balanced treble, clear highs.
+
+Sentiment and Emotions:
+Sentiment: Positive
+Emotions detected: Interest, Satisfaction, Excitement, Confidence
+
+Topics Discussed:
+NoiseCancel Headphones,
+Smartwatch tracking (mentioned for comparison),
+Headphones_Info

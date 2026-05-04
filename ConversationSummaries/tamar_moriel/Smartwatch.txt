@@ -1,0 +1,19 @@
+Transcript:
+User: Hi, I want a smartwatch that works well for workouts and some good headphones for calls.
+Bot: Perfect. The smartwatch tracks heart rate, calories, sleep, and has multiple sports modes. Which headphones do you need?
+User: Over-ear, noise cancelling, long battery.
+Bot: Check out the NoiseCancel Pro series. Active noise cancellation, memory foam, 30 hours battery, multipoint Bluetooth.
+User: Great. What about the smartwatch battery?
+Bot: 7 days standard, 14 days in power-saving.
+User: Also, do you have JBL ENCORE speakers?
+Bot: Yes, JBL ENCORE provides high-powered sound and LED lights. Very popular for home parties.
+
+Sentiment and Emotions:
+Sentiment: Positive
+Emotions detected: Interest, Satisfaction, Excitement, Confidence
+
+Topics Discussed:
+Smartwatch overview,
+NoiseCancel Pro Headphones,
+JBL ENCORE,
+camera
