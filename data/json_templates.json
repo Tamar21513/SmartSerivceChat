@@ -1,0 +1,231 @@
+{
+  "pricing": {
+    "topic": "pricing",
+    "type": "",
+    "item": "",
+    "provider": "",
+    "origin": "",
+    "destination": "",
+    "time": "",
+    "quantity": "",
+    "search": [
+      {"field": "type"},
+      {"field": "item"},
+      {"text_if_field_exists": "from", "field": "origin"},
+      {"field": "origin"},
+      {"text_if_field_exists": "to", "field": "destination"},
+      {"field": "destination"},
+      {"text_if_field_exists": "with", "field": "provider"},
+      {"field": "provider"},
+      {"text_if_field_exists": "in", "field": "time"},
+      {"field": "time"},
+      {"text_if_field_exists": "for", "field": "quantity"},
+      {"field": "quantity"}
+    ],
+    "required": ["type", "item"]
+  },
+  "ordering": {
+    "topic": "ordering",
+    "type": "",
+    "item": "",
+    "order_channel": "",
+    "order_condition": "",
+    "quantity": "",
+    "search": [
+      {"field": "type"},
+      {"field": "item"},
+      {"text_if_field_exists": "via", "field": "order_channel"},
+      {"field": "order_channel"},
+      {"text_if_field_exists": "with", "field": "order_condition"},
+      {"field": "order_condition"},
+      {"text_if_field_exists": "for", "field": "quantity"},
+      {"field": "quantity"}
+    ],
+    "required": ["type", "item"] 
+  },
+  "tracking": {
+    "topic": "tracking",
+    "type": "",
+    "tracked_item": "",
+    "reference_number": "",
+    "time": "",
+    "tracking_issue": "",
+    "search": [
+      {"field": "type"},
+      {"field": "tracked_item"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"},
+      {"text_if_field_exists": "for", "field": "time"},
+      {"field": "time"},
+      {"field": "tracking_issue"}
+    ],
+    "required": ["type", "tracked_item"]
+  },
+  "cancel_or_change": {
+    "topic": "cancel_or_change",
+    "type": "",
+    "action": "",
+    "target": "",
+    "new_value": "",
+    "reference_number": "",
+    "status": "",
+    "search": [
+      {"field": "type"},
+      {"field": "action"},
+      {"field": "target"},
+      {"field": "new_value"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"},
+      {"field": "status"}
+    ],
+    "required": ["type", "action", "target"]
+  },
+  "returns_and_refunds": {
+    "topic": "returns_and_refunds",
+    "type": "",
+    "request_type": "",
+    "item": "",
+    "reference_number": "",
+    "status": "",
+    "time": "",
+    "search": [
+      {"field": "type"},
+      {"field": "request_type"},
+      {"field": "item"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"},
+      {"field": "status"},
+      {"field": "time"}
+    ],
+    "required": ["type", "request_type"]
+  },
+
+  "account_access": {
+    "topic": "account_access",
+    "type": "",
+    "access_type": "",
+    "target": "",
+    "account_identifier": "",
+    "email_access": "",
+    "error_message": "",
+    "search": [
+      {"field": "type"},
+      {"field": "access_type"},
+      {"field": "target"},
+      {"field": "account_identifier"},
+      {"field": "email_access"},
+      {"field": "error_message"}
+    ],
+    "required": ["type", "access_type"]
+  },
+
+  "billing_and_payment": {
+    "topic": "billing_and_payment",
+    "type": "",
+    "billing_type": "",
+    "target": "",
+    "reference_number": "",
+    "payment_method": "",
+    "amount": "",
+    "search": [
+      {"field": "type"},
+      {"field": "billing_type"},
+      {"field": "target"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"},
+      {"field": "payment_method"},
+      {"field": "amount"}
+    ],
+    "required": ["type", "billing_type"]
+  },
+
+  "technical_issue": {
+    "topic": "technical_issue",
+    "type": "",
+    "issue_type": "",
+    "platform": "",
+    "action": "",
+    "error_message": "",
+    "device_or_env": "",
+    "search": [
+      {"field": "type"},
+      {"field": "issue_type"},
+      {"field": "platform"},
+      {"field": "action"},
+      {"field": "error_message"},
+      {"field": "device_or_env"}
+    ],
+    "required": ["type", "issue_type"]
+  },
+
+  "product_specs": {
+    "topic": "product_specs",
+    "type": "",
+    "product": "",
+    "spec": "",
+    "model": "",
+    "expected_value": "",
+    "search": [
+      {"field": "type"},
+      {"field": "product"},
+      {"field": "model"},
+      {"field": "spec"},
+      {"field": "expected_value"}
+    ],
+    "required": ["type", "spec"]
+  },
+
+  "policy": {
+    "topic": "policy",
+    "type": "",
+    "policy_type": "",
+    "policy_condition": "",
+    "target": "",
+    "search": [
+      {"field": "type"},
+      {"field": "policy_type"},
+      {"field": "policy_condition"},
+      {"field": "target"}
+    ],
+    "required": ["type"]
+  },
+
+  "complaint": {
+    "topic": "complaint",
+    "type": "",
+    "complaint_type": "",
+    "issue": "",
+    "target": "",
+    "reference_number": "",
+    "search": [
+      {"field": "type"},
+      {"field": "complaint_type"},
+      {"field": "issue"},
+      {"field": "target"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"}
+    ],
+    "required": ["type", "issue"]
+  },
+
+  "date_and_time": {
+    "topic": "date_and_time",
+    "type": "",
+    "event": "",
+    "time_type": "",
+    "origin": "",
+    "destination": "",
+    "time_reference": "",
+    "reference_number": "",
+    "search": [
+      {"field": "type"},
+      {"field": "event"},
+      {"field": "time_type"},
+      {"field": "location"},
+      {"field": "time_reference"},
+      {"text_if_field_exists": "reference", "field": "reference_number"},
+      {"field": "reference_number"}
+    ],
+    "required": ["type", "event"]
+  }
+}

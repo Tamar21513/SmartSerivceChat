@@ -1,0 +1,390 @@
+{"text": "How much does this product cost?", "label": 0, "label_text": "pricing"}
+{"text": "What is the price?", "label": 0, "label_text": "pricing"}
+{"text": "Can you tell me the total cost?", "label": 0, "label_text": "pricing"}
+{"text": "Is this item on sale?", "label": 0, "label_text": "pricing"}
+{"text": "How much do I need to pay for this service?", "label": 0, "label_text": "pricing"}
+{"text": "Are there any additional fees?", "label": 0, "label_text": "pricing"}
+{"text": "What is the monthly price?", "label": 0, "label_text": "pricing"}
+{"text": "Does the price include delivery?", "label": 0, "label_text": "pricing"}
+{"text": "Is there a discount for buying more than one item?", "label": 0, "label_text": "pricing"}
+{"text": "Can I get a cheaper plan?", "label": 0, "label_text": "pricing"}
+{"text": "I want to know the full price before I place the order.", "label": 0, "label_text": "pricing"}
+{"text": "Can you explain why this product is more expensive than the one I saw last week?", "label": 0, "label_text": "pricing"}
+{"text": "I would like to compare the price of this item with similar products before I decide.", "label": 0, "label_text": "pricing"}
+{"text": "Before I continue with the purchase, I need to know if the final price includes tax and shipping.", "label": 0, "label_text": "pricing"}
+{"text": "Do you offer any student, business, or bulk discounts for this product?", "label": 0, "label_text": "pricing"}
+{"text": "I saw a different price yesterday and I want to understand which price is correct.", "label": 0, "label_text": "pricing"}
+{"text": "Can you confirm the price for two units of this product including delivery?", "label": 0, "label_text": "pricing"}
+{"text": "I need a detailed breakdown of the price, including product cost, tax, and extra charges.", "label": 0, "label_text": "pricing"}
+{"text": "Is the price shown on the website the final amount that will be charged?", "label": 0, "label_text": "pricing"}
+{"text": "Can you tell me if there are hidden costs after checkout?", "label": 0, "label_text": "pricing"}
+{"text": "How do I place an order?", "label": 1, "label_text": "ordering"}
+{"text": "I want to order this item.", "label": 1, "label_text": "ordering"}
+{"text": "Can I order by phone?", "label": 1, "label_text": "ordering"}
+{"text": "Where do I click to buy?", "label": 1, "label_text": "ordering"}
+{"text": "How can I complete my purchase?", "label": 1, "label_text": "ordering"}
+{"text": "Can you help me create an order?", "label": 1, "label_text": "ordering"}
+{"text": "Do I need an account to order?", "label": 1, "label_text": "ordering"}
+{"text": "Can I order more than one item?", "label": 1, "label_text": "ordering"}
+{"text": "How do I add this to my cart?", "label": 1, "label_text": "ordering"}
+{"text": "What are the steps to order?", "label": 1, "label_text": "ordering"}
+{"text": "I found the product I want, but I am not sure how to complete the order.", "label": 1, "label_text": "ordering"}
+{"text": "Can you guide me through the ordering process from selecting the product to payment?", "label": 1, "label_text": "ordering"}
+{"text": "I want to buy several items together and need to know how to place one combined order.", "label": 1, "label_text": "ordering"}
+{"text": "I tried to place an order, but I am not sure if I completed all the required steps.", "label": 1, "label_text": "ordering"}
+{"text": "Before I buy, I want to understand whether I need to register or can order as a guest.", "label": 1, "label_text": "ordering"}
+{"text": "Can you explain how to choose the product, add it to the cart, and confirm the order?", "label": 1, "label_text": "ordering"}
+{"text": "I am ready to purchase this item but I do not know where to enter my details.", "label": 1, "label_text": "ordering"}
+{"text": "How can I submit an order for a product that appears available on your website?", "label": 1, "label_text": "ordering"}
+{"text": "I need help placing an order because the checkout process is confusing.", "label": 1, "label_text": "ordering"}
+{"text": "Can I place an order now and pay after the order is confirmed?", "label": 1, "label_text": "ordering"}
+{"text": "Where is my order?", "label": 2, "label_text": "tracking"}
+{"text": "Can I track my package?", "label": 2, "label_text": "tracking"}
+{"text": "What is my tracking number?", "label": 2, "label_text": "tracking"}
+{"text": "Has my order shipped?", "label": 2, "label_text": "tracking"}
+{"text": "Where can I see delivery updates?", "label": 2, "label_text": "tracking"}
+{"text": "Is my package still in transit?", "label": 2, "label_text": "tracking"}
+{"text": "Can you check my shipment status?", "label": 2, "label_text": "tracking"}
+{"text": "Why is my tracking not updating?", "label": 2, "label_text": "tracking"}
+{"text": "When will my tracking information appear?", "label": 2, "label_text": "tracking"}
+{"text": "My package seems stuck.", "label": 2, "label_text": "tracking"}
+{"text": "I placed an order last week and I want to know where it is now.", "label": 2, "label_text": "tracking"}
+{"text": "The tracking page has not updated for several days and I need to know if my package is still moving.", "label": 2, "label_text": "tracking"}
+{"text": "I received a shipping confirmation, but the tracking number does not show any information.", "label": 2, "label_text": "tracking"}
+{"text": "Can you check whether my order has already left the warehouse?", "label": 2, "label_text": "tracking"}
+{"text": "My order was supposed to arrive soon, but the tracking status still says processing.", "label": 2, "label_text": "tracking"}
+{"text": "I want to know the current location of my package and the estimated delivery progress.", "label": 2, "label_text": "tracking"}
+{"text": "The courier website says my package is delayed and I need more details.", "label": 2, "label_text": "tracking"}
+{"text": "Can you help me understand the latest tracking update for my order?", "label": 2, "label_text": "tracking"}
+{"text": "I cannot find the tracking link for my recent purchase.", "label": 2, "label_text": "tracking"}
+{"text": "My package was marked as shipped, but I have not received any tracking details.", "label": 2, "label_text": "tracking"}
+{"text": "Can I cancel my order?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I want to change my order.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I edit the shipping address?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I change the product color?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I ordered the wrong item.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I update my order details?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I cancel before shipping?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I change the quantity?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I remove an item from my order?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I change my delivery address?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I made a mistake in my order and I want to change it before it is shipped.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I accidentally selected the wrong size and need to update my order as soon as possible.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can you cancel my order because I no longer need the product?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I entered the wrong shipping address and want to correct it before delivery starts.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I ordered two items by mistake and want to reduce the quantity to one.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Is it still possible to cancel my order if it has not been processed yet?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I want to replace one item in my order with a different model.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can you help me change the payment method before the order is completed?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I need to modify my order because I selected the wrong delivery option.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Please tell me if I can cancel or change my order after receiving the confirmation email.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "How do I return this item?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I want a refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "Can I return my product?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "When will I get my refund?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I received the wrong item.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "My refund has not arrived.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "How do I send the product back?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "Can I exchange this item?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I returned my order already.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "The item arrived damaged.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I received the product, but it does not work and I want to return it.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I sent the item back last week, but I still have not received my refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "Can you help me return a product that arrived broken?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I want to exchange this item because I ordered the wrong size.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "The product I received is different from what I ordered and I would like a refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I returned my order using the shipping label, but the refund status has not changed.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "Can you tell me what I need to do to send this product back?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I am not satisfied with the item I received and want to start a return request.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "My refund was approved, but the money is not back in my account yet.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I need help with an exchange because the item I received is defective.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I can't log in.", "label": 5, "label_text": "account_access"}
+{"text": "I forgot my password.", "label": 5, "label_text": "account_access"}
+{"text": "How do I reset my password?", "label": 5, "label_text": "account_access"}
+{"text": "My account is locked.", "label": 5, "label_text": "account_access"}
+{"text": "I cannot access my account.", "label": 5, "label_text": "account_access"}
+{"text": "I did not receive the login code.", "label": 5, "label_text": "account_access"}
+{"text": "How do I change my email address?", "label": 5, "label_text": "account_access"}
+{"text": "My password reset link expired.", "label": 5, "label_text": "account_access"}
+{"text": "Can you unlock my account?", "label": 5, "label_text": "account_access"}
+{"text": "Why was my account disabled?", "label": 5, "label_text": "account_access"}
+{"text": "I am trying to log in, but the system says my password is incorrect.", "label": 5, "label_text": "account_access"}
+{"text": "I requested a password reset email, but I still have not received it.", "label": 5, "label_text": "account_access"}
+{"text": "My account was locked after several login attempts and I need help getting access again.", "label": 5, "label_text": "account_access"}
+{"text": "I changed my phone number and cannot receive the verification code.", "label": 5, "label_text": "account_access"}
+{"text": "Can you help me recover my account if I no longer have access to my old email?", "label": 5, "label_text": "account_access"}
+{"text": "I am unable to sign in even though I am using the correct email address.", "label": 5, "label_text": "account_access"}
+{"text": "The login page keeps returning me to the same screen without opening my account.", "label": 5, "label_text": "account_access"}
+{"text": "I need to update my account information, but I cannot get past the login screen.", "label": 5, "label_text": "account_access"}
+{"text": "My account says it is temporarily suspended and I do not understand why.", "label": 5, "label_text": "account_access"}
+{"text": "I created an account, but I cannot activate it because the confirmation email never arrived.", "label": 5, "label_text": "account_access"}
+{"text": "Why was I charged?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "My payment failed.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can I change my payment method?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I was charged twice.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Do you accept PayPal?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "My card was declined.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can I get an invoice?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Why is there a pending charge?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "How do I update my billing details?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can I pay with a different card?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I noticed a charge on my account that I do not recognize.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "My payment went through, but I did not receive an order confirmation.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I was charged twice for the same order and need help fixing it.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can you send me a copy of the invoice for my recent payment?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "The website says my payment failed, but the money was taken from my card.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I need to update the billing address connected to my account.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can you explain why my subscription payment was higher this month?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I tried to pay with my card, but the system keeps rejecting it.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I want to know which payment methods are accepted before I place my order.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "There is a pending payment on my bank account and I want to know if it will be completed.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "The website is not working.", "label": 7, "label_text": "technical_issue"}
+{"text": "I get an error message.", "label": 7, "label_text": "technical_issue"}
+{"text": "The app keeps crashing.", "label": 7, "label_text": "technical_issue"}
+{"text": "The page will not load.", "label": 7, "label_text": "technical_issue"}
+{"text": "The checkout button does not work.", "label": 7, "label_text": "technical_issue"}
+{"text": "I cannot upload a file.", "label": 7, "label_text": "technical_issue"}
+{"text": "The screen is frozen.", "label": 7, "label_text": "technical_issue"}
+{"text": "The link is broken.", "label": 7, "label_text": "technical_issue"}
+{"text": "The app is very slow.", "label": 7, "label_text": "technical_issue"}
+{"text": "I cannot complete the form.", "label": 7, "label_text": "technical_issue"}
+{"text": "I am trying to use your website, but it keeps showing an error after I click continue.", "label": 7, "label_text": "technical_issue"}
+{"text": "The app closes every time I try to open my order details.", "label": 7, "label_text": "technical_issue"}
+{"text": "The payment page does not load, so I cannot finish my purchase.", "label": 7, "label_text": "technical_issue"}
+{"text": "I tried different browsers, but the website still does not display correctly.", "label": 7, "label_text": "technical_issue"}
+{"text": "The search feature on your website is not returning any results.", "label": 7, "label_text": "technical_issue"}
+{"text": "When I click the tracking link, I get a technical error instead of the tracking page.", "label": 7, "label_text": "technical_issue"}
+{"text": "The system logs me out every time I try to update my account settings.", "label": 7, "label_text": "technical_issue"}
+{"text": "I cannot complete checkout because the submit button is disabled.", "label": 7, "label_text": "technical_issue"}
+{"text": "The website becomes stuck after I enter my shipping address.", "label": 7, "label_text": "technical_issue"}
+{"text": "I keep getting a server error when I try to view my account.", "label": 7, "label_text": "technical_issue"}
+{"text": "What are the product dimensions?", "label": 8, "label_text": "product_specs"}
+{"text": "How much does it weigh?", "label": 8, "label_text": "product_specs"}
+{"text": "What material is it made of?", "label": 8, "label_text": "product_specs"}
+{"text": "Is this product waterproof?", "label": 8, "label_text": "product_specs"}
+{"text": "What color options are available?", "label": 8, "label_text": "product_specs"}
+{"text": "Does it include a charger?", "label": 8, "label_text": "product_specs"}
+{"text": "What is the battery life?", "label": 8, "label_text": "product_specs"}
+{"text": "Is it compatible with my device?", "label": 8, "label_text": "product_specs"}
+{"text": "What size is this product?", "label": 8, "label_text": "product_specs"}
+{"text": "Does this item have a warranty?", "label": 8, "label_text": "product_specs"}
+{"text": "Before I buy this product, I want to know its exact size and weight.", "label": 8, "label_text": "product_specs"}
+{"text": "Can you tell me whether this device is compatible with Android and iPhone?", "label": 8, "label_text": "product_specs"}
+{"text": "I need to know what materials were used to make this item.", "label": 8, "label_text": "product_specs"}
+{"text": "Does this product come with all the accessories shown in the picture?", "label": 8, "label_text": "product_specs"}
+{"text": "Can you explain the technical specifications of this model?", "label": 8, "label_text": "product_specs"}
+{"text": "I want to know if this product is suitable for outdoor use.", "label": 8, "label_text": "product_specs"}
+{"text": "How long does the battery last after a full charge?", "label": 8, "label_text": "product_specs"}
+{"text": "Can you compare the size and features of this model with the newer version?", "label": 8, "label_text": "product_specs"}
+{"text": "I need the exact measurements because I want to check if it fits in my space.", "label": 8, "label_text": "product_specs"}
+{"text": "Does the product support fast charging and wireless connection?", "label": 8, "label_text": "product_specs"}
+{"text": "What is your return policy?", "label": 9, "label_text": "policy"}
+{"text": "What is your refund policy?", "label": 9, "label_text": "policy"}
+{"text": "What are your shipping rules?", "label": 9, "label_text": "policy"}
+{"text": "Can I read your privacy policy?", "label": 9, "label_text": "policy"}
+{"text": "What is your warranty policy?", "label": 9, "label_text": "policy"}
+{"text": "What are your cancellation terms?", "label": 9, "label_text": "policy"}
+{"text": "What is your exchange policy?", "label": 9, "label_text": "policy"}
+{"text": "What are the rules for late delivery?", "label": 9, "label_text": "policy"}
+{"text": "Where can I find your company policy?", "label": 9, "label_text": "policy"}
+{"text": "What is your policy about damaged items?", "label": 9, "label_text": "policy"}
+{"text": "I would like to understand your return policy before I buy anything.", "label": 9, "label_text": "policy"}
+{"text": "Can you explain your refund policy and how long customers have to request a refund?", "label": 9, "label_text": "policy"}
+{"text": "Before placing an order, I want to know your rules about cancellations and changes.", "label": 9, "label_text": "policy"}
+{"text": "Where can I read the official policy about returns, refunds, and exchanges?", "label": 9, "label_text": "policy"}
+{"text": "I want to understand the warranty policy for products purchased from your website.", "label": 9, "label_text": "policy"}
+{"text": "Can you explain your privacy policy and how customer information is handled?", "label": 9, "label_text": "policy"}
+{"text": "What are your rules if a package arrives late or is lost during delivery?", "label": 9, "label_text": "policy"}
+{"text": "I need to know your company policy about replacing damaged products.", "label": 9, "label_text": "policy"}
+{"text": "Can you tell me the general terms and conditions for using your service?", "label": 9, "label_text": "policy"}
+{"text": "What is your policy for customers who want to return an unopened item?", "label": 9, "label_text": "policy"}
+{"text": "I want to file a complaint.", "label": 10, "label_text": "complaint"}
+{"text": "I am unhappy with the service.", "label": 10, "label_text": "complaint"}
+{"text": "This is very disappointing.", "label": 10, "label_text": "complaint"}
+{"text": "I want to speak to a manager.", "label": 10, "label_text": "complaint"}
+{"text": "Your support was not helpful.", "label": 10, "label_text": "complaint"}
+{"text": "I had a bad experience.", "label": 10, "label_text": "complaint"}
+{"text": "I am not satisfied.", "label": 10, "label_text": "complaint"}
+{"text": "This issue was handled badly.", "label": 10, "label_text": "complaint"}
+{"text": "I want to report poor service.", "label": 10, "label_text": "complaint"}
+{"text": "Nobody answered my request.", "label": 10, "label_text": "complaint"}
+{"text": "I am very disappointed because my order was delayed and nobody gave me a clear answer.", "label": 10, "label_text": "complaint"}
+{"text": "I contacted support several times, but the problem is still not solved and I want to complain.", "label": 10, "label_text": "complaint"}
+{"text": "The service I received was unprofessional and I would like this issue to be reviewed.", "label": 10, "label_text": "complaint"}
+{"text": "I waited a long time for a response and the answer I received did not help at all.", "label": 10, "label_text": "complaint"}
+{"text": "I want to report a bad customer service experience with your support team.", "label": 10, "label_text": "complaint"}
+{"text": "My issue was ignored for several days and I am not satisfied with how it was handled.", "label": 10, "label_text": "complaint"}
+{"text": "I received incorrect information from your team and it caused a serious problem with my order.", "label": 10, "label_text": "complaint"}
+{"text": "I am upset because the company did not take responsibility for the mistake.", "label": 10, "label_text": "complaint"}
+{"text": "I want to submit a formal complaint about the way my case was handled.", "label": 10, "label_text": "complaint"}
+{"text": "This experience was frustrating and I want someone from management to review it.", "label": 10, "label_text": "complaint"}
+{"text": "When will it arrive?", "label": 11, "label_text": "date_and_time"}
+{"text": "What time do you open?", "label": 11, "label_text": "date_and_time"}
+{"text": "When is customer service available?", "label": 11, "label_text": "date_and_time"}
+{"text": "What is the delivery date?", "label": 11, "label_text": "date_and_time"}
+{"text": "Can I choose a delivery time?", "label": 11, "label_text": "date_and_time"}
+{"text": "What are your working hours?", "label": 11, "label_text": "date_and_time"}
+{"text": "When will support call me?", "label": 11, "label_text": "date_and_time"}
+{"text": "What time is my appointment?", "label": 11, "label_text": "date_and_time"}
+{"text": "When does the sale end?", "label": 11, "label_text": "date_and_time"}
+{"text": "Can you deliver tomorrow?", "label": 11, "label_text": "date_and_time"}
+{"text": "I need to know the exact date and time when my order is expected to arrive.", "label": 11, "label_text": "date_and_time"}
+{"text": "Can you tell me your customer service hours for the rest of this week?", "label": 11, "label_text": "date_and_time"}
+{"text": "I want to schedule a delivery for a specific day and time.", "label": 11, "label_text": "date_and_time"}
+{"text": "When will the technician arrive at my address?", "label": 11, "label_text": "date_and_time"}
+{"text": "Can I choose an evening delivery time instead of a morning delivery?", "label": 11, "label_text": "date_and_time"}
+{"text": "I need to know whether your store is open on Friday afternoon.", "label": 11, "label_text": "date_and_time"}
+{"text": "What is the latest time I can place an order for same-day delivery?", "label": 11, "label_text": "date_and_time"}
+{"text": "Please tell me when the promotion ends so I do not miss the deadline.", "label": 11, "label_text": "date_and_time"}
+{"text": "I want to know if support is available today and until what time.", "label": 11, "label_text": "date_and_time"}
+{"text": "Can you confirm the date and time of my scheduled service appointment?", "label": 11, "label_text": "date_and_time"}
+{"text": "What is the capital of Canada?", "label": 12, "label_text": "other"}
+{"text": "Can you explain photosynthesis?", "label": 12, "label_text": "other"}
+{"text": "How do airplanes fly?", "label": 12, "label_text": "other"}
+{"text": "Who invented the telephone?", "label": 12, "label_text": "other"}
+{"text": "What is the largest planet?", "label": 12, "label_text": "other"}
+{"text": "How do I improve my typing speed?", "label": 12, "label_text": "other"}
+{"text": "Can you suggest a good study routine?", "label": 12, "label_text": "other"}
+{"text": "What are the benefits of drinking water?", "label": 12, "label_text": "other"}
+{"text": "How can I organize my desk?", "label": 12, "label_text": "other"}
+{"text": "What is the difference between a lake and a river?", "label": 12, "label_text": "other"}
+{"text": "I am preparing a school presentation and need a simple explanation of renewable energy.", "label": 12, "label_text": "other"}
+{"text": "Can you help me write a short paragraph about the importance of recycling?", "label": 12, "label_text": "other"}
+{"text": "I want to understand how clouds are formed and why they sometimes bring rain.", "label": 12, "label_text": "other"}
+{"text": "Can you explain the basic idea of gravity in simple words?", "label": 12, "label_text": "other"}
+{"text": "I need tips for learning English vocabulary more effectively.", "label": 12, "label_text": "other"}
+{"text": "Can you give me a simple explanation of how a computer stores information?", "label": 12, "label_text": "other"}
+{"text": "I am looking for ideas for a science project that are not related to shopping or customer service.", "label": 12, "label_text": "other"}
+{"text": "Can you explain why exercise can help people feel more energetic during the day?", "label": 12, "label_text": "other"}
+{"text": "I want to learn how to plan my time better while studying for exams.", "label": 12, "label_text": "other"}
+{"text": "Can you describe the difference between weather and climate in a simple way?", "label": 12, "label_text": "other"}
+{"text": "I was looking at the product page and I saw some numbers, but I am not sure if that is the final amount I have to pay.", "label": 0, "label_text": "pricing"}
+{"text": "Can you tell me roughly how much this whole thing will cost if I buy it today?", "label": 0, "label_text": "pricing"}
+{"text": "I do not understand the price because it looks different in the cart than on the product page.", "label": 0, "label_text": "pricing"}
+{"text": "Before I continue, I just want to know if there is any extra money added later.", "label": 0, "label_text": "pricing"}
+{"text": "The price is not clear to me, and I need to know if shipping or taxes are included.", "label": 0, "label_text": "pricing"}
+{"text": "I saw one price in the ad and another price after clicking, so which one is the real price?", "label": 0, "label_text": "pricing"}
+{"text": "How expensive is this if I want to buy it with all the required parts?", "label": 0, "label_text": "pricing"}
+{"text": "I need help understanding the cost because the website shows several options.", "label": 0, "label_text": "pricing"}
+{"text": "Is this the total price or will something else be charged after checkout?", "label": 0, "label_text": "pricing"}
+{"text": "I am trying to compare plans, but I cannot tell which one is cheaper in the end.", "label": 0, "label_text": "pricing"}
+{"text": "I want to buy this, but I got confused in the middle of the checkout and do not know what to press next.", "label": 1, "label_text": "ordering"}
+{"text": "Can you help me understand how I actually send the order and make sure it was received?", "label": 1, "label_text": "ordering"}
+{"text": "I added the item somewhere, maybe to the cart, but I am not sure how to finish the order.", "label": 1, "label_text": "ordering"}
+{"text": "I am trying to order, but there are too many steps and I do not know if I skipped something.", "label": 1, "label_text": "ordering"}
+{"text": "I want to purchase this product today, but I am not sure where I enter the delivery details.", "label": 1, "label_text": "ordering"}
+{"text": "How do I make an order if I already chose the product but did not pay yet?", "label": 1, "label_text": "ordering"}
+{"text": "I need to order a few products together and I want to know how to do it correctly.", "label": 1, "label_text": "ordering"}
+{"text": "The item is in my cart, but I do not understand how to confirm the order.", "label": 1, "label_text": "ordering"}
+{"text": "I clicked buy, but I am not sure if the order was created or if I still need to do something.", "label": 1, "label_text": "ordering"}
+{"text": "Can you explain the ordering process in a simple way because I am stuck at checkout?", "label": 1, "label_text": "ordering"}
+{"text": "I ordered something and now I cannot figure out where it is or if it even left the store.", "label": 2, "label_text": "tracking"}
+{"text": "The tracking says something, but I do not understand if the package is coming today or not.", "label": 2, "label_text": "tracking"}
+{"text": "I got a message that my order was shipped, but I have no idea where to check it now.", "label": 2, "label_text": "tracking"}
+{"text": "My package has been on the same tracking status for a long time and I am worried.", "label": 2, "label_text": "tracking"}
+{"text": "I cannot tell from the tracking page whether my order is delayed or just still moving.", "label": 2, "label_text": "tracking"}
+{"text": "I paid for the order already, and now I want to know what is happening with the delivery.", "label": 2, "label_text": "tracking"}
+{"text": "The courier information is confusing and I need someone to tell me where the package is.", "label": 2, "label_text": "tracking"}
+{"text": "I received a tracking number, but when I open it, it does not really show anything helpful.", "label": 2, "label_text": "tracking"}
+{"text": "My order was supposed to arrive soon, but the status still looks old.", "label": 2, "label_text": "tracking"}
+{"text": "Can you check what happened to my shipment because I have not received it yet?", "label": 2, "label_text": "tracking"}
+{"text": "I made the order too quickly and now I realized I chose the wrong thing.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can I still change something in my order, or is it too late already?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I need to fix the address because I typed part of it wrong when ordering.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I ordered the wrong color by mistake and I want to change it before it is sent.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I do not want the order anymore, but I do not know if it can still be cancelled.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Something in my order is wrong and I need to update it before delivery starts.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I accidentally ordered more than I needed, so can the quantity be changed?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "Can you stop the order for now because I need to check the details again?", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I want to change my delivery option, but I already finished placing the order.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "I clicked confirm before checking everything, and now I need to edit the order.", "label": 3, "label_text": "cancel_or_change"}
+{"text": "The thing arrived, but it is not really what I expected, so I want to send it back.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I returned the product already and I still do not see the money back in my account.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "The item came damaged and I do not know if I should return it or ask for a refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I opened the package and the product does not work, so what can I do now?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I bought this item, but it is the wrong size and I need to exchange it.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "Can you help me start the return because I do not see where to do it on the website?", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "The product is not like the picture, and I want to know how to get my money back.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I sent it back a few days ago, but there is no update about the refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I need to return only one item from my order, not the whole order.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I am not sure if this counts as a return or an exchange, but I need to send the item back.", "label": 4, "label_text": "returns_and_refunds"}
+{"text": "I am trying to get into my account, but it keeps telling me something is wrong.", "label": 5, "label_text": "account_access"}
+{"text": "I think my password is correct, but the website still does not let me log in.", "label": 5, "label_text": "account_access"}
+{"text": "I cannot access my account because the code is not coming to my email.", "label": 5, "label_text": "account_access"}
+{"text": "I changed something before and now I cannot sign in anymore.", "label": 5, "label_text": "account_access"}
+{"text": "The reset password link does not work, and I am locked out of my account.", "label": 5, "label_text": "account_access"}
+{"text": "I tried logging in many times and now it says my account is blocked.", "label": 5, "label_text": "account_access"}
+{"text": "I do not remember which email I used, so I cannot enter my account.", "label": 5, "label_text": "account_access"}
+{"text": "I created an account yesterday, but today I cannot open it.", "label": 5, "label_text": "account_access"}
+{"text": "I am stuck on the login page and nothing happens after I enter my details.", "label": 5, "label_text": "account_access"}
+{"text": "Can you help me recover my account because I cannot get past verification?", "label": 5, "label_text": "account_access"}
+{"text": "There is a charge on my card and I do not understand what it belongs to.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I tried paying, it said failed, but I think the money was still taken.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "The payment part is confusing because I see two charges for one order.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I need an invoice, but I do not know where to download it from.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "My card was declined and I do not understand if the problem is from your side or mine.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "The amount charged looks higher than what I expected at checkout.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I want to update my billing details, but I am not sure where to do that.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "I paid already, but the order still looks unpaid in my account.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "There is a pending charge and I do not know if I should try paying again.", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Can you check why the payment went through twice?", "label": 6, "label_text": "billing_and_payment"}
+{"text": "Something is wrong with the website and I cannot continue no matter what I click.", "label": 7, "label_text": "technical_issue"}
+{"text": "The page keeps loading forever and I cannot finish what I was trying to do.", "label": 7, "label_text": "technical_issue"}
+{"text": "I get an error, but it disappears too fast and I do not know what it says.", "label": 7, "label_text": "technical_issue"}
+{"text": "The app opens, then closes by itself when I try to see my order.", "label": 7, "label_text": "technical_issue"}
+{"text": "The button I need is there, but clicking it does not do anything.", "label": 7, "label_text": "technical_issue"}
+{"text": "I tried refreshing the page, but the same technical problem keeps happening.", "label": 7, "label_text": "technical_issue"}
+{"text": "The website looks broken on my screen and some parts are missing.", "label": 7, "label_text": "technical_issue"}
+{"text": "I cannot upload the file because the system gets stuck every time.", "label": 7, "label_text": "technical_issue"}
+{"text": "Checkout is not working for me, and I do not know if it is a browser problem.", "label": 7, "label_text": "technical_issue"}
+{"text": "The link you sent me opens an error page instead of the correct page.", "label": 7, "label_text": "technical_issue"}
+{"text": "I want to buy it, but I need to know what exactly comes in the box.", "label": 8, "label_text": "product_specs"}
+{"text": "The description is not clear, and I need more details about the product itself.", "label": 8, "label_text": "product_specs"}
+{"text": "Can you tell me if this product is strong enough for daily use?", "label": 8, "label_text": "product_specs"}
+{"text": "I am trying to understand the size because the picture does not help me.", "label": 8, "label_text": "product_specs"}
+{"text": "Does this model have the same features as the one in the advertisement?", "label": 8, "label_text": "product_specs"}
+{"text": "I need to know the exact specifications before I choose between two products.", "label": 8, "label_text": "product_specs"}
+{"text": "Can you explain what this product is made from and whether it is durable?", "label": 8, "label_text": "product_specs"}
+{"text": "The product page does not say clearly if it works with my device.", "label": 8, "label_text": "product_specs"}
+{"text": "I want to know if the battery, charger, and cable are included.", "label": 8, "label_text": "product_specs"}
+{"text": "Can you give me the technical details because the description is too general?", "label": 8, "label_text": "product_specs"}
+{"text": "Before I buy, I want to know what your rules are if something goes wrong later.", "label": 9, "label_text": "policy"}
+{"text": "Can you explain the general return rules, not for a specific order, just the policy?", "label": 9, "label_text": "policy"}
+{"text": "I want to understand what your company allows when a customer wants to cancel.", "label": 9, "label_text": "policy"}
+{"text": "Where can I see the official terms about refunds and returns?", "label": 9, "label_text": "policy"}
+{"text": "I am not asking to return something now, I just want to know your return policy.", "label": 9, "label_text": "policy"}
+{"text": "What do your rules say about damaged products after delivery?", "label": 9, "label_text": "policy"}
+{"text": "Can you explain the warranty terms in a clear way?", "label": 9, "label_text": "policy"}
+{"text": "I need to know your policy before ordering because I do not want surprises later.", "label": 9, "label_text": "policy"}
+{"text": "What are the conditions for returning an unopened product?", "label": 9, "label_text": "policy"}
+{"text": "Can you tell me the official rules about delivery delays and customer rights?", "label": 9, "label_text": "policy"}
+{"text": "I am really not happy with what happened, and I want someone to deal with this properly.", "label": 10, "label_text": "complaint"}
+{"text": "This has been a very bad experience and I feel like nobody is taking care of the issue.", "label": 10, "label_text": "complaint"}
+{"text": "I contacted support before, but the answer did not solve anything and I am frustrated.", "label": 10, "label_text": "complaint"}
+{"text": "I want to complain because the service was slow and the information was not clear.", "label": 10, "label_text": "complaint"}
+{"text": "This problem keeps going on, and I am tired of repeating the same thing again.", "label": 10, "label_text": "complaint"}
+{"text": "I feel that my case was handled badly and I want it reviewed.", "label": 10, "label_text": "complaint"}
+{"text": "The order issue is annoying, but the bigger problem is that support did not help.", "label": 10, "label_text": "complaint"}
+{"text": "I expected better service, and now I want to report what happened.", "label": 10, "label_text": "complaint"}
+{"text": "Nobody gave me a real answer, and I want to escalate this complaint.", "label": 10, "label_text": "complaint"}
+{"text": "I am disappointed with the whole process and want someone responsible to contact me.", "label": 10, "label_text": "complaint"}
+{"text": "I need to know when this is supposed to happen because I have to plan my day.", "label": 11, "label_text": "date_and_time"}
+{"text": "Can you tell me the date or time, even approximately, for the delivery?", "label": 11, "label_text": "date_and_time"}
+{"text": "I am trying to find out if someone needs to be home tomorrow for the package.", "label": 11, "label_text": "date_and_time"}
+{"text": "What time are you available today if I need help from support?", "label": 11, "label_text": "date_and_time"}
+{"text": "I need to schedule this, but I do not know what time slots are possible.", "label": 11, "label_text": "date_and_time"}
+{"text": "Can this be delivered in the morning, or only later in the day?", "label": 11, "label_text": "date_and_time"}
+{"text": "I want to know when the store closes because I may come today.", "label": 11, "label_text": "date_and_time"}
+{"text": "When does this offer end? I do not want to miss it.", "label": 11, "label_text": "date_and_time"}
+{"text": "Can you confirm the appointment time because I do not see it clearly?", "label": 11, "label_text": "date_and_time"}
+{"text": "I need the exact day and hour, not just a general delivery estimate.", "label": 11, "label_text": "date_and_time"}
+{"text": "I am trying to understand a topic for school, but it has nothing to do with orders or products.", "label": 12, "label_text": "other"}
+{"text": "Can you explain why the sky changes color during sunset?", "label": 12, "label_text": "other"}
+{"text": "I need help writing a paragraph about healthy habits for a class assignment.", "label": 12, "label_text": "other"}
+{"text": "Can you give me tips for remembering new words in English?", "label": 12, "label_text": "other"}
+{"text": "I want to understand how magnets work in a simple way.", "label": 12, "label_text": "other"}
+{"text": "Can you explain the water cycle like I am a beginner?", "label": 12, "label_text": "other"}
+{"text": "I am looking for ideas for organizing my notebook better.", "label": 12, "label_text": "other"}
+{"text": "Can you help me understand the difference between speed and velocity?", "label": 12, "label_text": "other"}
+{"text": "I need a simple explanation of how plants make food.", "label": 12, "label_text": "other"}
+{"text": "Can you suggest ways to stay focused while studying for a test?", "label": 12, "label_text": "other"}

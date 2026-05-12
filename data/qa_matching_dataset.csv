@@ -1,0 +1,481 @@
+id,topic,question,answer,score,match_type
+1,pricing,How much does it cost to ship a wireless mouse from Tel Aviv to Jerusalem with ExpressShip in two days for 1 units?,Shipping a wireless mouse from Tel Aviv to Jerusalem with ExpressShip costs $12 for 1 units and may change during holidays.,1.0,full_match_with_extra
+2,pricing,What is the price for installing a wireless mouse with ExpressShip?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+3,pricing,How much is a wireless mouse?,You can order a wireless mouse through the website after signing in.,0.25,same_topic_wrong_intent
+4,pricing,What is the cost of 1 units of wireless mouse?,Your refund was approved for reference A1234 yesterday.,0.0,negative
+5,ordering,Can I order a wireless mouse via the website with gift wrapping for 1 units?,You can order a wireless mouse via the website with gift wrapping for 1 units by choosing the gift option at checkout.,1.0,full_match
+6,ordering,How do I place an order for a wireless mouse with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+7,ordering,Can I order 1 units of wireless mouse by phone?,The price of 1 units of wireless mouse is listed on the pricing page.,0.3,same_topic_wrong_intent
+8,ordering,I want to buy a wireless mouse; where do I start?,Reference A1234 is currently in transit with ExpressShip.,0.0,negative
+9,tracking,Where can I track my wireless mouse with reference A1234 for this week?,You can track your wireless mouse with reference A1234 on the tracking page for updated delivery status.,1.0,full_match
+10,tracking,Why is my wireless mouse tracking stuck for reference A1234?,"Tracking for reference A1234 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+11,tracking,Where is my order reference A1234?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+12,tracking,I need the status of my wireless mouse delivery.,The laptop model X200 supports wireless charging.,0.0,negative
+13,cancel_or_change,Can I change the delivery address for my wireless mouse to Jerusalem with reference A1234?,You can change the delivery address for reference A1234 to Jerusalem before the order is shipped.,1.0,full_match
+14,cancel_or_change,How do I cancel my wireless mouse order reference A1234?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+15,cancel_or_change,Can I change my payment method for reference A1234?,You can track reference A1234 on the tracking page.,0.25,same_reference_wrong_intent
+16,cancel_or_change,I need to update the quantity of my wireless mouse order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+17,returns_and_refunds,How do I request a refund for my wireless mouse with reference A1234?,You can request a refund for your wireless mouse with reference A1234 from the returns page.,1.0,full_match
+18,returns_and_refunds,Can I return my wireless mouse after two days?,"You can return the wireless mouse within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+19,returns_and_refunds,What is the status of my refund reference A1234?,You can change the delivery address for reference A1234 before shipping.,0.25,same_reference_wrong_intent
+20,returns_and_refunds,I want to return my wireless mouse.,The wireless mouse costs $12 with standard delivery.,0.0,negative
+21,account_access,I cannot log in to my account using email user0@example.com because it says invalid password.,Use Forgot Password to reset access for user0@example.com when the login page shows invalid password.,1.0,full_match
+22,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+23,account_access,Why is my account locked after several login attempts?,Your payment for reference A1234 was declined by the card issuer.,0.0,negative
+24,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+25,billing_and_payment,Why was my payment for wireless mouse with reference A1234 declined?,The payment for reference A1234 was declined because the card issuer rejected the transaction.,1.0,full_match
+26,billing_and_payment,Can I pay for my wireless mouse order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+27,billing_and_payment,Where can I find the invoice for reference A1234?,You can cancel reference A1234 before it is packed.,0.25,same_reference_wrong_intent
+28,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+29,technical_issue,The website shows error E0 when I try to pay on my Chrome on Windows.,Clear the browser cache on your Chrome on Windows and retry payment if the website shows error E0.,1.0,full_match
+30,technical_issue,Why does the website freeze when I upload a file?,"Refresh the website and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+31,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+32,technical_issue,I get an error message on the customer portal.,The wireless mouse is available for express delivery.,0.0,negative
+33,product_specs,What is the battery capacity of the Lenova laptop model X200?,The Lenova laptop model X200 has a 4000 mAh battery capacity.,1.0,full_match
+34,product_specs,Does the Lenova laptop model X200 support Bluetooth?,"The model X200 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+35,product_specs,What size is the Lenova laptop?,You can track the delivery from the tracking page after shipment.,0.0,negative
+36,product_specs,Which charger fits model X200?,Payment can be made with a credit card or PayPal.,0.0,negative
+37,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+38,policy,What is the warranty policy for the laptop?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+39,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+40,policy,Do you have a cancellation policy?,The Lenova laptop model X200 supports Bluetooth.,0.0,negative
+41,complaint,"I am disappointed because my wireless mouse arrived late and support did not answer clearly, reference A1234.",We apologize for the delay with reference A1234 and will review the support response.,1.0,full_match
+42,complaint,My order had a missing wireless mouse and I want the issue checked.,"We will check the missing wireless mouse, and you can also view order status in your account.",0.8,partial_match
+43,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+44,complaint,I am unhappy with the answer I received from support.,The model X200 has a 4000 mAh battery capacity.,0.0,negative
+45,date_and_time,When is there a delivery from Tel Aviv to Jerusalem with ExpressShip for 1 units?,There is a delivery from Tel Aviv to Jerusalem with ExpressShip tomorrow morning for 1 units.,1.0,full_match
+46,date_and_time,When will reference A1234 be delivered to Jerusalem?,"Reference A1234 is expected in Jerusalem by Friday, and payment details are available on the invoice page.",0.8,partial_match
+47,date_and_time,When is the next pickup for my wireless mouse?,You can return the wireless mouse within 30 days if it is unused.,0.0,negative
+48,date_and_time,What time is support available for order changes?,The Lenova laptop model X200 supports Bluetooth.,0.0,negative
+49,pricing,How much does it cost to ship a laptop battery from Jerusalem to Haifa with QuickPost in next week for 2 units?,Shipping a laptop battery from Jerusalem to Haifa with QuickPost costs $12 for 2 units and may change during holidays.,1.0,full_match_with_extra
+50,pricing,What is the price for installing a laptop battery with QuickPost?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+51,pricing,How much is a laptop battery?,You can order a laptop battery through the website after signing in.,0.25,same_topic_wrong_intent
+52,pricing,What is the cost of 2 units of laptop battery?,Your refund was approved for reference ORD-4581 yesterday.,0.0,negative
+53,ordering,Can I order a laptop battery via the website with gift wrapping for 2 units?,You can order a laptop battery via the website with gift wrapping for 2 units by choosing the gift option at checkout.,1.0,full_match
+54,ordering,How do I place an order for a laptop battery with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+55,ordering,Can I order 2 units of laptop battery by phone?,The price of 2 units of laptop battery is listed on the pricing page.,0.3,same_topic_wrong_intent
+56,ordering,I want to buy a laptop battery; where do I start?,Reference ORD-4581 is currently in transit with QuickPost.,0.0,negative
+57,tracking,Where can I track my laptop battery with reference ORD-4581 for this week?,You can track your laptop battery with reference ORD-4581 on the tracking page for updated delivery status.,1.0,full_match
+58,tracking,Why is my laptop battery tracking stuck for reference ORD-4581?,"Tracking for reference ORD-4581 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+59,tracking,Where is my order reference ORD-4581?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+60,tracking,I need the status of my laptop battery delivery.,The smart watch model S5 supports wireless charging.,0.0,negative
+61,cancel_or_change,Can I change the delivery address for my laptop battery to Haifa with reference ORD-4581?,You can change the delivery address for reference ORD-4581 to Haifa before the order is shipped.,1.0,full_match
+62,cancel_or_change,How do I cancel my laptop battery order reference ORD-4581?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+63,cancel_or_change,Can I change my payment method for reference ORD-4581?,You can track reference ORD-4581 on the tracking page.,0.25,same_reference_wrong_intent
+64,cancel_or_change,I need to update the quantity of my laptop battery order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+65,returns_and_refunds,How do I request a refund for my laptop battery with reference ORD-4581?,You can request a refund for your laptop battery with reference ORD-4581 from the returns page.,1.0,full_match
+66,returns_and_refunds,Can I return my laptop battery after next week?,"You can return the laptop battery within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+67,returns_and_refunds,What is the status of my refund reference ORD-4581?,You can change the delivery address for reference ORD-4581 before shipping.,0.25,same_reference_wrong_intent
+68,returns_and_refunds,I want to return my laptop battery.,The laptop battery costs $12 with standard delivery.,0.0,negative
+69,account_access,I cannot log in to my account using email user1@example.com because it says invalid password.,Use Forgot Password to reset access for user1@example.com when the login page shows invalid password.,1.0,full_match
+70,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+71,account_access,Why is my account locked after several login attempts?,Your payment for reference ORD-4581 was declined by the card issuer.,0.0,negative
+72,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+73,billing_and_payment,Why was my payment for laptop battery with reference ORD-4581 declined?,The payment for reference ORD-4581 was declined because the card issuer rejected the transaction.,1.0,full_match
+74,billing_and_payment,Can I pay for my laptop battery order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+75,billing_and_payment,Where can I find the invoice for reference ORD-4581?,You can cancel reference ORD-4581 before it is packed.,0.25,same_reference_wrong_intent
+76,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+77,technical_issue,The mobile app shows error E1 when I try to pay on my Android phone.,Clear the browser cache on your Android phone and retry payment if the mobile app shows error E1.,1.0,full_match
+78,technical_issue,Why does the mobile app freeze when I upload a file?,"Refresh the mobile app and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+79,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+80,technical_issue,I get an error message on the customer portal.,The laptop battery is available for express delivery.,0.0,negative
+81,product_specs,What is the battery capacity of the Samtech smart watch model S5?,The Samtech smart watch model S5 has a 4000 mAh battery capacity.,1.0,full_match
+82,product_specs,Does the Samtech smart watch model S5 support Bluetooth?,"The model S5 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+83,product_specs,What size is the Samtech smart watch?,You can track the delivery from the tracking page after shipment.,0.0,negative
+84,product_specs,Which charger fits model S5?,Payment can be made with a credit card or PayPal.,0.0,negative
+85,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+86,policy,What is the warranty policy for the smart watch?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+87,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+88,policy,Do you have a cancellation policy?,The Samtech smart watch model S5 supports Bluetooth.,0.0,negative
+89,complaint,"I am disappointed because my laptop battery arrived late and support did not answer clearly, reference ORD-4581.",We apologize for the delay with reference ORD-4581 and will review the support response.,1.0,full_match
+90,complaint,My order had a missing laptop battery and I want the issue checked.,"We will check the missing laptop battery, and you can also view order status in your account.",0.8,partial_match
+91,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+92,complaint,I am unhappy with the answer I received from support.,The model S5 has a 4000 mAh battery capacity.,0.0,negative
+93,date_and_time,When is there a delivery from Jerusalem to Haifa with QuickPost for 2 units?,There is a delivery from Jerusalem to Haifa with QuickPost tomorrow morning for 2 units.,1.0,full_match
+94,date_and_time,When will reference ORD-4581 be delivered to Haifa?,"Reference ORD-4581 is expected in Haifa by Friday, and payment details are available on the invoice page.",0.8,partial_match
+95,date_and_time,When is the next pickup for my laptop battery?,You can return the laptop battery within 30 days if it is unused.,0.0,negative
+96,date_and_time,What time is support available for order changes?,The Samtech smart watch model S5 supports Bluetooth.,0.0,negative
+97,pricing,How much does it cost to ship a coffee machine from Haifa to Beersheba with HomeTech in 48 hours for 3 units?,Shipping a coffee machine from Haifa to Beersheba with HomeTech costs $12 for 3 units and may change during holidays.,1.0,full_match_with_extra
+98,pricing,What is the price for installing a coffee machine with HomeTech?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+99,pricing,How much is a coffee machine?,You can order a coffee machine through the website after signing in.,0.25,same_topic_wrong_intent
+100,pricing,What is the cost of 3 units of coffee machine?,Your refund was approved for reference ZX-902 yesterday.,0.0,negative
+101,ordering,Can I order a coffee machine via the website with gift wrapping for 3 units?,You can order a coffee machine via the website with gift wrapping for 3 units by choosing the gift option at checkout.,1.0,full_match
+102,ordering,How do I place an order for a coffee machine with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+103,ordering,Can I order 3 units of coffee machine by phone?,The price of 3 units of coffee machine is listed on the pricing page.,0.3,same_topic_wrong_intent
+104,ordering,I want to buy a coffee machine; where do I start?,Reference ZX-902 is currently in transit with HomeTech.,0.0,negative
+105,tracking,Where can I track my coffee machine with reference ZX-902 for this week?,You can track your coffee machine with reference ZX-902 on the tracking page for updated delivery status.,1.0,full_match
+106,tracking,Why is my coffee machine tracking stuck for reference ZX-902?,"Tracking for reference ZX-902 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+107,tracking,Where is my order reference ZX-902?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+108,tracking,I need the status of my coffee machine delivery.,The router model R12 supports wireless charging.,0.0,negative
+109,cancel_or_change,Can I change the delivery address for my coffee machine to Beersheba with reference ZX-902?,You can change the delivery address for reference ZX-902 to Beersheba before the order is shipped.,1.0,full_match
+110,cancel_or_change,How do I cancel my coffee machine order reference ZX-902?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+111,cancel_or_change,Can I change my payment method for reference ZX-902?,You can track reference ZX-902 on the tracking page.,0.25,same_reference_wrong_intent
+112,cancel_or_change,I need to update the quantity of my coffee machine order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+113,returns_and_refunds,How do I request a refund for my coffee machine with reference ZX-902?,You can request a refund for your coffee machine with reference ZX-902 from the returns page.,1.0,full_match
+114,returns_and_refunds,Can I return my coffee machine after 48 hours?,"You can return the coffee machine within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+115,returns_and_refunds,What is the status of my refund reference ZX-902?,You can change the delivery address for reference ZX-902 before shipping.,0.25,same_reference_wrong_intent
+116,returns_and_refunds,I want to return my coffee machine.,The coffee machine costs $12 with standard delivery.,0.0,negative
+117,account_access,I cannot log in to my account using email user2@example.com because it says invalid password.,Use Forgot Password to reset access for user2@example.com when the login page shows invalid password.,1.0,full_match
+118,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+119,account_access,Why is my account locked after several login attempts?,Your payment for reference ZX-902 was declined by the card issuer.,0.0,negative
+120,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+121,billing_and_payment,Why was my payment for coffee machine with reference ZX-902 declined?,The payment for reference ZX-902 was declined because the card issuer rejected the transaction.,1.0,full_match
+122,billing_and_payment,Can I pay for my coffee machine order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+123,billing_and_payment,Where can I find the invoice for reference ZX-902?,You can cancel reference ZX-902 before it is packed.,0.25,same_reference_wrong_intent
+124,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+125,technical_issue,The checkout page shows error E2 when I try to pay on my iPhone.,Clear the browser cache on your iPhone and retry payment if the checkout page shows error E2.,1.0,full_match
+126,technical_issue,Why does the checkout page freeze when I upload a file?,"Refresh the checkout page and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+127,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+128,technical_issue,I get an error message on the customer portal.,The coffee machine is available for express delivery.,0.0,negative
+129,product_specs,What is the battery capacity of the PrintPro router model R12?,The PrintPro router model R12 has a 4000 mAh battery capacity.,1.0,full_match
+130,product_specs,Does the PrintPro router model R12 support Bluetooth?,"The model R12 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+131,product_specs,What size is the PrintPro router?,You can track the delivery from the tracking page after shipment.,0.0,negative
+132,product_specs,Which charger fits model R12?,Payment can be made with a credit card or PayPal.,0.0,negative
+133,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+134,policy,What is the warranty policy for the router?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+135,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+136,policy,Do you have a cancellation policy?,The PrintPro router model R12 supports Bluetooth.,0.0,negative
+137,complaint,"I am disappointed because my coffee machine arrived late and support did not answer clearly, reference ZX-902.",We apologize for the delay with reference ZX-902 and will review the support response.,1.0,full_match
+138,complaint,My order had a missing coffee machine and I want the issue checked.,"We will check the missing coffee machine, and you can also view order status in your account.",0.8,partial_match
+139,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+140,complaint,I am unhappy with the answer I received from support.,The model R12 has a 4000 mAh battery capacity.,0.0,negative
+141,date_and_time,When is there a delivery from Haifa to Beersheba with HomeTech for 3 units?,There is a delivery from Haifa to Beersheba with HomeTech tomorrow morning for 3 units.,1.0,full_match
+142,date_and_time,When will reference ZX-902 be delivered to Beersheba?,"Reference ZX-902 is expected in Beersheba by Friday, and payment details are available on the invoice page.",0.8,partial_match
+143,date_and_time,When is the next pickup for my coffee machine?,You can return the coffee machine within 30 days if it is unused.,0.0,negative
+144,date_and_time,What time is support available for order changes?,The PrintPro router model R12 supports Bluetooth.,0.0,negative
+145,pricing,How much does it cost to ship a phone case from Ashdod to Netanya with CityCourier in March for 4 units?,Shipping a phone case from Ashdod to Netanya with CityCourier costs $12 for 4 units and may change during holidays.,1.0,full_match_with_extra
+146,pricing,What is the price for installing a phone case with CityCourier?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+147,pricing,How much is a phone case?,You can order a phone case through the website after signing in.,0.25,same_topic_wrong_intent
+148,pricing,What is the cost of 4 units of phone case?,Your refund was approved for reference PAY-774 yesterday.,0.0,negative
+149,ordering,Can I order a phone case via the website with gift wrapping for 4 units?,You can order a phone case via the website with gift wrapping for 4 units by choosing the gift option at checkout.,1.0,full_match
+150,ordering,How do I place an order for a phone case with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+151,ordering,Can I order 4 units of phone case by phone?,The price of 4 units of phone case is listed on the pricing page.,0.3,same_topic_wrong_intent
+152,ordering,I want to buy a phone case; where do I start?,Reference PAY-774 is currently in transit with CityCourier.,0.0,negative
+153,tracking,Where can I track my phone case with reference PAY-774 for this week?,You can track your phone case with reference PAY-774 on the tracking page for updated delivery status.,1.0,full_match
+154,tracking,Why is my phone case tracking stuck for reference PAY-774?,"Tracking for reference PAY-774 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+155,tracking,Where is my order reference PAY-774?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+156,tracking,I need the status of my phone case delivery.,The printer model P900 supports wireless charging.,0.0,negative
+157,cancel_or_change,Can I change the delivery address for my phone case to Netanya with reference PAY-774?,You can change the delivery address for reference PAY-774 to Netanya before the order is shipped.,1.0,full_match
+158,cancel_or_change,How do I cancel my phone case order reference PAY-774?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+159,cancel_or_change,Can I change my payment method for reference PAY-774?,You can track reference PAY-774 on the tracking page.,0.25,same_reference_wrong_intent
+160,cancel_or_change,I need to update the quantity of my phone case order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+161,returns_and_refunds,How do I request a refund for my phone case with reference PAY-774?,You can request a refund for your phone case with reference PAY-774 from the returns page.,1.0,full_match
+162,returns_and_refunds,Can I return my phone case after March?,"You can return the phone case within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+163,returns_and_refunds,What is the status of my refund reference PAY-774?,You can change the delivery address for reference PAY-774 before shipping.,0.25,same_reference_wrong_intent
+164,returns_and_refunds,I want to return my phone case.,The phone case costs $12 with standard delivery.,0.0,negative
+165,account_access,I cannot log in to my account using email user3@example.com because it says invalid password.,Use Forgot Password to reset access for user3@example.com when the login page shows invalid password.,1.0,full_match
+166,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+167,account_access,Why is my account locked after several login attempts?,Your payment for reference PAY-774 was declined by the card issuer.,0.0,negative
+168,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+169,billing_and_payment,Why was my payment for phone case with reference PAY-774 declined?,The payment for reference PAY-774 was declined because the card issuer rejected the transaction.,1.0,full_match
+170,billing_and_payment,Can I pay for my phone case order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+171,billing_and_payment,Where can I find the invoice for reference PAY-774?,You can cancel reference PAY-774 before it is packed.,0.25,same_reference_wrong_intent
+172,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+173,technical_issue,The customer portal shows error E3 when I try to pay on my tablet.,Clear the browser cache on your tablet and retry payment if the customer portal shows error E3.,1.0,full_match
+174,technical_issue,Why does the customer portal freeze when I upload a file?,"Refresh the customer portal and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+175,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+176,technical_issue,I get an error message on the customer portal.,The phone case is available for express delivery.,0.0,negative
+177,product_specs,What is the battery capacity of the HomeBrew printer model P900?,The HomeBrew printer model P900 has a 4000 mAh battery capacity.,1.0,full_match
+178,product_specs,Does the HomeBrew printer model P900 support Bluetooth?,"The model P900 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+179,product_specs,What size is the HomeBrew printer?,You can track the delivery from the tracking page after shipment.,0.0,negative
+180,product_specs,Which charger fits model P900?,Payment can be made with a credit card or PayPal.,0.0,negative
+181,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+182,policy,What is the warranty policy for the printer?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+183,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+184,policy,Do you have a cancellation policy?,The HomeBrew printer model P900 supports Bluetooth.,0.0,negative
+185,complaint,"I am disappointed because my phone case arrived late and support did not answer clearly, reference PAY-774.",We apologize for the delay with reference PAY-774 and will review the support response.,1.0,full_match
+186,complaint,My order had a missing phone case and I want the issue checked.,"We will check the missing phone case, and you can also view order status in your account.",0.8,partial_match
+187,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+188,complaint,I am unhappy with the answer I received from support.,The model P900 has a 4000 mAh battery capacity.,0.0,negative
+189,date_and_time,When is there a delivery from Ashdod to Netanya with CityCourier for 4 units?,There is a delivery from Ashdod to Netanya with CityCourier tomorrow morning for 4 units.,1.0,full_match
+190,date_and_time,When will reference PAY-774 be delivered to Netanya?,"Reference PAY-774 is expected in Netanya by Friday, and payment details are available on the invoice page.",0.8,partial_match
+191,date_and_time,When is the next pickup for my phone case?,You can return the phone case within 30 days if it is unused.,0.0,negative
+192,date_and_time,What time is support available for order changes?,The HomeBrew printer model P900 supports Bluetooth.,0.0,negative
+193,pricing,How much does it cost to ship a office chair from Eilat to Tel Aviv with ShopPlus in the weekend for 5 units?,Shipping a office chair from Eilat to Tel Aviv with ShopPlus costs $12 for 5 units and may change during holidays.,1.0,full_match_with_extra
+194,pricing,What is the price for installing a office chair with ShopPlus?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+195,pricing,How much is a office chair?,You can order a office chair through the website after signing in.,0.25,same_topic_wrong_intent
+196,pricing,What is the cost of 5 units of office chair?,Your refund was approved for reference RET-330 yesterday.,0.0,negative
+197,ordering,Can I order a office chair via the website with gift wrapping for 5 units?,You can order a office chair via the website with gift wrapping for 5 units by choosing the gift option at checkout.,1.0,full_match
+198,ordering,How do I place an order for a office chair with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+199,ordering,Can I order 5 units of office chair by phone?,The price of 5 units of office chair is listed on the pricing page.,0.3,same_topic_wrong_intent
+200,ordering,I want to buy a office chair; where do I start?,Reference RET-330 is currently in transit with ShopPlus.,0.0,negative
+201,tracking,Where can I track my office chair with reference RET-330 for this week?,You can track your office chair with reference RET-330 on the tracking page for updated delivery status.,1.0,full_match
+202,tracking,Why is my office chair tracking stuck for reference RET-330?,"Tracking for reference RET-330 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+203,tracking,Where is my order reference RET-330?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+204,tracking,I need the status of my office chair delivery.,The coffee machine model B40 supports wireless charging.,0.0,negative
+205,cancel_or_change,Can I change the delivery address for my office chair to Tel Aviv with reference RET-330?,You can change the delivery address for reference RET-330 to Tel Aviv before the order is shipped.,1.0,full_match
+206,cancel_or_change,How do I cancel my office chair order reference RET-330?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+207,cancel_or_change,Can I change my payment method for reference RET-330?,You can track reference RET-330 on the tracking page.,0.25,same_reference_wrong_intent
+208,cancel_or_change,I need to update the quantity of my office chair order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+209,returns_and_refunds,How do I request a refund for my office chair with reference RET-330?,You can request a refund for your office chair with reference RET-330 from the returns page.,1.0,full_match
+210,returns_and_refunds,Can I return my office chair after the weekend?,"You can return the office chair within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+211,returns_and_refunds,What is the status of my refund reference RET-330?,You can change the delivery address for reference RET-330 before shipping.,0.25,same_reference_wrong_intent
+212,returns_and_refunds,I want to return my office chair.,The office chair costs $12 with standard delivery.,0.0,negative
+213,account_access,I cannot log in to my account using email user4@example.com because it says invalid password.,Use Forgot Password to reset access for user4@example.com when the login page shows invalid password.,1.0,full_match
+214,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+215,account_access,Why is my account locked after several login attempts?,Your payment for reference RET-330 was declined by the card issuer.,0.0,negative
+216,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+217,billing_and_payment,Why was my payment for office chair with reference RET-330 declined?,The payment for reference RET-330 was declined because the card issuer rejected the transaction.,1.0,full_match
+218,billing_and_payment,Can I pay for my office chair order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+219,billing_and_payment,Where can I find the invoice for reference RET-330?,You can cancel reference RET-330 before it is packed.,0.25,same_reference_wrong_intent
+220,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+221,technical_issue,The tracking page shows error E4 when I try to pay on my MacBook.,Clear the browser cache on your MacBook and retry payment if the tracking page shows error E4.,1.0,full_match
+222,technical_issue,Why does the tracking page freeze when I upload a file?,"Refresh the tracking page and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+223,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+224,technical_issue,I get an error message on the customer portal.,The office chair is available for express delivery.,0.0,negative
+225,product_specs,What is the battery capacity of the NetFast coffee machine model B40?,The NetFast coffee machine model B40 has a 4000 mAh battery capacity.,1.0,full_match
+226,product_specs,Does the NetFast coffee machine model B40 support Bluetooth?,"The model B40 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+227,product_specs,What size is the NetFast coffee machine?,You can track the delivery from the tracking page after shipment.,0.0,negative
+228,product_specs,Which charger fits model B40?,Payment can be made with a credit card or PayPal.,0.0,negative
+229,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+230,policy,What is the warranty policy for the coffee machine?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+231,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+232,policy,Do you have a cancellation policy?,The NetFast coffee machine model B40 supports Bluetooth.,0.0,negative
+233,complaint,"I am disappointed because my office chair arrived late and support did not answer clearly, reference RET-330.",We apologize for the delay with reference RET-330 and will review the support response.,1.0,full_match
+234,complaint,My order had a missing office chair and I want the issue checked.,"We will check the missing office chair, and you can also view order status in your account.",0.8,partial_match
+235,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+236,complaint,I am unhappy with the answer I received from support.,The model B40 has a 4000 mAh battery capacity.,0.0,negative
+237,date_and_time,When is there a delivery from Eilat to Tel Aviv with ShopPlus for 5 units?,There is a delivery from Eilat to Tel Aviv with ShopPlus tomorrow morning for 5 units.,1.0,full_match
+238,date_and_time,When will reference RET-330 be delivered to Tel Aviv?,"Reference RET-330 is expected in Tel Aviv by Friday, and payment details are available on the invoice page.",0.8,partial_match
+239,date_and_time,When is the next pickup for my office chair?,You can return the office chair within 30 days if it is unused.,0.0,negative
+240,date_and_time,What time is support available for order changes?,The NetFast coffee machine model B40 supports Bluetooth.,0.0,negative
+241,pricing,How much does it cost to ship a printer ink from Tel Aviv to Jerusalem with ExpressShip in two days for 6 units?,Shipping a printer ink from Tel Aviv to Jerusalem with ExpressShip costs $12 for 6 units and may change during holidays.,1.0,full_match_with_extra
+242,pricing,What is the price for installing a printer ink with ExpressShip?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+243,pricing,How much is a printer ink?,You can order a printer ink through the website after signing in.,0.25,same_topic_wrong_intent
+244,pricing,What is the cost of 6 units of printer ink?,Your refund was approved for reference A1234 yesterday.,0.0,negative
+245,ordering,Can I order a printer ink via the website with gift wrapping for 6 units?,You can order a printer ink via the website with gift wrapping for 6 units by choosing the gift option at checkout.,1.0,full_match
+246,ordering,How do I place an order for a printer ink with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+247,ordering,Can I order 6 units of printer ink by phone?,The price of 6 units of printer ink is listed on the pricing page.,0.3,same_topic_wrong_intent
+248,ordering,I want to buy a printer ink; where do I start?,Reference A1234 is currently in transit with ExpressShip.,0.0,negative
+249,tracking,Where can I track my printer ink with reference A1234 for this week?,You can track your printer ink with reference A1234 on the tracking page for updated delivery status.,1.0,full_match
+250,tracking,Why is my printer ink tracking stuck for reference A1234?,"Tracking for reference A1234 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+251,tracking,Where is my order reference A1234?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+252,tracking,I need the status of my printer ink delivery.,The laptop model X200 supports wireless charging.,0.0,negative
+253,cancel_or_change,Can I change the delivery address for my printer ink to Jerusalem with reference A1234?,You can change the delivery address for reference A1234 to Jerusalem before the order is shipped.,1.0,full_match
+254,cancel_or_change,How do I cancel my printer ink order reference A1234?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+255,cancel_or_change,Can I change my payment method for reference A1234?,You can track reference A1234 on the tracking page.,0.25,same_reference_wrong_intent
+256,cancel_or_change,I need to update the quantity of my printer ink order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+257,returns_and_refunds,How do I request a refund for my printer ink with reference A1234?,You can request a refund for your printer ink with reference A1234 from the returns page.,1.0,full_match
+258,returns_and_refunds,Can I return my printer ink after two days?,"You can return the printer ink within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+259,returns_and_refunds,What is the status of my refund reference A1234?,You can change the delivery address for reference A1234 before shipping.,0.25,same_reference_wrong_intent
+260,returns_and_refunds,I want to return my printer ink.,The printer ink costs $12 with standard delivery.,0.0,negative
+261,account_access,I cannot log in to my account using email user5@example.com because it says invalid password.,Use Forgot Password to reset access for user5@example.com when the login page shows invalid password.,1.0,full_match
+262,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+263,account_access,Why is my account locked after several login attempts?,Your payment for reference A1234 was declined by the card issuer.,0.0,negative
+264,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+265,billing_and_payment,Why was my payment for printer ink with reference A1234 declined?,The payment for reference A1234 was declined because the card issuer rejected the transaction.,1.0,full_match
+266,billing_and_payment,Can I pay for my printer ink order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+267,billing_and_payment,Where can I find the invoice for reference A1234?,You can cancel reference A1234 before it is packed.,0.25,same_reference_wrong_intent
+268,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+269,technical_issue,The website shows error E5 when I try to pay on my Chrome on Windows.,Clear the browser cache on your Chrome on Windows and retry payment if the website shows error E5.,1.0,full_match
+270,technical_issue,Why does the website freeze when I upload a file?,"Refresh the website and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+271,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+272,technical_issue,I get an error message on the customer portal.,The printer ink is available for express delivery.,0.0,negative
+273,product_specs,What is the battery capacity of the Lenova laptop model X200?,The Lenova laptop model X200 has a 4000 mAh battery capacity.,1.0,full_match
+274,product_specs,Does the Lenova laptop model X200 support Bluetooth?,"The model X200 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+275,product_specs,What size is the Lenova laptop?,You can track the delivery from the tracking page after shipment.,0.0,negative
+276,product_specs,Which charger fits model X200?,Payment can be made with a credit card or PayPal.,0.0,negative
+277,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+278,policy,What is the warranty policy for the laptop?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+279,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+280,policy,Do you have a cancellation policy?,The Lenova laptop model X200 supports Bluetooth.,0.0,negative
+281,complaint,"I am disappointed because my printer ink arrived late and support did not answer clearly, reference A1234.",We apologize for the delay with reference A1234 and will review the support response.,1.0,full_match
+282,complaint,My order had a missing printer ink and I want the issue checked.,"We will check the missing printer ink, and you can also view order status in your account.",0.8,partial_match
+283,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+284,complaint,I am unhappy with the answer I received from support.,The model X200 has a 4000 mAh battery capacity.,0.0,negative
+285,date_and_time,When is there a delivery from Tel Aviv to Jerusalem with ExpressShip for 6 units?,There is a delivery from Tel Aviv to Jerusalem with ExpressShip tomorrow morning for 6 units.,1.0,full_match
+286,date_and_time,When will reference A1234 be delivered to Jerusalem?,"Reference A1234 is expected in Jerusalem by Friday, and payment details are available on the invoice page.",0.8,partial_match
+287,date_and_time,When is the next pickup for my printer ink?,You can return the printer ink within 30 days if it is unused.,0.0,negative
+288,date_and_time,What time is support available for order changes?,The Lenova laptop model X200 supports Bluetooth.,0.0,negative
+289,pricing,How much does it cost to ship a smart watch from Jerusalem to Haifa with QuickPost in next week for 7 units?,Shipping a smart watch from Jerusalem to Haifa with QuickPost costs $12 for 7 units and may change during holidays.,1.0,full_match_with_extra
+290,pricing,What is the price for installing a smart watch with QuickPost?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+291,pricing,How much is a smart watch?,You can order a smart watch through the website after signing in.,0.25,same_topic_wrong_intent
+292,pricing,What is the cost of 7 units of smart watch?,Your refund was approved for reference ORD-4581 yesterday.,0.0,negative
+293,ordering,Can I order a smart watch via the website with gift wrapping for 7 units?,You can order a smart watch via the website with gift wrapping for 7 units by choosing the gift option at checkout.,1.0,full_match
+294,ordering,How do I place an order for a smart watch with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+295,ordering,Can I order 7 units of smart watch by phone?,The price of 7 units of smart watch is listed on the pricing page.,0.3,same_topic_wrong_intent
+296,ordering,I want to buy a smart watch; where do I start?,Reference ORD-4581 is currently in transit with QuickPost.,0.0,negative
+297,tracking,Where can I track my smart watch with reference ORD-4581 for this week?,You can track your smart watch with reference ORD-4581 on the tracking page for updated delivery status.,1.0,full_match
+298,tracking,Why is my smart watch tracking stuck for reference ORD-4581?,"Tracking for reference ORD-4581 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+299,tracking,Where is my order reference ORD-4581?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+300,tracking,I need the status of my smart watch delivery.,The smart watch model S5 supports wireless charging.,0.0,negative
+301,cancel_or_change,Can I change the delivery address for my smart watch to Haifa with reference ORD-4581?,You can change the delivery address for reference ORD-4581 to Haifa before the order is shipped.,1.0,full_match
+302,cancel_or_change,How do I cancel my smart watch order reference ORD-4581?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+303,cancel_or_change,Can I change my payment method for reference ORD-4581?,You can track reference ORD-4581 on the tracking page.,0.25,same_reference_wrong_intent
+304,cancel_or_change,I need to update the quantity of my smart watch order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+305,returns_and_refunds,How do I request a refund for my smart watch with reference ORD-4581?,You can request a refund for your smart watch with reference ORD-4581 from the returns page.,1.0,full_match
+306,returns_and_refunds,Can I return my smart watch after next week?,"You can return the smart watch within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+307,returns_and_refunds,What is the status of my refund reference ORD-4581?,You can change the delivery address for reference ORD-4581 before shipping.,0.25,same_reference_wrong_intent
+308,returns_and_refunds,I want to return my smart watch.,The smart watch costs $12 with standard delivery.,0.0,negative
+309,account_access,I cannot log in to my account using email user6@example.com because it says invalid password.,Use Forgot Password to reset access for user6@example.com when the login page shows invalid password.,1.0,full_match
+310,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+311,account_access,Why is my account locked after several login attempts?,Your payment for reference ORD-4581 was declined by the card issuer.,0.0,negative
+312,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+313,billing_and_payment,Why was my payment for smart watch with reference ORD-4581 declined?,The payment for reference ORD-4581 was declined because the card issuer rejected the transaction.,1.0,full_match
+314,billing_and_payment,Can I pay for my smart watch order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+315,billing_and_payment,Where can I find the invoice for reference ORD-4581?,You can cancel reference ORD-4581 before it is packed.,0.25,same_reference_wrong_intent
+316,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+317,technical_issue,The mobile app shows error E6 when I try to pay on my Android phone.,Clear the browser cache on your Android phone and retry payment if the mobile app shows error E6.,1.0,full_match
+318,technical_issue,Why does the mobile app freeze when I upload a file?,"Refresh the mobile app and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+319,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+320,technical_issue,I get an error message on the customer portal.,The smart watch is available for express delivery.,0.0,negative
+321,product_specs,What is the battery capacity of the Samtech smart watch model S5?,The Samtech smart watch model S5 has a 4000 mAh battery capacity.,1.0,full_match
+322,product_specs,Does the Samtech smart watch model S5 support Bluetooth?,"The model S5 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+323,product_specs,What size is the Samtech smart watch?,You can track the delivery from the tracking page after shipment.,0.0,negative
+324,product_specs,Which charger fits model S5?,Payment can be made with a credit card or PayPal.,0.0,negative
+325,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+326,policy,What is the warranty policy for the smart watch?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+327,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+328,policy,Do you have a cancellation policy?,The Samtech smart watch model S5 supports Bluetooth.,0.0,negative
+329,complaint,"I am disappointed because my smart watch arrived late and support did not answer clearly, reference ORD-4581.",We apologize for the delay with reference ORD-4581 and will review the support response.,1.0,full_match
+330,complaint,My order had a missing smart watch and I want the issue checked.,"We will check the missing smart watch, and you can also view order status in your account.",0.8,partial_match
+331,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+332,complaint,I am unhappy with the answer I received from support.,The model S5 has a 4000 mAh battery capacity.,0.0,negative
+333,date_and_time,When is there a delivery from Jerusalem to Haifa with QuickPost for 7 units?,There is a delivery from Jerusalem to Haifa with QuickPost tomorrow morning for 7 units.,1.0,full_match
+334,date_and_time,When will reference ORD-4581 be delivered to Haifa?,"Reference ORD-4581 is expected in Haifa by Friday, and payment details are available on the invoice page.",0.8,partial_match
+335,date_and_time,When is the next pickup for my smart watch?,You can return the smart watch within 30 days if it is unused.,0.0,negative
+336,date_and_time,What time is support available for order changes?,The Samtech smart watch model S5 supports Bluetooth.,0.0,negative
+337,pricing,How much does it cost to ship a USB cable from Haifa to Beersheba with HomeTech in 48 hours for 8 units?,Shipping a USB cable from Haifa to Beersheba with HomeTech costs $12 for 8 units and may change during holidays.,1.0,full_match_with_extra
+338,pricing,What is the price for installing a USB cable with HomeTech?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+339,pricing,How much is a USB cable?,You can order a USB cable through the website after signing in.,0.25,same_topic_wrong_intent
+340,pricing,What is the cost of 8 units of USB cable?,Your refund was approved for reference ZX-902 yesterday.,0.0,negative
+341,ordering,Can I order a USB cable via the website with gift wrapping for 8 units?,You can order a USB cable via the website with gift wrapping for 8 units by choosing the gift option at checkout.,1.0,full_match
+342,ordering,How do I place an order for a USB cable with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+343,ordering,Can I order 8 units of USB cable by phone?,The price of 8 units of USB cable is listed on the pricing page.,0.3,same_topic_wrong_intent
+344,ordering,I want to buy a USB cable; where do I start?,Reference ZX-902 is currently in transit with HomeTech.,0.0,negative
+345,tracking,Where can I track my USB cable with reference ZX-902 for this week?,You can track your USB cable with reference ZX-902 on the tracking page for updated delivery status.,1.0,full_match
+346,tracking,Why is my USB cable tracking stuck for reference ZX-902?,"Tracking for reference ZX-902 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+347,tracking,Where is my order reference ZX-902?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+348,tracking,I need the status of my USB cable delivery.,The router model R12 supports wireless charging.,0.0,negative
+349,cancel_or_change,Can I change the delivery address for my USB cable to Beersheba with reference ZX-902?,You can change the delivery address for reference ZX-902 to Beersheba before the order is shipped.,1.0,full_match
+350,cancel_or_change,How do I cancel my USB cable order reference ZX-902?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+351,cancel_or_change,Can I change my payment method for reference ZX-902?,You can track reference ZX-902 on the tracking page.,0.25,same_reference_wrong_intent
+352,cancel_or_change,I need to update the quantity of my USB cable order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+353,returns_and_refunds,How do I request a refund for my USB cable with reference ZX-902?,You can request a refund for your USB cable with reference ZX-902 from the returns page.,1.0,full_match
+354,returns_and_refunds,Can I return my USB cable after 48 hours?,"You can return the USB cable within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+355,returns_and_refunds,What is the status of my refund reference ZX-902?,You can change the delivery address for reference ZX-902 before shipping.,0.25,same_reference_wrong_intent
+356,returns_and_refunds,I want to return my USB cable.,The USB cable costs $12 with standard delivery.,0.0,negative
+357,account_access,I cannot log in to my account using email user7@example.com because it says invalid password.,Use Forgot Password to reset access for user7@example.com when the login page shows invalid password.,1.0,full_match
+358,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+359,account_access,Why is my account locked after several login attempts?,Your payment for reference ZX-902 was declined by the card issuer.,0.0,negative
+360,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+361,billing_and_payment,Why was my payment for USB cable with reference ZX-902 declined?,The payment for reference ZX-902 was declined because the card issuer rejected the transaction.,1.0,full_match
+362,billing_and_payment,Can I pay for my USB cable order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+363,billing_and_payment,Where can I find the invoice for reference ZX-902?,You can cancel reference ZX-902 before it is packed.,0.25,same_reference_wrong_intent
+364,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+365,technical_issue,The checkout page shows error E7 when I try to pay on my iPhone.,Clear the browser cache on your iPhone and retry payment if the checkout page shows error E7.,1.0,full_match
+366,technical_issue,Why does the checkout page freeze when I upload a file?,"Refresh the checkout page and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+367,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+368,technical_issue,I get an error message on the customer portal.,The USB cable is available for express delivery.,0.0,negative
+369,product_specs,What is the battery capacity of the PrintPro router model R12?,The PrintPro router model R12 has a 4000 mAh battery capacity.,1.0,full_match
+370,product_specs,Does the PrintPro router model R12 support Bluetooth?,"The model R12 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+371,product_specs,What size is the PrintPro router?,You can track the delivery from the tracking page after shipment.,0.0,negative
+372,product_specs,Which charger fits model R12?,Payment can be made with a credit card or PayPal.,0.0,negative
+373,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+374,policy,What is the warranty policy for the router?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+375,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+376,policy,Do you have a cancellation policy?,The PrintPro router model R12 supports Bluetooth.,0.0,negative
+377,complaint,"I am disappointed because my USB cable arrived late and support did not answer clearly, reference ZX-902.",We apologize for the delay with reference ZX-902 and will review the support response.,1.0,full_match
+378,complaint,My order had a missing USB cable and I want the issue checked.,"We will check the missing USB cable, and you can also view order status in your account.",0.8,partial_match
+379,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+380,complaint,I am unhappy with the answer I received from support.,The model R12 has a 4000 mAh battery capacity.,0.0,negative
+381,date_and_time,When is there a delivery from Haifa to Beersheba with HomeTech for 8 units?,There is a delivery from Haifa to Beersheba with HomeTech tomorrow morning for 8 units.,1.0,full_match
+382,date_and_time,When will reference ZX-902 be delivered to Beersheba?,"Reference ZX-902 is expected in Beersheba by Friday, and payment details are available on the invoice page.",0.8,partial_match
+383,date_and_time,When is the next pickup for my USB cable?,You can return the USB cable within 30 days if it is unused.,0.0,negative
+384,date_and_time,What time is support available for order changes?,The PrintPro router model R12 supports Bluetooth.,0.0,negative
+385,pricing,How much does it cost to ship a desk lamp from Ashdod to Netanya with CityCourier in March for 9 units?,Shipping a desk lamp from Ashdod to Netanya with CityCourier costs $12 for 9 units and may change during holidays.,1.0,full_match_with_extra
+386,pricing,What is the price for installing a desk lamp with CityCourier?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+387,pricing,How much is a desk lamp?,You can order a desk lamp through the website after signing in.,0.25,same_topic_wrong_intent
+388,pricing,What is the cost of 9 units of desk lamp?,Your refund was approved for reference PAY-774 yesterday.,0.0,negative
+389,ordering,Can I order a desk lamp via the website with gift wrapping for 9 units?,You can order a desk lamp via the website with gift wrapping for 9 units by choosing the gift option at checkout.,1.0,full_match
+390,ordering,How do I place an order for a desk lamp with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+391,ordering,Can I order 9 units of desk lamp by phone?,The price of 9 units of desk lamp is listed on the pricing page.,0.3,same_topic_wrong_intent
+392,ordering,I want to buy a desk lamp; where do I start?,Reference PAY-774 is currently in transit with CityCourier.,0.0,negative
+393,tracking,Where can I track my desk lamp with reference PAY-774 for this week?,You can track your desk lamp with reference PAY-774 on the tracking page for updated delivery status.,1.0,full_match
+394,tracking,Why is my desk lamp tracking stuck for reference PAY-774?,"Tracking for reference PAY-774 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+395,tracking,Where is my order reference PAY-774?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+396,tracking,I need the status of my desk lamp delivery.,The printer model P900 supports wireless charging.,0.0,negative
+397,cancel_or_change,Can I change the delivery address for my desk lamp to Netanya with reference PAY-774?,You can change the delivery address for reference PAY-774 to Netanya before the order is shipped.,1.0,full_match
+398,cancel_or_change,How do I cancel my desk lamp order reference PAY-774?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+399,cancel_or_change,Can I change my payment method for reference PAY-774?,You can track reference PAY-774 on the tracking page.,0.25,same_reference_wrong_intent
+400,cancel_or_change,I need to update the quantity of my desk lamp order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+401,returns_and_refunds,How do I request a refund for my desk lamp with reference PAY-774?,You can request a refund for your desk lamp with reference PAY-774 from the returns page.,1.0,full_match
+402,returns_and_refunds,Can I return my desk lamp after March?,"You can return the desk lamp within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+403,returns_and_refunds,What is the status of my refund reference PAY-774?,You can change the delivery address for reference PAY-774 before shipping.,0.25,same_reference_wrong_intent
+404,returns_and_refunds,I want to return my desk lamp.,The desk lamp costs $12 with standard delivery.,0.0,negative
+405,account_access,I cannot log in to my account using email user8@example.com because it says invalid password.,Use Forgot Password to reset access for user8@example.com when the login page shows invalid password.,1.0,full_match
+406,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+407,account_access,Why is my account locked after several login attempts?,Your payment for reference PAY-774 was declined by the card issuer.,0.0,negative
+408,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+409,billing_and_payment,Why was my payment for desk lamp with reference PAY-774 declined?,The payment for reference PAY-774 was declined because the card issuer rejected the transaction.,1.0,full_match
+410,billing_and_payment,Can I pay for my desk lamp order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+411,billing_and_payment,Where can I find the invoice for reference PAY-774?,You can cancel reference PAY-774 before it is packed.,0.25,same_reference_wrong_intent
+412,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+413,technical_issue,The customer portal shows error E8 when I try to pay on my tablet.,Clear the browser cache on your tablet and retry payment if the customer portal shows error E8.,1.0,full_match
+414,technical_issue,Why does the customer portal freeze when I upload a file?,"Refresh the customer portal and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+415,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+416,technical_issue,I get an error message on the customer portal.,The desk lamp is available for express delivery.,0.0,negative
+417,product_specs,What is the battery capacity of the HomeBrew printer model P900?,The HomeBrew printer model P900 has a 4000 mAh battery capacity.,1.0,full_match
+418,product_specs,Does the HomeBrew printer model P900 support Bluetooth?,"The model P900 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+419,product_specs,What size is the HomeBrew printer?,You can track the delivery from the tracking page after shipment.,0.0,negative
+420,product_specs,Which charger fits model P900?,Payment can be made with a credit card or PayPal.,0.0,negative
+421,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+422,policy,What is the warranty policy for the printer?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+423,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+424,policy,Do you have a cancellation policy?,The HomeBrew printer model P900 supports Bluetooth.,0.0,negative
+425,complaint,"I am disappointed because my desk lamp arrived late and support did not answer clearly, reference PAY-774.",We apologize for the delay with reference PAY-774 and will review the support response.,1.0,full_match
+426,complaint,My order had a missing desk lamp and I want the issue checked.,"We will check the missing desk lamp, and you can also view order status in your account.",0.8,partial_match
+427,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+428,complaint,I am unhappy with the answer I received from support.,The model P900 has a 4000 mAh battery capacity.,0.0,negative
+429,date_and_time,When is there a delivery from Ashdod to Netanya with CityCourier for 9 units?,There is a delivery from Ashdod to Netanya with CityCourier tomorrow morning for 9 units.,1.0,full_match
+430,date_and_time,When will reference PAY-774 be delivered to Netanya?,"Reference PAY-774 is expected in Netanya by Friday, and payment details are available on the invoice page.",0.8,partial_match
+431,date_and_time,When is the next pickup for my desk lamp?,You can return the desk lamp within 30 days if it is unused.,0.0,negative
+432,date_and_time,What time is support available for order changes?,The HomeBrew printer model P900 supports Bluetooth.,0.0,negative
+433,pricing,How much does it cost to ship a tablet cover from Eilat to Tel Aviv with ShopPlus in the weekend for 10 units?,Shipping a tablet cover from Eilat to Tel Aviv with ShopPlus costs $12 for 10 units and may change during holidays.,1.0,full_match_with_extra
+434,pricing,What is the price for installing a tablet cover with ShopPlus?,"The installation price is $35, but delivery tracking is handled from your account page.",0.75,partial_match
+435,pricing,How much is a tablet cover?,You can order a tablet cover through the website after signing in.,0.25,same_topic_wrong_intent
+436,pricing,What is the cost of 10 units of tablet cover?,Your refund was approved for reference RET-330 yesterday.,0.0,negative
+437,ordering,Can I order a tablet cover via the website with gift wrapping for 10 units?,You can order a tablet cover via the website with gift wrapping for 10 units by choosing the gift option at checkout.,1.0,full_match
+438,ordering,How do I place an order for a tablet cover with express delivery?,"Place the order from the product page and choose express delivery, while returns are requested from a different menu.",0.85,full_match_with_extra
+439,ordering,Can I order 10 units of tablet cover by phone?,The price of 10 units of tablet cover is listed on the pricing page.,0.3,same_topic_wrong_intent
+440,ordering,I want to buy a tablet cover; where do I start?,Reference RET-330 is currently in transit with ShopPlus.,0.0,negative
+441,tracking,Where can I track my tablet cover with reference RET-330 for this week?,You can track your tablet cover with reference RET-330 on the tracking page for updated delivery status.,1.0,full_match
+442,tracking,Why is my tablet cover tracking stuck for reference RET-330?,"Tracking for reference RET-330 may be delayed for 24 hours, and you can still change your address before shipping.",0.8,partial_match
+443,tracking,Where is my order reference RET-330?,You can cancel your order from the account page before it ships.,0.25,same_entity_wrong_action
+444,tracking,I need the status of my tablet cover delivery.,The coffee machine model B40 supports wireless charging.,0.0,negative
+445,cancel_or_change,Can I change the delivery address for my tablet cover to Tel Aviv with reference RET-330?,You can change the delivery address for reference RET-330 to Tel Aviv before the order is shipped.,1.0,full_match
+446,cancel_or_change,How do I cancel my tablet cover order reference RET-330?,"Cancel the order from your account before shipping, and refund timing depends on your payment method.",0.85,full_match_with_extra
+447,cancel_or_change,Can I change my payment method for reference RET-330?,You can track reference RET-330 on the tracking page.,0.25,same_reference_wrong_intent
+448,cancel_or_change,I need to update the quantity of my tablet cover order.,The return policy allows unused items to be returned within 30 days.,0.0,negative
+449,returns_and_refunds,How do I request a refund for my tablet cover with reference RET-330?,You can request a refund for your tablet cover with reference RET-330 from the returns page.,1.0,full_match
+450,returns_and_refunds,Can I return my tablet cover after the weekend?,"You can return the tablet cover within the allowed return window, but shipping prices are listed separately.",0.75,partial_match
+451,returns_and_refunds,What is the status of my refund reference RET-330?,You can change the delivery address for reference RET-330 before shipping.,0.25,same_reference_wrong_intent
+452,returns_and_refunds,I want to return my tablet cover.,The tablet cover costs $12 with standard delivery.,0.0,negative
+453,account_access,I cannot log in to my account using email user9@example.com because it says invalid password.,Use Forgot Password to reset access for user9@example.com when the login page shows invalid password.,1.0,full_match
+454,account_access,How can I recover access to my customer portal account?,"Recover access from the login page using your email, and order tracking will appear after you sign in.",0.8,partial_match
+455,account_access,Why is my account locked after several login attempts?,Your payment for reference RET-330 was declined by the card issuer.,0.0,negative
+456,account_access,I need to update the email on my account.,You can return unused items within 30 days.,0.0,negative
+457,billing_and_payment,Why was my payment for tablet cover with reference RET-330 declined?,The payment for reference RET-330 was declined because the card issuer rejected the transaction.,1.0,full_match
+458,billing_and_payment,Can I pay for my tablet cover order with PayPal?,"You can pay with PayPal at checkout, but delivery tracking starts only after the order ships.",0.85,full_match_with_extra
+459,billing_and_payment,Where can I find the invoice for reference RET-330?,You can cancel reference RET-330 before it is packed.,0.25,same_reference_wrong_intent
+460,billing_and_payment,I was charged the wrong amount for my order.,The mobile app may need an update from the app store.,0.0,negative
+461,technical_issue,The tracking page shows error E9 when I try to pay on my MacBook.,Clear the browser cache on your MacBook and retry payment if the tracking page shows error E9.,1.0,full_match
+462,technical_issue,Why does the tracking page freeze when I upload a file?,"Refresh the tracking page and try a smaller file, while billing questions are handled from the payment page.",0.75,partial_match
+463,technical_issue,The app crashes when I open tracking.,Your order can be returned within 30 days if it is unused.,0.0,negative
+464,technical_issue,I get an error message on the customer portal.,The tablet cover is available for express delivery.,0.0,negative
+465,product_specs,What is the battery capacity of the NetFast coffee machine model B40?,The NetFast coffee machine model B40 has a 4000 mAh battery capacity.,1.0,full_match
+466,product_specs,Does the NetFast coffee machine model B40 support Bluetooth?,"The model B40 supports Bluetooth, but warranty claims must be opened separately.",0.8,partial_match
+467,product_specs,What size is the NetFast coffee machine?,You can track the delivery from the tracking page after shipment.,0.0,negative
+468,product_specs,Which charger fits model B40?,Payment can be made with a credit card or PayPal.,0.0,negative
+469,policy,What is your delivery policy for fragile items?,Fragile items are packed with protective material according to the delivery policy.,1.0,full_match
+470,policy,What is the warranty policy for the coffee machine?,"The warranty policy covers manufacturing defects, but return shipping rules are listed separately.",0.85,full_match_with_extra
+471,policy,What is your policy for damaged packages?,You can change your address before the order ships.,0.25,same_domain_wrong_intent
+472,policy,Do you have a cancellation policy?,The NetFast coffee machine model B40 supports Bluetooth.,0.0,negative
+473,complaint,"I am disappointed because my tablet cover arrived late and support did not answer clearly, reference RET-330.",We apologize for the delay with reference RET-330 and will review the support response.,1.0,full_match
+474,complaint,My order had a missing tablet cover and I want the issue checked.,"We will check the missing tablet cover, and you can also view order status in your account.",0.8,partial_match
+475,complaint,The service was poor and the package was damaged.,The package can be tracked with the courier reference number.,0.25,same_domain_wrong_intent
+476,complaint,I am unhappy with the answer I received from support.,The model B40 has a 4000 mAh battery capacity.,0.0,negative
+477,date_and_time,When is there a delivery from Eilat to Tel Aviv with ShopPlus for 10 units?,There is a delivery from Eilat to Tel Aviv with ShopPlus tomorrow morning for 10 units.,1.0,full_match
+478,date_and_time,When will reference RET-330 be delivered to Tel Aviv?,"Reference RET-330 is expected in Tel Aviv by Friday, and payment details are available on the invoice page.",0.8,partial_match
+479,date_and_time,When is the next pickup for my tablet cover?,You can return the tablet cover within 30 days if it is unused.,0.0,negative
+480,date_and_time,What time is support available for order changes?,The NetFast coffee machine model B40 supports Bluetooth.,0.0,negative
