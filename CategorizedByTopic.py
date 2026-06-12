@@ -1,22 +1,21 @@
-#from setfit import SetFitModel
-#issueTopic = ["pricing","ordering","tracking","cancel_or_change","returns_and_refunds","account_access","billing_and_payment","technical_issue","product_specs","policy","complaint","date_and_time"]
-#model = SetFitModel.from_pretrained("./models/trained_setfit_topic")
-#
-#def categories(question):
-#    prediction = model.predict([question])
-#    return issueTopic[prediction[0].item()]
+issueTopic = ["pricing","ordering","tracking","cancel_or_change","returns_and_refunds","account_access","billing_and_payment","technical_issue","product_specs","policy","complaint","date_and_time","other"]
+from ModelManager import setfit_topic_model
+model = setfit_topic_model
+
+def categories(question):
+    prediction = model.predict([question])
+    return issueTopic[prediction[0].item()]
 
 
-##בדיקה אם עובד!!!!!!!!!!!!!!!!!!!!!!!!
-
-##pricing
+#בדיקה אם עובד!!!!!!!!!!!!!!!!!!!!!!!!
+#pricing
 #print(categories("How much does it cost?"))
 #print(categories("I want to understand the full price of this product, including any extra fees, discounts, or monthly charges before I decide to buy it."))
 ##ordering
 #print(categories("How do I place an order?"))
 #print(categories("I found the product I want, but I am not sure what steps I need to follow to complete the order and confirm the purchase."))
-#print(categories("Where is my order?"))
 ##tracking
+#print(categories("Where is my order?"))
 #print(categories("I placed an order a few days ago and received a confirmation email, but I still do not know where the package is or when it will arrive."))
 ##cancel_or_change
 #print(categories("Can I cancel my order?"))
@@ -36,7 +35,7 @@
 ##product_specs
 #print(categories("What are the product dimensions?"))
 #print(categories("Before I buy this product, I want to know its exact size, weight, materials, and whether it is suitable for daily use."))
-##returns_and_refunds, policy
+##policy
 #print(categories("What is your return policy?"))
 #print(categories("I would like to understand your company policy regarding returns, refunds, warranty, and how long customers have to report a problem."))
 ##complaint
@@ -48,40 +47,70 @@
 ##other
 #print(categories("What is the capital of Canada?"))
 #print(categories("I am preparing a short presentation about renewable energy and would like to understand why solar power has become more popular in many countries over the last decade."))
+#print(categories("How much does it cost to fly from Israel to Greece with El Al in April for one person?"))
+#print(categories("I have a really good camera and I want to know how to take good pictures."))
 
 
 
 
 
-#אימון המודל-----------------------------------------
-from datasets import load_dataset
-from setfit import TrainingArguments
-from setfit import SetFitModel
-from setfit import Trainer
+##אימון המודל-----------------------------------------
+#from datasets import load_dataset
+#from setfit import TrainingArguments
+#from setfit import SetFitModel
+#from setfit import Trainer
+#
+#DATA_FILE = "./data/model1_SetFit_with_other_390.jsonl"
+#dataset = load_dataset("json",data_files=DATA_FILE)
+#dataset
+#
+#model = SetFitModel.from_pretrained("./models/all-MiniLM-L6-v2")
+#
+#json_topic_questions = dataset["train"].train_test_split(test_size=0.3, seed=42)
+#json_topic_questions
+#
+#train_dataset = json_topic_questions["train"]
+#test_dataset = json_topic_questions["test"]
+#
+#args = TrainingArguments(
+#    batch_size=32,
+#    num_epochs=10,
+#)
+#
+#trainer = Trainer(
+#    model=model,
+#    args=args,
+#    train_dataset=train_dataset,
+#)
+#
+#trainer.train()
+#
+#model.save_pretrained("./models/trained_setfit_topic")
 
-DATA_FILE = "./data/model1_SetFit_with_other_390.jsonl"
-dataset = load_dataset("json",data_files=DATA_FILE)
-dataset
 
-model = SetFitModel.from_pretrained("./models/all-MiniLM-L6-v2")
-
-json_topic_questions = dataset["train"].train_test_split(test_size=0.3, seed=42)
-json_topic_questions
-
-train_dataset = json_topic_questions["train"]
-test_dataset = json_topic_questions["test"]
-
-args = TrainingArguments(
-    batch_size=32,
-    num_epochs=10,
-)
-
-trainer = Trainer(
-    model=model,
-    args=args,
-    train_dataset=train_dataset,
-)
-
-trainer.train()
-
-model.save_pretrained("./models/trained_setfit_topic")
+##קוד לבדיקת אחוז אימון המודל
+#from datasets import load_dataset
+#from setfit import SetFitModel
+#from sklearn.metrics import accuracy_score
+#
+## קובץ הנתונים שעליו אימנת
+#DATA_FILE = "./data/model1_SetFit_with_other_390.jsonl"
+#
+## טעינת הנתונים
+#dataset = load_dataset("json", data_files=DATA_FILE)
+#
+## אותה חלוקה כמו בזמן האימון
+#json_topic_questions = dataset["train"].train_test_split(test_size=0.3, seed=42)
+#
+#test_dataset = json_topic_questions["test"]
+#
+## טעינת המודל המאומן שכבר נשמר
+#model = SetFitModel.from_pretrained("./models/trained_setfit_topic")
+#
+## בדיקה בלבד - בלי אימון
+#y_true = test_dataset["label"]
+#y_pred = model.predict(test_dataset["text"])
+#
+#accuracy = accuracy_score(y_true, y_pred)
+#
+#print(f"Model accuracy: {accuracy * 100:.2f}%")

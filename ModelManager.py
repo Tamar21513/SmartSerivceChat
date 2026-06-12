@@ -54,7 +54,7 @@ setfit_topic_model = SetFitModel.from_pretrained(
 
 # 4. FLAN-T5 - answer building
 print("Loading FLAN-T5 answer model...")
-flan_t5_path = model_path("trained_flan_t5_customer_support")
+flan_t5_path = model_path("trained_flan_t5_large")
 
 flan_t5_tokenizer = AutoTokenizer.from_pretrained(
     flan_t5_path,

@@ -1,7 +1,10 @@
 import re
+from RuntimeSettings import load_runtime_settings
+
+settings = load_runtime_settings()
 
 #פונקציה המחלקת טקסט על פי מספר מילים
-def split_text_to_chunks(text, chunk_size=120, overlap=30):
+def split_text_to_chunks(text, chunk_size=settings["chunk_size"], overlap=settings["overlap"]):
     words = text.split()
     chunks = []
 

@@ -1,37 +1,38 @@
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 import torch
 import re
 
-N = 20
-MAX_ANSWER_LENGTH = 30
+from ModelManager import distilbert_tokenizer, distilbert_model
+from RuntimeSettings import load_runtime_settings
 
-model_name = "./models/distilbert-base-cased-distilled-squad"
+settings = load_runtime_settings()
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForQuestionAnswering.from_pretrained(model_name)
 
-#פונקציה המחזירה את האינדקסים של 20 האיברים הגדולים. מהגדול לקטן
+tokenizer = distilbert_tokenizer
+model = distilbert_model
+
+#פונקציה המחזירה את האינדקסים של N האיברים הגדולים. מהגדול לקטן
 def indices_of_largest(logits):
-    res = sorted(range(len(logits)), key=lambda sub: logits[sub])[-N:][::-1]
+    res = sorted(range(len(logits)), key=lambda sub: logits[sub])[-settings["N"]:][::-1]
     return res
 
 #מציאת הזוג המתאים ביותר
 def find_best_logit_pair(start_logits, best_start_indices, end_logits, best_end_indices, sequence_ids, offset_mapping):
     best_score = float("-inf")
     best_pair = (-1, -1)
-
+    #מעבר על לוגיטי ההתחלה
     for start_idx in best_start_indices:
+        #מעבר על לוגיטי הסיום
         for end_idx in best_end_indices:
-            # רק מתוך ה-context
-            if sequence_ids[start_idx] != 1 or sequence_ids[end_idx] != 1 or end_idx < start_idx or end_idx - start_idx>MAX_ANSWER_LENGTH or offset_mapping[start_idx][0] == offset_mapping[start_idx][1] or offset_mapping[end_idx][0] == offset_mapping[end_idx][1]:
+            #בדיקה שההתחלה לפני הסיום שהם בתוך תחום התוכן
+            if sequence_ids[start_idx] != 1 or sequence_ids[end_idx] != 1 or end_idx < start_idx or end_idx - start_idx > settings["MAX_ANSWER_LENGTH"] or offset_mapping[start_idx][0] == offset_mapping[start_idx][1] or offset_mapping[end_idx][0] == offset_mapping[end_idx][1]:
                 continue
-
+            #מסםר התאמה
             score = start_logits[start_idx] + end_logits[end_idx]
 
             if score > best_score:
                 best_score = score
                 best_pair = (start_idx, end_idx)
-
+    #החזרת הזוג המתאים ביותר
     return best_pair
 
 #במקרה והתשובה קצרה מידי - הפונקציה מאריכה אותה עד 30 מילים
@@ -99,24 +100,33 @@ def pipeline_DistilBert(context,question):
     with torch.no_grad():
         outputs = model(**inputs)
 
-    # בודד את הלוגיטים של המסמך.
+    # מבודד את הלוגים של המסמך.
+    #התחלה
     start_logits = outputs["start_logits"][0].tolist()
+    #סיום
     end_logits = outputs["end_logits"][0].tolist()
 
-    # שמור רק את 20 המדדים המובילים (מתוך ~380 האפשריים) לחיפוש מהיר יותר.
+    #החזרת 20 הערכים להתחלה הגבוהים ביותר, מהגדול - לקטן
     top_start_indices = indices_of_largest(start_logits)
+    #החזרת 20 הערכים לסיום הגבוהים ביותר, מהגדול - לקטן
     top_end_indices = indices_of_largest(end_logits)
     sequence_ids = inputs.sequence_ids(0)
-
+    #מציאת הזוג הראשון המתאים ביותר להיות תשובה לשאלה
     start_idx, end_idx  = find_best_logit_pair(start_logits, top_start_indices, end_logits, top_end_indices,sequence_ids,offset_mapping)
+    #אם מחוץ לתחום התשובה - אין תשובה מתאימה
     if start_idx == -1 or end_idx == -1:
         return ""
+    #תו ההתחלה - על פי הזוג שמצאנו
     start_char = offset_mapping[start_idx][0]
+    #תו הסיום - על פי הזוג שמצאנו
     end_char = offset_mapping[end_idx][1]  
+    #אם הסיום לפני ההתחלה - אין תשובה
     if end_char <= start_char:
         return ""
+    #החזרת המשפט כולו שבו נמצאת התשובה המתאימה ביותר לשאלה
     answer = the_sentence_of_the_answer(start_char, end_char,context)
     #answer = context[start_char:end_char].strip() 
+    #החזרת המשפט
     return answer
 
 

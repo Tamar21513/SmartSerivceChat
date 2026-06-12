@@ -1,14 +1,12 @@
 import spacy
+from RuntimeSettings import load_runtime_settings
 
+settings = load_runtime_settings()
 
-STOP_WORDS = {
-    "the", "a", "an", "is", "are", "was", "were",
-    "to", "of", "on", "in", "for", "and", "or",
-    "with", "this", "that", "it", "as", "by", "my","help"
-}
 
 # טען מודל אנגלי
 nlp = spacy.load("en_core_web_sm")
+
 
 #פונקציה החזירה את הנושאים מתוך טקסט חדש
 def extract_topics(text):
@@ -18,7 +16,7 @@ def extract_topics(text):
     for chunk in new_topic.noun_chunks:
         # בחר ביטויים שמכילים לפחות שם עצם
         if any(token.pos_ == "NOUN" for token in chunk):
-            words = [w.text for w in chunk if w.text.lower() not in STOP_WORDS and len(w.text) > 2]
+            words = [w.text for w in chunk if w.text.lower() not in settings["STOP_WORDS_TO_FIND_TOPIC"] and len(w.text) > 2]
             if words:
                 filtered_words.append(" ".join(words))
             # בחר ביטויים שמכילים לפחות שם עצם
@@ -48,43 +46,58 @@ def extract_verbs(text):
 
 
 #message = "How much does it cost to fly from Israel to Greece with El Al in April for one person?"
-message = "I am interested in buying an iron, how much does a steam iron cost?"
-#message = "How to get from Jerusalem to Tel Aviv by public transportation"
-#message = "How much does a box cost?"
+##message = "I am interested in buying an iron, how much does a steam iron cost?"
+##message = "How to get from Jerusalem to Tel Aviv by public transportation"
+##message = "How much does a box cost?"
+#
+#import TextCleaning
+##הוצאת הנושאים מהטקסט
+#topics = extract_topics(message)
+#print(topics)
+##חלוקת הנושאים למילים
+#topic_words = set()
+#for t in topics:
+#    topic_words.update(t.split())
+##מציאת פעלים
+#verbs = extract_verbs(message)
+#print(verbs)
+#words = []
+#verb_seen = False
+#topic_seen = False
+##הרכבת משפט מהנושאים והפעלים על פי סדר הופעתם במשפט
+#message_clean = TextCleaning.text_cleaning(message)
+#word_message = message_clean.split()
+#for word in word_message:
+#    # אם זו מילה שהיא פועל
+#    if word in verbs:
+#        words.append(word)
+#        verb_seen = True
+#        print(word)
+#    # אם זו מילה שהיא נושא ויש כבר פועל לפני
+#    elif word in topic_words :#and verb_seen:
+#        words.append(word)
+#        topic_seen = True
+#    #elif topic_seen:
+#    #    verb_seen = False
+#
+#text_question = " ".join(words)
+#print("----------the question------------------")
+#print(text_question)
 
-import TextCleaning
-#הוצאת הנושאים מהטקסט
-topics = extract_topics(message)
-print(topics)
-#חלוקת הנושאים למילים
-topic_words = set()
-for t in topics:
-    topic_words.update(t.split())
-#מציאת פעלים
-verbs = extract_verbs(message)
-print(verbs)
-words = []
-verb_seen = False
-topic_seen = False
-#הרכבת משפט מהנושאים והפעלים על פי סדר הופעתם במשפט
-message_clean = TextCleaning.text_cleaning(message)
-word_message = message_clean.split()
-for word in word_message:
-    # אם זו מילה שהיא פועל
-    if word in verbs:
-        words.append(word)
-        verb_seen = True
-        print(word)
-    # אם זו מילה שהיא נושא ויש כבר פועל לפני
-    elif word in topic_words :#and verb_seen:
-        words.append(word)
-        topic_seen = True
-    #elif topic_seen:
-    #    verb_seen = False
 
-text_question = " ".join(words)
-print("----------the question------------------")
-print(text_question)
+
+
+
+
+
+
+
+
+
+
+
+
+
 #-----------------------------------------
 
 #from collections import Counter

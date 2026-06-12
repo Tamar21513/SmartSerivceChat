@@ -1,10 +1,14 @@
 import numpy as np
 import CreateTopicListFromDB as cTopicList
-from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import util
-SIMILARITY_THRESHOLD = 0.6
-model_embedder  = SentenceTransformer("./models/all-MiniLM-L6-v2")
+from ModelManager import embedding_model
+from RuntimeSettings import load_runtime_settings
+
+settings = load_runtime_settings()
+
+
+model_embedder = embedding_model
 
 #פונקציה שממירה מטקסט לוקטור מספרי
 def embeddings_encode(list_text):
@@ -15,7 +19,7 @@ def embeddings_encode(list_text):
 #פונקציה שמחזירה את הניתובים לקבצים שאחד מהנושאים שלהם גדול שווה ל 0.6
 def get_similar_topic_indexes(similarity_scores,folder_path):
     #פונקציה מקוצרת שמחזירה את כל האינדקסים של הנושאים שההתאמה שלהם למשפט החדש גדול מ 0.6
-    get_row_indexes = lambda arr: [i for i, row in enumerate(arr) if np.any(row >= SIMILARITY_THRESHOLD)]
+    get_row_indexes = lambda arr: [i for i, row in enumerate(arr) if np.any(row >= settings["SIMILARITY_THRESHOLD"])]
     #זימון הפונקציה על המערך של ה similarity_scores
     arr_indexes = get_row_indexes(similarity_scores)
     phats_to_similar_topic =  cTopicList.phat_to_similar_topics(arr_indexes,folder_path)
@@ -67,8 +71,8 @@ def semantic_search_from_corpus(corpus,question):
     # יצירת וקטור לקורפוסים
     corpus_embeddings = model_embedder.encode(corpus, convert_to_tensor=True)
 
-    # מציאת  5 המשפטים הקרובים ביותר בקורפוס עבור כל השאלה בדמיון סמנטי
-    top_k = min(5, len(corpus))
+    # מציאת  5settings["NUM_SENTENCES"]  המשפטים הקרובים ביותר בקורפוס עבור כל השאלה בדמיון סמנטי
+    top_k = min(settings["NUM_SENTENCES"], len(corpus))
     # יצירת וקטור לשאלה
     query_embedding = model_embedder.encode(question, convert_to_tensor=True)
 
@@ -78,9 +82,7 @@ def semantic_search_from_corpus(corpus,question):
     return hits
 
 
-chunk_size = 250
-chunk_overlap = 50
-top_k = 8
+
 
 
 

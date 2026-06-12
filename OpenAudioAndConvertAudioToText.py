@@ -9,7 +9,6 @@ model = whisper.load_model("base")
 
 #המרת שמע לטקסט
 def Convert_audio_to_text(audio_path):
-    print("-"*50)
     print("Convert_audio_to_text")
     try:
         text =""
