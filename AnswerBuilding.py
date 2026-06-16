@@ -1,171 +1,181 @@
-import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-from ModelManager import flan_t5_tokenizer, flan_t5_model
-from RuntimeSettings import load_runtime_settings
+#import torch
+#from ModelManager import flan_t5_tokenizer, flan_t5_model
+#from RuntimeSettings import load_runtime_settings
+#
+#settings = load_runtime_settings()
+#
+#tokenizer = flan_t5_tokenizer
+#model = flan_t5_model
+#
+#model.eval()
+#
+#
+#prefix = """
+#You are a customer support answer builder.
+#
+#Input fields:
+#topic, question, content.
+#
+#Task:
+#Write a customer support response.
+#
+#Output format:
+#answer: ...
+#ending: ...
+#
+#Rules:
+#- Use only the question and content.
+#- Do not invent facts, prices, dates, order status, policies, or product details.
+#- If exact information is missing, say it is not provided in the available context.
+#- For complaint topic, content may be empty.
+#- Do not copy instructions into the response.
+#- Always include both answer and ending.
+#"""
+#
+##תיקון סיומת התשובה
+#def fix_answer_format(text):
+#    text = str(text).strip()
+#
+#    bad_sentences = [
+#        "The ending is yes.",
+#        "The ending is no.",
+#        "The ending is:",
+#        "The answer is:",
+#    ]
+#
+#    for sentence in bad_sentences:
+#        text = text.replace(sentence, "").strip()
+#
+#    lower = text.lower()
+#
+#    if "answer:" not in lower:
+#        text = "answer: " + text
+#        lower = text.lower()
+#
+#    if "ending:" not in lower:
+#        text += "\nending: Would you like me to help with the next step?"
+#
+#    return text
+#
+#
+#def clean_model_output(text):
+#    text = str(text).strip()
+#
+#    bad_phrases = [
+#        "Do not promise refund, compensation, replacement, repair, or escalation unless explicitly provided.",
+#        "The ending should ask for one useful next detail, such as reference number, affected product/service, or expected improvement.",
+#        "Then mention only the closest relevant prices from the content.",
+#        "If it is clear from the question, answer with that time.",
+#        "Do not invent facts, prices, dates, order status, policies, or product details.",
+#        "Return only valid JSON.",
+#        "Use only information that is available in the provided input.",
+#    ]
+#
+#    for phrase in bad_phrases:
+#        text = text.replace(phrase, "").strip()
+#
+#    return fix_answer_format(text)
+#
+#
+## בניית תשובה סופית
+#def create_answer(question, context, topic):
+#    question = str(question).strip()
+#    context = str(context).strip()
+#    topic = str(topic).strip()
+#
+#    # לפי האימון שלך: complaint בלי content
+#    if topic == "complaint":
+#        context = ""
+#
+#    prompt = f"""
+#{prefix}
+#
+#topic:
+#{topic}
+#
+#question:
+#{question}
+#
+#content:
+#{context}
+#"""
+#
+#    inputs = tokenizer(
+#        prompt,
+#        return_tensors="pt",
+#        max_length=768,
+#        truncation=True
+#    ).to(model.device)
+#
+#    model.eval()
+#
+#    with torch.no_grad():
+#        outputs = model.generate(
+#            **inputs,
+#            max_new_tokens=160,
+#            min_new_tokens=10,
+#            do_sample=False,
+#            num_beams=4,
+#            no_repeat_ngram_size=3,
+#            repetition_penalty=1.3,
+#            eos_token_id=tokenizer.eos_token_id,
+#            pad_token_id=tokenizer.pad_token_id
+#        )
+#
+#    answer = tokenizer.decode(
+#        outputs[0],
+#        skip_special_tokens=True
+#    ).strip()
+#
+#    print("RAW OUTPUT IDS:")
+#    print(outputs[0].tolist())
+#
+#    print("DECODE WITHOUT SPECIAL TOKENS:")
+#    print(answer)
+#
+#    answer = clean_model_output(answer)
+#
+#    print("FINAL CLEAN ANSWER:")
+#    print(answer)
+#
+#    return answer
+#
 
-settings = load_runtime_settings()
+##לא נראה לי שצריך--------------------
+#def get_general_topic(topic, question, contexts, weighted_tokens):
+#    prompt = f"""
+#You are a customer support assistant.
+#
+#Use only the provided context snippets.
+#The question is already cleaned and shortened.
+#Pay more attention to tokens with higher weights.
+#Do not invent missing information.
+#If the context does not contain enough information, say that clearly.
+#Write naturally and personally, but stay professional.
+#Return exactly this format:
+#
+#answer: ...
+#ending: ...
+#
+#Topic:
+#{topic}
+#
+#Question:
+#{question}
+#
+#Weighted question tokens:
+#{weighted_tokens}
+#
+#Context snippets:
+#{contexts}
+#"""
+#    inputs = tokenizer(prompt, return_tensors="pt",truncation=True)
+#    outputs = model.generate(**inputs,max_new_tokens=90,do_sample=False,num_beams=4,early_stopping=True,no_repeat_ngram_size=3,repetition_penalty=1.2)
+#    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+#
+#
 
 
-tokenizer = flan_t5_tokenizer
-model = flan_t5_model
-
-
-model.eval()
-
-#פונקציה המאחדת משקל - למילה
-def build_weighted_tokens(question, weights):
-    words = question
-    print("words")
-    print(words)
-
-    if len(words) != len(weights):
-        print("Warning: number of words and weights is not equal")
-        min_len = min(len(words), len(weights))
-        words = words[:min_len]
-        weights = weights[:min_len]
-
-    weighted_tokens = []
-
-    for word, weight in zip(words, weights):
-        weighted_tokens.append(f"{word}={weight}")
-
-    return ", ".join(weighted_tokens)
-
-
-#בנית תשובה
-def create_answer(question, context, topic, weights=None):
-    weighted_tokens = build_weighted_tokens(question, weights[4:])
-
-    prompt = f"""
-You are a customer support assistant.
-
-Use only the provided context snippets.
-Do not invent information.
-Do not add products, prices, dates, or details that are not written in the context.
-If several options appear in the context, list each option on a separate line.
-For pricing questions, show the cheapest option if it can be identified.
-The ending question must be directly about the same product or same options in the answer.
-The ending question must not ask for information that was already answered.
-The ending question should offer a useful next step about the same item.
-For pricing questions, ask if the user wants a comparison, availability, or features of the listed options.
-
-Return exactly this format:
-answer: ...
-ending: ...
-
-Topic: {topic}
-
-Question:
-{question}
-
-Weighted question tokens:
-{weighted_tokens}
-
-Context snippets:
-{context}
-"""
-
-    inputs = tokenizer(
-        prompt,
-        return_tensors="pt",
-        max_length=512,
-        truncation=True
-    ).to(model.device)
-
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=160,
-            do_sample=False,
-            num_beams=4,
-            no_repeat_ngram_size=3,
-            repetition_penalty=1.2
-        )
-    print("RAW OUTPUT IDS:")
-    print(outputs[0].tolist())
-
-    print("DECODE WITH SPECIAL TOKENS:")
-    print(tokenizer.decode(outputs[0], skip_special_tokens=False))
-
-    print("DECODE WITHOUT SPECIAL TOKENS:")
-    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-
-
-#לא נראה לי שצריך--------------------
-def get_general_topic(topic, question, contexts, weighted_tokens):
-    prompt = f"""
-You are a customer support assistant.
-
-Use only the provided context snippets.
-The question is already cleaned and shortened.
-Pay more attention to tokens with higher weights.
-Do not invent missing information.
-If the context does not contain enough information, say that clearly.
-Write naturally and personally, but stay professional.
-Return exactly this format:
-
-answer: ...
-ending: ...
-
-Topic:
-{topic}
-
-Question:
-{question}
-
-Weighted question tokens:
-{weighted_tokens}
-
-Context snippets:
-{contexts}
-"""
-    inputs = tokenizer(prompt, return_tensors="pt",truncation=True)
-    outputs = model.generate(**inputs,max_new_tokens=90,do_sample=False,num_beams=4,early_stopping=True,no_repeat_ngram_size=3,repetition_penalty=1.2)
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-
-
-
-
-import json
-import torch
-
-DATA_FILE = r"C:\Tamarush\programming\project\ChatTM\Felis_python\data\flan_t5_large_dataset_with_complaints.jsonl"
-
-with open(DATA_FILE, "r", encoding="utf-8") as f:
-    for line in f:
-        item = json.loads(line)
-        if str(item.get("output", "")).strip():
-            prompt = item["input"]
-            expected = item["output"]
-            break
-
-print("EXPECTED:")
-print(expected)
-
-inputs = tokenizer(
-    prompt,
-    return_tensors="pt",
-    max_length=512,
-    truncation=True
-).to(model.device)
-
-with torch.no_grad():
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=120,
-        min_new_tokens=20,
-        do_sample=False,
-        num_beams=1,
-        eos_token_id=tokenizer.eos_token_id,
-        pad_token_id=tokenizer.pad_token_id
-    )
-
-print("RAW:", outputs[0].tolist())
-print("TEXT WITH SPECIAL:", tokenizer.decode(outputs[0], skip_special_tokens=False))
-print("TEXT:", tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 
 #------------------------בדיקה אם עובד------------------
@@ -203,461 +213,422 @@ print("TEXT:", tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 
 #----------------------------אימון מודל שכתבתי לבד בסד--------------
-#import os
-#import gc
-#import json
-#import torch
-#import numpy as np
-#import nltk
-#import evaluate
-#
-#from datasets import load_dataset
-#from transformers import (
-#    AutoTokenizer,
-#    AutoModelForSeq2SeqLM,
-#    DataCollatorForSeq2Seq,
-#    Seq2SeqTrainingArguments,
-#    Seq2SeqTrainer,
-#)
-#
-#
-## =========================
-## Paths
-## =========================
-#
-#BASE_DIR = r"C:\Tamarush\programming\project\ChatTM\Felis_python"
-#
-#DATA_FILE = os.path.join(BASE_DIR,"data" ,"flan_t5_large_dataset_with_complaints.jsonl")
-#
-#
-#MODEL_NAME = os.path.join(BASE_DIR, "models", "flan-t5-large")
-#
-#
-#OUTPUT_DIR = os.path.join(BASE_DIR, "models", "trained_flan_t5_large_local")
-#RESULTS_DIR = os.path.join(BASE_DIR, "results_flan_t5_large_local")
-#
-#
-## =========================
-## Safety / device
-## =========================
-#
-#gc.collect()
-#
-#if torch.cuda.is_available():
-#    torch.cuda.empty_cache()
-#    DEVICE = "cuda"
-#else:
-#    DEVICE = "cpu"
-#
-#print("Device:", DEVICE)
-#
-#if DEVICE == "cpu":
-#    print("WARNING: Training FLAN-T5-LARGE on CPU will be very slow.")
-#
-#
-## =========================
-## Load tokenizer + model
-## =========================
-#
-#print("Loading tokenizer...")
-#
-#tokenizer = AutoTokenizer.from_pretrained(
-#    MODEL_NAME,
-#    use_fast=True
-#)
-#
-#print("Loading model...")
-#
-#model = AutoModelForSeq2SeqLM.from_pretrained(
-#    MODEL_NAME,
-#    torch_dtype=torch.float32,
-#    low_cpu_mem_usage=True
-#)
-#
-#model.to(DEVICE)
-#model.config.use_cache = False
-#model.train()
-#
-#print("Model loaded")
-#print("Model dtype:", next(model.parameters()).dtype)
-#
-#
-## =========================
-## Load dataset
-## =========================
-#
-#if not os.path.exists(DATA_FILE):
-#    raise FileNotFoundError(f"Dataset file not found: {DATA_FILE}")
-#
-#raw_dataset = load_dataset(
-#    "json",
-#    data_files=DATA_FILE
-#)["train"]
-#
-#print("Raw dataset:", raw_dataset)
-#print("First example:", raw_dataset[0])
-#
-#
-## =========================
-## Clean dataset
-## =========================
-#
-#def clean_example(example):
-#    topic = str(example.get("topic", "")).strip()
-#    input_text = str(example.get("input", "")).strip()
-#    output_text = str(example.get("output", "")).strip()
-#
-#    return {
-#        "topic": topic,
-#        "input": input_text,
-#        "output": output_text
-#    }
-#
-#
-#dataset = raw_dataset.map(clean_example)
-#
-#dataset = dataset.filter(
-#    lambda x: len(x["input"]) > 0 and len(x["output"]) > 0
-#)
-#
-#print("Dataset after cleaning:", len(dataset))
-#
-#
-#split_dataset = dataset.train_test_split(
-#    test_size=0.1,
-#    seed=42
-#)
-#
-#train_dataset = split_dataset["train"]
-#eval_dataset = split_dataset["test"]
-#
-#print("Train:", len(train_dataset))
-#print("Eval:", len(eval_dataset))
-#
-#print("\nSample input:")
-#print(train_dataset[0]["input"])
-#print("\nSample output:")
-#print(train_dataset[0]["output"])
-#
-#
-## =========================
-## Tokenize
-## =========================
-#
-#MAX_INPUT_LENGTH = 384
-#MAX_TARGET_LENGTH = 96
-#
-#
-#def preprocess_function(examples):
-#    inputs = []
-#    targets = []
-#
-#    for inp, out in zip(examples["input"], examples["output"]):
-#        inp = "" if inp is None else str(inp).strip()
-#        out = "" if out is None else str(out).strip()
-#
-#        inputs.append(inp)
-#        targets.append(out)
-#
-#    model_inputs = tokenizer(
-#        inputs,
-#        max_length=MAX_INPUT_LENGTH,
-#        truncation=True,
-#        padding="max_length"
-#    )
-#
-#    labels = tokenizer(
-#        text_target=targets,
-#        max_length=MAX_TARGET_LENGTH,
-#        truncation=True,
-#        padding="max_length"
-#    )
-#
-#    labels_ids = labels["input_ids"]
-#
-#    # קריטי: לא לתת למודל ללמוד padding
-#    labels_ids = [
-#        [
-#            token if token != tokenizer.pad_token_id else -100
-#            for token in label
-#        ]
-#        for label in labels_ids
-#    ]
-#
-#    model_inputs["labels"] = labels_ids
-#
-#    return model_inputs
-#
-#
-#tokenized_dataset = split_dataset.map(
-#    preprocess_function,
-#    batched=True,
-#    remove_columns=split_dataset["train"].column_names
-#)
-#
-#tokenized_train = tokenized_dataset["train"]
-#tokenized_eval = tokenized_dataset["test"]
-#
-#
-## =========================
-## Check labels before training
-## =========================
-#
-#example = tokenized_train[0]
-#labels = example["labels"]
-#
-#num_real_labels = sum(1 for x in labels if x != -100)
-#num_ignored_labels = sum(1 for x in labels if x == -100)
-#
-#decoded_labels = tokenizer.decode(
-#    [x for x in labels if x != -100],
-#    skip_special_tokens=True
-#)
-#
-#print("\nLabel check:")
-#print("Real labels:", num_real_labels)
-#print("Ignored labels:", num_ignored_labels)
-#print("Decoded labels:")
-#print(decoded_labels)
-#
-#if num_real_labels == 0:
-#    raise ValueError("All labels are -100. Training cannot continue.")
-#
-#
-## =========================
-## Data collator
-## =========================
-#
-#data_collator = DataCollatorForSeq2Seq(
-#    tokenizer=tokenizer,
-#    model=model,
-#    label_pad_token_id=-100
-#)
-#
-#
-## =========================
-## Manual loss check
-## =========================
-#
-#batch = {
-#    "input_ids": torch.tensor([tokenized_train[0]["input_ids"]], dtype=torch.long).to(DEVICE),
-#    "attention_mask": torch.tensor([tokenized_train[0]["attention_mask"]], dtype=torch.long).to(DEVICE),
-#    "labels": torch.tensor([tokenized_train[0]["labels"]], dtype=torch.long).to(DEVICE),
+#----------------------------אימון מודל שכתבתי לבד בסד--------------
+
+
+
+
+
+#
+#prefix = """
+#You are a professional customer support answer builder.
+#
+#Your task is to create a clear, accurate, and helpful customer service answer.
+#
+#You will receive:
+#- topic: the topic/category of the customer request.
+#- question: the cleaned and shortened customer question.
+#- weights: importance weights for every word in the question.
+#- content: context snippets retrieved from company data, database, or web search.
+#  For topic = complaint, content may be empty and must not be required.
+#
+#GENERAL RULES:
+#1. Use only information that is available in the provided input.
+#2. Do not invent facts, prices, dates, times, policies, order status, product details, or company actions.
+#3. Do not assume missing details.
+#4. Do not mention information that is not supported by the question or content.
+#5. If topic is complaint, content may be empty. Build the answer from the question and weights.
+#6. If topic is not complaint, answer only from the content.
+#7. If the exact requested information does not appear, say that clearly.
+#8. Never return an empty answer.
+#9. Never return only punctuation or repeated words.
+#10. Return only valid JSON.
+#
+#OUTPUT FORMAT:
+#Return exactly one JSON object with exactly these keys:
+#{
+#  "answer": "...",
+#  "ending": "..."
 #}
 #
-#with torch.no_grad():
-#    outputs = model(**batch)
+#FIELD RULES:
+#- answer: direct answer to the customer.
+#- ending: one short useful follow-up sentence about the same topic.
+#- Do not ask for information that was already answered.
+#- Do not ask an unrelated question.
 #
-#manual_loss = outputs.loss.item()
+#PRICING RULES:
+#- If an exact price appears in the content, answer with that price.
+#- If several prices appear, list each relevant price clearly.
+#- If the exact requested price is missing, say that the exact requested price is not provided.
+#- Then mention only the closest relevant prices from the content.
+#- Do not invent prices, discounts, taxes, dates, fees, or availability.
 #
-#print("\nManual loss:", manual_loss)
+#COMPLAINT RULES:
+#- Content may be empty.
+#- Respond with empathy and professionalism.
+#- Apologize for the negative experience.
+#- Mention the complaint issue if it is clear from the question.
+#- Do not promise refund, compensation, replacement, repair, or escalation unless explicitly provided.
+#- The ending should ask for one useful next detail, such as reference number, affected product/service, or expected improvement.
 #
-#if np.isnan(manual_loss):
-#    raise ValueError("Manual loss is NaN. Stop training.")
-#
-#if manual_loss == 0:
-#    print("WARNING: Manual loss is 0. Check dataset and labels.")
-#
-#
-## =========================
-## Metrics
-## =========================
-#
-#nltk.download("punkt", quiet=True)
-#metric = evaluate.load("rouge")
-#
-#
-#def compute_metrics(eval_preds):
-#    preds, labels = eval_preds
-#
-#    if isinstance(preds, tuple):
-#        preds = preds[0]
-#
-#    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-#
-#    decoded_preds = tokenizer.batch_decode(
-#        preds,
-#        skip_special_tokens=True
-#    )
-#
-#    decoded_labels = tokenizer.batch_decode(
-#        labels,
-#        skip_special_tokens=True
-#    )
-#
-#    decoded_preds = [pred.strip() for pred in decoded_preds]
-#    decoded_labels = [label.strip() for label in decoded_labels]
-#
-#    result = metric.compute(
-#        predictions=decoded_preds,
-#        references=decoded_labels,
-#        use_stemmer=True
-#    )
-#
-#    result["quality_percent"] = result["rougeL"] * 100
-#
-#    return result
-#
-#
-## =========================
-## Training args
-## =========================
-#
-#training_args = Seq2SeqTrainingArguments(
-#    output_dir=RESULTS_DIR,
-#
-#    learning_rate=5e-6,
-#    num_train_epochs=1,
-#
-#    per_device_train_batch_size=1,
-#    per_device_eval_batch_size=1,
-#    gradient_accumulation_steps=16,
-#
-#    weight_decay=0.01,
-#    max_grad_norm=1.0,
-#
-#    eval_strategy="epoch",
-#    save_strategy="epoch",
-#
-#    logging_strategy="steps",
-#    logging_steps=10,
-#
-#    # בזמן אימון מקומי זה חוסך זיכרון.
-#    # אחרי אימון נעשה בדיקה ידנית עם generate.
-#    predict_with_generate=False,
-#
-#    fp16=False,
-#    bf16=False,
-#
-#    optim="adamw_torch",
-#
-#    save_total_limit=2,
-#    report_to="none",
-#    dataloader_pin_memory=False,
-#    remove_unused_columns=False
-#)
-#
-#
-## =========================
-## Trainer
-## =========================
-#
-#trainer = Seq2SeqTrainer(
-#    model=model,
-#    args=training_args,
-#    train_dataset=tokenized_train,
-#    eval_dataset=tokenized_eval,
-#    data_collator=data_collator,
-#    processing_class=tokenizer
-#)
-#
-#
-## =========================
-## Train
-## =========================
-#
-#print("\nStarting training...")
-#
-#train_result = trainer.train()
-#
-#print("\nTrain result:")
-#print(train_result)
-#
-#
-## =========================
-## Evaluate loss
-## =========================
-#
-#eval_results = trainer.evaluate()
-#
-#print("\nEval results:")
-#print(eval_results)
-#
-#
-## =========================
-## Save model
-## =========================
-#
-#print("\nSaving model...")
-#
-#trainer.save_model(OUTPUT_DIR)
-#tokenizer.save_pretrained(OUTPUT_DIR)
-#
-#print("Saved to:", OUTPUT_DIR)
-#
-#
-## =========================
-## Fix tokenizer_config.json
-## =========================
-#
-#tokenizer_config_path = os.path.join(OUTPUT_DIR, "tokenizer_config.json")
-#
-#if os.path.exists(tokenizer_config_path):
-#    with open(tokenizer_config_path, "r", encoding="utf-8") as f:
-#        data = json.load(f)
-#
-#    changed = False
-#
-#    for key in ["extra_special_tokens", "tokenizer_class", "is_local", "local_files_only"]:
-#        if key in data:
-#            del data[key]
-#            changed = True
-#            print("Removed from tokenizer_config:", key)
-#
-#    with open(tokenizer_config_path, "w", encoding="utf-8") as f:
-#        json.dump(data, f, ensure_ascii=False, indent=2)
-#
-#    print("tokenizer_config fixed:", changed)
-#
-#
-## =========================
-## Generation test
-## =========================
-#
-#print("\nTesting generation...")
-#
-#model.eval()
-#
-#prompt = """
-#You are a customer support assistant.
-#Use only the provided context snippets.
-#Return exactly this format:
-#answer: ...
-#ending: ...
-#
-#Topic: complaint
-#Question: I want to complain about late delivery with my order reference 45872.
-#Weighted question tokens: late delivery=3.0, order=2.5, reference 45872=2.0
-#Context snippets:
-#1. Complaints should be handled with empathy and professional language.
-#2. Support may ask for missing details such as target or reference number.
-#3. Improvement suggestions can help the company understand the customer experience.
+#VALID JSON RULES:
+#- Output valid JSON only.
+#- Use double quotes.
+#- Do not include markdown.
+#- Do not include text before or after the JSON.
 #"""
-#
-#inputs = tokenizer(
-#    prompt,
-#    return_tensors="pt",
-#    truncation=True,
-#    max_length=MAX_INPUT_LENGTH
-#).to(DEVICE)
-#
-#with torch.no_grad():
-#    generated = model.generate(
-#        **inputs,
-#        max_new_tokens=100,
-#        do_sample=False,
-#        num_beams=4,
-#        no_repeat_ngram_size=3,
-#        repetition_penalty=1.8,
-#        early_stopping=True,
-#        eos_token_id=tokenizer.eos_token_id,
-#        pad_token_id=tokenizer.pad_token_id
-#    )
-#
-#answer = tokenizer.decode(
-#    generated[0],
-#    skip_special_tokens=True
-#)
-#
-#print("\nGenerated answer:")
-#print(answer)
+
+import os
+import json
+import nltk
+import evaluate
+import numpy as np
+import torch
+
+from datasets import load_dataset
+from transformers import (
+    T5Tokenizer,
+    DataCollatorForSeq2Seq,
+    T5ForConditionalGeneration,
+    Seq2SeqTrainingArguments,
+    Seq2SeqTrainer
+)
+
+MODEL_NAME = "./models/flan-t5-base"
+DATA_FILE = "./data/Dateset_to_flan_t5.jsonl"
+
+OUTPUT_DIR = "./models/trained_flan_t5_base_2"
+RESULTS_DIR = "./results"
+
+tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
+model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model.to(device)
+
+model.config.use_cache = False
+model.train()
+
+print("Device:", device)
+
+
+prefix = """
+You are a customer support answer builder.
+
+Input fields:
+topic, question, content.
+
+Task:
+Write a customer support response.
+
+Output format:
+answer: ...
+ending: ...
+
+Rules:
+- Use only the question and content.
+- Do not invent facts, prices, dates, order status, policies, or product details.
+- If exact information is missing, say it is not provided in the available context.
+- For complaint topic, content may be empty.
+- Do not copy instructions into the response.
+- Always include both answer and ending.
+"""
+
+
+# Load dataset
+json_answers_qa = load_dataset(
+    "json",
+    data_files=DATA_FILE
+)
+
+json_answers_qa = json_answers_qa["train"].train_test_split(
+    test_size=0.1,
+    seed=42
+)
+
+
+def clean_example(example):
+    topic = str(example.get("topic", "")).strip()
+    question = str(example.get("question", "")).strip()
+    content = str(example.get("content", "")).strip()
+    answer = str(example.get("answer", "")).strip()
+
+    return {
+        "topic": topic,
+        "question": question,
+        "content": content,
+        "answer": answer
+    }
+
+
+json_answers_qa = json_answers_qa.map(clean_example)
+
+json_answers_qa = json_answers_qa.filter(
+    lambda x: (
+        len(x["topic"]) > 0 and
+        len(x["question"]) > 0 and
+        len(x["answer"]) > 0
+    )
+)
+
+
+def normalize_target(answer_text):
+    text = str(answer_text).strip()
+    lower = text.lower()
+
+    if "answer:" in lower and "ending:" in lower:
+        return text
+
+    if "answer:" in lower and "ending:" not in lower:
+        return text + "\nending: Would you like help with the next step?"
+
+    return f"answer: {text}\nending: Would you like help with the next step?"
+
+
+
+def preprocess_function(examples):
+    inputs = []
+
+    for topic, question, content in zip(examples["topic"], examples["question"], examples["content"]):
+        if topic == "complaint":
+            content = ""
+
+        prompt = f"""
+{prefix}
+
+topic:
+{topic}
+
+question:
+{question}
+
+content:
+{content}
+"""
+        inputs.append(prompt)
+
+    targets = [
+      normalize_target(answer)
+      for answer in examples["answer"]
+  ]
+
+    model_inputs = tokenizer(
+        inputs,
+        max_length=768,
+        truncation=True,
+        padding="max_length"
+    )
+
+    labels = tokenizer(
+        text_target=targets,
+        max_length=160,
+        truncation=True,
+        padding="max_length"
+    )
+
+    labels_ids = labels["input_ids"]
+
+    labels_ids = [
+        [
+            token if token != tokenizer.pad_token_id else -100
+            for token in label
+        ]
+        for label in labels_ids
+    ]
+
+    model_inputs["labels"] = labels_ids
+
+    return model_inputs
+
+
+tokenized_dataset = json_answers_qa.map(
+    preprocess_function,
+    batched=True,
+    remove_columns=json_answers_qa["train"].column_names
+)
+
+
+# Label check
+example = tokenized_dataset["train"][0]
+real_labels = sum(1 for x in example["labels"] if x != -100)
+
+decoded_label = tokenizer.decode(
+    [x for x in example["labels"] if x != -100],
+    skip_special_tokens=True
+)
+
+print("Real labels:", real_labels)
+print("Decoded label:")
+print(decoded_label)
+
+if real_labels == 0:
+    raise ValueError("All labels are -100. Stop training.")
+
+
+# Manual loss check
+batch = {
+    "input_ids": torch.tensor([example["input_ids"]], dtype=torch.long).to(device),
+    "attention_mask": torch.tensor([example["attention_mask"]], dtype=torch.long).to(device),
+    "labels": torch.tensor([example["labels"]], dtype=torch.long).to(device),
+}
+
+with torch.no_grad():
+    outputs = model(**batch)
+
+manual_loss = outputs.loss.item()
+print("Manual loss:", manual_loss)
+
+if np.isnan(manual_loss):
+    raise ValueError("Manual loss is NaN. Stop training.")
+
+
+data_collator = DataCollatorForSeq2Seq(
+    tokenizer=tokenizer,
+    model=model,
+    label_pad_token_id=-100
+)
+
+
+nltk.download("punkt", quiet=True)
+metric = evaluate.load("rouge")
+
+
+def compute_metrics(eval_preds):
+    preds, labels = eval_preds
+
+    if isinstance(preds, tuple):
+        preds = preds[0]
+
+    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+
+    decoded_preds = tokenizer.batch_decode(
+        preds,
+        skip_special_tokens=True
+    )
+
+    decoded_labels = tokenizer.batch_decode(
+        labels,
+        skip_special_tokens=True
+    )
+
+    decoded_preds = [pred.strip() for pred in decoded_preds]
+    decoded_labels = [label.strip() for label in decoded_labels]
+
+    result = metric.compute(
+        predictions=decoded_preds,
+        references=decoded_labels,
+        use_stemmer=True
+    )
+
+    result["quality_percent"] = result["rougeL"] * 100
+
+    return result
+
+
+L_RATE = 5e-6
+BATCH_SIZE = 1
+PER_DEVICE_EVAL_BATCH = 1
+GRADIENT_ACCUMULATION_STEPS = 16
+WEIGHT_DECAY = 0.01
+SAVE_TOTAL_LIM = 2
+NUM_EPOCHS = 3
+
+
+training_args = Seq2SeqTrainingArguments(
+    output_dir=RESULTS_DIR,
+
+    eval_strategy="epoch",
+    save_strategy="epoch",
+
+    learning_rate=L_RATE,
+
+    per_device_train_batch_size=BATCH_SIZE,
+    per_device_eval_batch_size=PER_DEVICE_EVAL_BATCH,
+    gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
+
+    weight_decay=WEIGHT_DECAY,
+    max_grad_norm=1.0,
+
+    save_total_limit=SAVE_TOTAL_LIM,
+    num_train_epochs=NUM_EPOCHS,
+
+    predict_with_generate=False,
+
+    fp16=False,
+    bf16=False,
+
+    logging_strategy="steps",
+    logging_steps=10,
+
+    report_to="none",
+    dataloader_pin_memory=False,
+    remove_unused_columns=False,
+
+    push_to_hub=False
+)
+
+
+trainer = Seq2SeqTrainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset["train"],
+    eval_dataset=tokenized_dataset["test"],
+    data_collator=data_collator,
+    compute_metrics=None
+)
+
+
+trainer.train()
+
+
+trainer.save_model(OUTPUT_DIR)
+tokenizer.save_pretrained(OUTPUT_DIR)
+
+print("Model saved to:", OUTPUT_DIR)
+
+
+# Test generation after training
+model.eval()
+
+test_prompt = f"""
+{prefix}
+
+topic:
+pricing
+
+question:
+How much does it cost to fly from Israel to Greece with El Al in April for one person?
+
+
+content:
+Cheapest flight found | $66
+Roundtrip fares with EL AL Israel Airlines start from $353 next month.
+The cheapest month to fly is January.
+"""
+
+inputs = tokenizer(
+    test_prompt,
+    return_tensors="pt",
+    max_length=768,
+    truncation=True
+).to(device)
+
+with torch.no_grad():
+    generated = model.generate(
+        **inputs,
+        max_new_tokens=160,
+        min_new_tokens=20,
+        do_sample=False,
+        num_beams=4,
+        no_repeat_ngram_size=3,
+        repetition_penalty=1.3,
+        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.pad_token_id
+    )
+
+print("RAW:", generated[0].tolist())
+print("TEXT WITH SPECIAL:")
+print(tokenizer.decode(generated[0], skip_special_tokens=False))
+print("TEXT:")
+print(tokenizer.decode(generated[0], skip_special_tokens=True))
