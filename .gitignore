@@ -3,6 +3,7 @@
 Thumbs.db
 .vscode/
 .idea/
+.claude/
 
 # Backup of the old standalone Felis_python git history (see README)
 Felis_python/.git-old-standalone-backup/
