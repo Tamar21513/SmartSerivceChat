@@ -74,10 +74,11 @@ def if_everything_full(json):
     print(required)
     #מעבר על הערכים החשובים
     for item in required:
-        #אם הערך ריק 
-        if json[item] == "":
-            #הוספת הערך לרשימת הערכים החשובים החסרים
-            missing_item.append(item)
+        if item != "brand":
+            #אם הערך ריק 
+            if json[item] == "":
+                #הוספת הערך לרשימת הערכים החשובים החסרים
+                missing_item.append(item)
     #החזרת רשימת הערכים החסרים
     return missing_item
 
@@ -154,46 +155,47 @@ def finding_missing_details(json_question, user_data, chat_history):
 def message_handling(text, user_data,chat_history):
     #tree_things.print_tree(tree_things.Root)
     #מציאת סוג הפניה
-    category = CategorizedByTopic.categories(text)
-    print("category")
-    print(category)
+    topic = CategorizedByTopic.categories(text)
+    print("topic")
+    print(topic)
     #שאיבת הJSON המתאים לסוג הפניה
-    json_question = JsonToTopic.get_json(category)
+    json_question = JsonToTopic.get_json(topic)
     #מילוי הJSON בערכים משאלת הלקוח
-    full_json = JsonFilling.json_filling(category,text,json_question)
-    print("full_json")
-    print(full_json)
+    json_question = JsonFilling.json_filling(topic,text,json_question)
+    print("json_question")
+    print(json_question)
     #מציאת הנתונים החסרים
     json_question = finding_missing_details(json_question, user_data, chat_history)
     #בדיקה שכל הערכים הנחוצים בJSON מלאים 
-    missing_item = if_everything_full(full_json)
+    missing_item = if_everything_full(json_question)
     if len(missing_item) > 0:
         print("The following items are missing:")
         print("missing_item")
         print(missing_item)
         return "The following items are missing: " + ", ".join(missing_item)
     #בנית השאלה המקוצרת
-    the_question = build_question(full_json)
+    the_question = build_question(json_question)
     print("the_question[0]")
     print(the_question[0])
     print("the_question[1]")
     print(the_question[1])
         
     # סוג הפניה לא תלונה
-    if category != "complaint" and category != "other":
-        item_in_question = json_question["required"]
-        if settings["brand"] in json_question:
-            name_company = json_question[settings["brand"]]
+    if topic != "complaint" and topic != "other":
+        list_required = json_question["required"]
+        name_company = ""
+        if ("brand" in list_required) == True:
+            name_company = json_question["++"]
         else:
             name_company = ""
         #חיפוש תשובה במסד נתונים
-        lst_par_to_answer = SearchInDB.handling_company_database(the_question[0],json_question[item_in_question[1]],category,name_company, user_data)
+        lst_par_to_answer = SearchInDB.handling_company_database(the_question[0],json_question[list_required[1]],topic,name_company, user_data)
         if len(lst_par_to_answer) < settings["NUM_TO_ANSWER"]:
             #במקרה הצורך - חיפוש כללי
             contents = SearchInDB.handling_Internet_database(the_question)
             dic_BinarySearchTree[user_data["userId"]] = BinarySearchTree()
             #טיפול במאמרים שנפתחו
-            SearchInDB.select_most_suitable_simplifyers(contents, the_question, category, user_data)
+            SearchInDB.select_most_suitable_simplifyers(contents, the_question, topic, user_data)
             #הוצאת מספר התשובות המקוצרות המתאימות ביותר
             text_to_answer = dic_BinarySearchTree[user_data["userId"]].bst_to_list(len(lst_par_to_answer),settings["NUM_TO_ANSWER"])
             lst_par_to_answer = lst_par_to_answer + text_to_answer
@@ -248,7 +250,15 @@ def message_handling(text, user_data,chat_history):
         print("\n\n\n".join(text_to_answer))
 
         #בנית התשובה
-        answer_final = AnswerBuilding.create_answer(the_question,"\n".join(text_to_answer), category, the_question[1])
+        answer_final = AnswerBuilding.create_answer(the_question[0],"\n".join(text_to_answer), topic)
+        print()
+        print()
+        print()
+        print()
+        print()
+        print()
+        print("------the finaly answer------------")
+        print(answer_final)
         return answer_final
     #
     #
@@ -257,7 +267,7 @@ def message_handling(text, user_data,chat_history):
     #
     
     else:
-        if category == "other":
+        if topic == "other":
             return "I am not allowed to answer this question because it does not deal with customer service."
         #טיפול בתלונה
         else:

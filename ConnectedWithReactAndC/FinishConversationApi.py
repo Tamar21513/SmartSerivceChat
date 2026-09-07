@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 import requests
 
-from ConnectedWithReactAndC.SharedDataStructure import list_question_answer
+from ConnectedWithReactAndC.SharedDataStructure import dic_question_answer
 from RuntimeSettings import load_runtime_settings
 
 settings = load_runtime_settings()
@@ -21,7 +21,7 @@ class FinishConversationRequest(BaseModel):
 # פונקציה לסיום שיחה ושליחת הדו"ח לשרת C#
 def finish_conversation(data: FinishConversationRequest):
     # בדיקה אם קיימות הודעות לשמירה
-    if len(list_question_answer) <= 1:
+    if len(dic_question_answer[data.userId]) <= 1:
         return {
             "success": True,
             "message": "No conversation to send."
@@ -29,13 +29,13 @@ def finish_conversation(data: FinishConversationRequest):
     # בניית גוף הבקשה לשליחה לשרת C#
     payload = {
         "userId": data.userId,
-        "conversation": list_question_answer
+        "conversation": dic_question_answer[data.userId]
     }
 
     try:
         # שליחת השיחה לשרת C# לצורך שמירה במסד הנתונים
         response = requests.post(
-            f"{settings["CSHARP_API_BASE_URL"]}/api/reports/from-python",
+            f"{settings['CSHARP_API_BASE_URL']}/api/reports/from-python",
             json=payload,
             timeout=10
         )
@@ -48,7 +48,7 @@ def finish_conversation(data: FinishConversationRequest):
             }
         
         # ניקוי רשימת השיחה לאחר שמירה מוצלחת
-        list_question_answer.clear()
+        dic_question_answer[data.userId].clear()
         # החזרת תשובה על הצלחת השמירה
         return {
             "success": True,

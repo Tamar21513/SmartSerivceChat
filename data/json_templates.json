@@ -3,27 +3,65 @@
     "topic": "pricing",
     "type": "",
     "item": "",
-    "provider": "",
+    "brand": "",
     "origin": "",
     "destination": "",
     "time": "",
     "quantity": "",
     "search": [
-      {"field": "type"},
-      {"field": "item"},
-      {"text_if_field_exists": "from", "field": "origin"},
-      {"field": "origin"},
-      {"text_if_field_exists": "to", "field": "destination"},
-      {"field": "destination"},
-      {"text_if_field_exists": "with", "field": "provider"},
-      {"field": "provider"},
-      {"text_if_field_exists": "in", "field": "time"},
-      {"field": "time"},
-      {"text_if_field_exists": "for", "field": "quantity"},
-      {"field": "quantity"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "item",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "from",
+        "field": "origin",
+        "token_weight": 1.5
+      },
+      {
+        "text_if_field_exists": "to",
+        "field": "destination",
+        "token_weight": 1.5
+      },
+      {
+        "text_if_field_exists": "with",
+        "field": "brand",
+        "token_weight": 3.0
+      },
+      {
+        "text_if_field_exists": "in",
+        "field": "time",
+        "token_weight": 1.0
+      },
+      {
+        "text_if_field_exists": "for",
+        "field": "quantity",
+        "token_weight": 1.0
+      }
     ],
-    "required": ["type", "item"]
+    "required": [
+      "type",
+      "item",
+      "brand"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "destination",
+        "if_fields_missing": [
+          {
+            "field": "origin",
+            "search_value": "city"
+          }
+        ],
+        "search_missing_value_in": "User"
+      }
+    ]
   },
+
   "ordering": {
     "topic": "ordering",
     "type": "",
@@ -32,17 +70,59 @@
     "order_condition": "",
     "quantity": "",
     "search": [
-      {"field": "type"},
-      {"field": "item"},
-      {"text_if_field_exists": "via", "field": "order_channel"},
-      {"field": "order_channel"},
-      {"text_if_field_exists": "with", "field": "order_condition"},
-      {"field": "order_condition"},
-      {"text_if_field_exists": "for", "field": "quantity"},
-      {"field": "quantity"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "item",
+        "token_weight": 3.0
+      },
+      {
+        "text_if_field_exists": "via",
+        "field": "order_channel",
+        "token_weight": 2.0
+      },
+      {
+        "text_if_field_exists": "with",
+        "field": "order_condition",
+        "token_weight": 2.0
+      },
+      {
+        "text_if_field_exists": "for",
+        "field": "quantity",
+        "token_weight": 1.5
+      }
     ],
-    "required": ["type", "item"] 
+    "required": [
+      "type",
+      "item"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "item",
+        "if_fields_missing": [
+          {
+            "field": "order_channel",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "order_condition",
+            "pos": "ADJ",
+            "ent_type": ""
+          },
+          {
+            "field": "quantity",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
+
   "tracking": {
     "topic": "tracking",
     "type": "",
@@ -51,16 +131,79 @@
     "time": "",
     "tracking_issue": "",
     "search": [
-      {"field": "type"},
-      {"field": "tracked_item"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"},
-      {"text_if_field_exists": "for", "field": "time"},
-      {"field": "time"},
-      {"field": "tracking_issue"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "tracked_item",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 3.0
+      },
+      {
+        "text_if_field_exists": "for",
+        "field": "time",
+        "token_weight": 1.5
+      },
+      {
+        "field": "tracking_issue",
+        "token_weight": 2.0
+      }
     ],
-    "required": ["type", "tracked_item"]
+    "required": [
+      "type",
+      "tracked_item"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "tracked_item",
+        "if_fields_missing": [
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          },
+          {
+            "field": "time",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          },
+          {
+            "field": "tracking_issue",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "reference_number",
+        "if_fields_missing": [
+          {
+            "field": "tracked_item",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "time",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          },
+          {
+            "field": "tracking_issue",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
+
   "cancel_or_change": {
     "topic": "cancel_or_change",
     "type": "",
@@ -70,16 +213,83 @@
     "reference_number": "",
     "status": "",
     "search": [
-      {"field": "type"},
-      {"field": "action"},
-      {"field": "target"},
-      {"field": "new_value"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"},
-      {"field": "status"}
+      {
+        "field": "type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "action",
+        "token_weight": 3.0
+      },
+      {
+        "field": "target",
+        "token_weight": 2.5
+      },
+      {
+        "field": "new_value",
+        "token_weight": 2.0
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 2.5
+      },
+      {
+        "field": "status",
+        "token_weight": 1.5
+      }
     ],
-    "required": ["type", "action", "target"]
+    "required": [
+      "type",
+      "action",
+      "target"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          },
+          {
+            "field": "status",
+            "pos": "ADJ",
+            "ent_type": ""
+          },
+          {
+            "field": "new_value",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "reference_number",
+        "if_fields_missing": [
+          {
+            "field": "target",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "status",
+            "pos": "ADJ",
+            "ent_type": ""
+          },
+          {
+            "field": "new_value",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
+
   "returns_and_refunds": {
     "topic": "returns_and_refunds",
     "type": "",
@@ -89,15 +299,80 @@
     "status": "",
     "time": "",
     "search": [
-      {"field": "type"},
-      {"field": "request_type"},
-      {"field": "item"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"},
-      {"field": "status"},
-      {"field": "time"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "request_type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "item",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 2.0
+      },
+      {
+        "field": "status",
+        "token_weight": 1.5
+      },
+      {
+        "field": "time",
+        "token_weight": 1.0
+      }
     ],
-    "required": ["type", "request_type"]
+    "required": [
+      "type",
+      "request_type"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "item",
+        "if_fields_missing": [
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          },
+          {
+            "field": "status",
+            "pos": "ADJ",
+            "ent_type": ""
+          },
+          {
+            "field": "time",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "reference_number",
+        "if_fields_missing": [
+          {
+            "field": "item",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "status",
+            "pos": "ADJ",
+            "ent_type": ""
+          },
+          {
+            "field": "time",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "account_access": {
@@ -109,14 +384,68 @@
     "email_access": "",
     "error_message": "",
     "search": [
-      {"field": "type"},
-      {"field": "access_type"},
-      {"field": "target"},
-      {"field": "account_identifier"},
-      {"field": "email_access"},
-      {"field": "error_message"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "access_type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "target",
+        "token_weight": 2.5
+      },
+      {
+        "field": "account_identifier",
+        "token_weight": 2.0
+      },
+      {
+        "field": "email_access",
+        "token_weight": 2.0
+      },
+      {
+        "field": "error_message",
+        "token_weight": 2.5
+      }
     ],
-    "required": ["type", "access_type"]
+    "required": [
+      "type",
+      "access_type"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "account_identifier",
+            "search_value": "username"
+          }
+        ],
+        "search_missing_value_in": "User"
+      },
+      {
+        "if_field_exists": "access_type",
+        "if_fields_missing": [
+          {
+            "field": "email_access",
+            "search_value": "email"
+          }
+        ],
+        "search_missing_value_in": "User"
+      },
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "error_message",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "billing_and_payment": {
@@ -128,15 +457,80 @@
     "payment_method": "",
     "amount": "",
     "search": [
-      {"field": "type"},
-      {"field": "billing_type"},
-      {"field": "target"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"},
-      {"field": "payment_method"},
-      {"field": "amount"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "billing_type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "target",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 2.0
+      },
+      {
+        "field": "payment_method",
+        "token_weight": 2.0
+      },
+      {
+        "field": "amount",
+        "token_weight": 2.5
+      }
     ],
-    "required": ["type", "billing_type"]
+    "required": [
+      "type",
+      "billing_type"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          },
+          {
+            "field": "payment_method",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "amount",
+            "pos": "NUM",
+            "ent_type": "MONEY"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "reference_number",
+        "if_fields_missing": [
+          {
+            "field": "target",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "payment_method",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "amount",
+            "pos": "NUM",
+            "ent_type": "MONEY"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "technical_issue": {
@@ -148,31 +542,171 @@
     "error_message": "",
     "device_or_env": "",
     "search": [
-      {"field": "type"},
-      {"field": "issue_type"},
-      {"field": "platform"},
-      {"field": "action"},
-      {"field": "error_message"},
-      {"field": "device_or_env"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "issue_type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "platform",
+        "token_weight": 2.5
+      },
+      {
+        "field": "action",
+        "token_weight": 2.0
+      },
+      {
+        "field": "error_message",
+        "token_weight": 2.5
+      },
+      {
+        "field": "device_or_env",
+        "token_weight": 2.0
+      }
     ],
-    "required": ["type", "issue_type"]
+    "required": [
+      "type",
+      "issue_type"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "issue_type",
+        "if_fields_missing": [
+          {
+            "field": "platform",
+            "pos": "PROPN",
+            "ent_type": "ORG"
+          },
+          {
+            "field": "action",
+            "pos": "VERB",
+            "ent_type": ""
+          },
+          {
+            "field": "error_message",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "device_or_env",
+            "pos": "PROPN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "platform",
+        "if_fields_missing": [
+          {
+            "field": "device_or_env",
+            "pos": "PROPN",
+            "ent_type": ""
+          },
+          {
+            "field": "error_message",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "product_specs": {
     "topic": "product_specs",
-    "type": "",
+    "type": "what is",
     "product": "",
-    "spec": "",
+    "brand": "",
     "model": "",
-    "expected_value": "",
+    "model_code": "",
+    "spec": "",
     "search": [
-      {"field": "type"},
-      {"field": "product"},
-      {"field": "model"},
-      {"field": "spec"},
-      {"field": "expected_value"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "brand",
+        "token_weight": 2.5
+      },
+      {
+        "field": "product",
+        "token_weight": 2.5
+      },
+      {
+        "field": "model",
+        "token_weight": 3.0
+      },
+      {
+        "field": "model_code",
+        "token_weight": 3.0
+      },
+      {
+        "field": "spec",
+        "token_weight": 2.5
+      }
     ],
-    "required": ["type", "spec"]
+    "required": [
+      "type",
+      "product",
+      "brand",
+      "spec"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "product",
+        "if_fields_missing": [
+          {
+            "field": "brand",
+            "pos": "PROPN",
+            "ent_type": "ORG"
+          },
+          {
+            "field": "model",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "model_code",
+            "pos": "PROPN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "brand",
+        "if_fields_missing": [
+          {
+            "field": "model",
+            "pos": "PROPN",
+            "ent_type": ""
+          },
+          {
+            "field": "model_code",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "model",
+        "if_fields_missing": [
+          {
+            "field": "model_code",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "policy": {
@@ -182,50 +716,223 @@
     "policy_condition": "",
     "target": "",
     "search": [
-      {"field": "type"},
-      {"field": "policy_type"},
-      {"field": "policy_condition"},
-      {"field": "target"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "policy_type",
+        "token_weight": 3.0
+      },
+      {
+        "field": "policy_condition",
+        "token_weight": 2.5
+      },
+      {
+        "field": "target",
+        "token_weight": 2.0
+      }
     ],
-    "required": ["type"]
+    "required": [
+      "type",
+      "policy_type"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "policy_type",
+        "if_fields_missing": [
+          {
+            "field": "policy_condition",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "target",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "policy_condition",
+            "pos": "NOUN",
+            "ent_type": ""
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "complaint": {
     "topic": "complaint",
-    "type": "",
-    "complaint_type": "",
+    "type": "statement",
     "issue": "",
     "target": "",
     "reference_number": "",
     "search": [
-      {"field": "type"},
-      {"field": "complaint_type"},
-      {"field": "issue"},
-      {"field": "target"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"}
+      {
+        "field": "issue",
+        "token_weight": 3.0
+      },
+      {
+        "field": "target",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 2.0
+      }
     ],
-    "required": ["type", "issue"]
+    "required": [
+      "type",
+      "issue"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "issue",
+        "if_fields_missing": [
+          {
+            "field": "target",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "target",
+        "if_fields_missing": [
+          {
+            "field": "reference_number",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   },
 
   "date_and_time": {
     "topic": "date_and_time",
-    "type": "",
+    "type": "When is there",
     "event": "",
     "time_type": "",
     "origin": "",
     "destination": "",
+    "brand": "",
+    "quantity": "",
     "time_reference": "",
     "reference_number": "",
     "search": [
-      {"field": "type"},
-      {"field": "event"},
-      {"field": "time_type"},
-      {"field": "location"},
-      {"field": "time_reference"},
-      {"text_if_field_exists": "reference", "field": "reference_number"},
-      {"field": "reference_number"}
+      {
+        "field": "type",
+        "token_weight": 1.0
+      },
+      {
+        "field": "event",
+        "token_weight": 3.0
+      },
+      {
+        "text_if_field_exists": "from",
+        "field": "origin",
+        "token_weight": 1.5
+      },
+      {
+        "text_if_field_exists": "to",
+        "field": "destination",
+        "token_weight": 1.5
+      },
+      {
+        "text_if_field_exists": "with",
+        "field": "provider",
+        "token_weight": 2.0
+      },
+      {
+        "text_if_field_exists": "in",
+        "field": "time_type",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "in",
+        "field": "time_reference",
+        "token_weight": 2.5
+      },
+      {
+        "text_if_field_exists": "for",
+        "field": "quantity",
+        "token_weight": 1.0
+      },
+      {
+        "text_if_field_exists": "reference",
+        "field": "reference_number",
+        "token_weight": 2.0
+      }
     ],
-    "required": ["type", "event"]
+    "required": [
+      "type",
+      "event",
+      "brand"
+    ],
+    "search_missing_details": [
+      {
+        "if_field_exists": "destination",
+        "if_fields_missing": [
+          {
+            "field": "origin",
+            "search_value": "city"
+          }
+        ],
+        "search_missing_value_in": "User"
+      },
+      {
+        "if_field_exists": "event",
+        "if_fields_missing": [
+          {
+            "field": "provider",
+            "pos": "PROPN",
+            "ent_type": "ORG"
+          },
+          {
+            "field": "time_reference",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          },
+          {
+            "field": "quantity",
+            "pos": "NUM",
+            "ent_type": "CARDINAL"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      },
+      {
+        "if_field_exists": "provider",
+        "if_fields_missing": [
+          {
+            "field": "event",
+            "pos": "NOUN",
+            "ent_type": ""
+          },
+          {
+            "field": "time_reference",
+            "pos": "PROPN",
+            "ent_type": "DATE"
+          }
+        ],
+        "search_missing_value_in": "ThingsTathUserHas"
+      }
+    ]
   }
 }

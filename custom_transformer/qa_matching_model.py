@@ -2,6 +2,10 @@ import torch
 import torch.nn as nn
 from custom_transformer import layers
 from custom_transformer.my_embeddings import MyQAMatchingTransformerEmbeddings
+from RuntimeSettings import load_runtime_settings
+
+settings = load_runtime_settings()
+
 
 
 class QAMatchingTransformer(nn.Module):
@@ -21,8 +25,8 @@ class QAMatchingTransformer(nn.Module):
                 layers.EncoderLayer(
                     d_model=hidden_dim,
                     num_heads=num_heads,
-                    d_ff=hidden_dim * 4,
-                    dropout=0.1
+                    d_ff=hidden_dim * settings["num_heads_to_predict"],
+                    dropout=settings["dropout"]
                 )
                 for _ in range(num_blocks)
             ]
@@ -31,8 +35,8 @@ class QAMatchingTransformer(nn.Module):
         self.ln_f = nn.LayerNorm(hidden_dim)
         self.classifier = nn.Linear(hidden_dim, num_labels)
 
-    def forward(self, x, mask=None, return_score=False):
-        x = self.embeddings(x)
+    def forward(self, x, mask=None, token_weights=None, return_score=False):
+        x = self.embeddings(x, token_weights)
 
         if mask is not None:
             mask = mask.unsqueeze(1).unsqueeze(2)

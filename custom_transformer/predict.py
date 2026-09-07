@@ -5,10 +5,14 @@ import os
 from custom_transformer.my_tokenize import load_tokenizer, encode_pair
 from custom_transformer.preprocess import my_split
 from custom_transformer.qa_matching_model import QAMatchingTransformer
+from RuntimeSettings import load_runtime_settings
+
+settings = load_runtime_settings()
+
 
 
 device = "cpu"
-max_len = 128
+
 
 BASE_DIR = r"C:\Tamarush\programming\project\ChatTM\Felis_python"
 
@@ -20,12 +24,12 @@ MODEL_WEIGHTS_PATH = os.path.join(MODEL_DIR, "qa_matching_model_weights.pt")
 tokenizer = load_tokenizer(TOKENIZER_DIR)
 
 model = QAMatchingTransformer(
-    hidden_dim=128,
+    hidden_dim=settings["hidden_dim"],
     vocab_size=tokenizer.vocab_size,
-    max_position_embeddings=128,
-    num_heads=4,
-    num_blocks=2,
-    num_labels=1
+    max_position_embeddings=settings["max_position_embeddings"],
+    num_heads=settings["num_heads_to_predict"],
+    num_blocks=settings["num_blocks"],
+    num_labels=settings["num_labels"]
 )
 
 model.load_state_dict(
@@ -35,37 +39,46 @@ model.load_state_dict(
 model.to(device)
 model.eval()
 
-
-def predict_match(question: str, answer: str) -> float:
-    cleaned_question = my_split(question)
-    cleaned_answer = my_split(answer)
-
-    encoded = encode_pair(
-        tokenizer,
-        cleaned_question,
-        cleaned_answer,
-        max_len=max_len
-    )
-
+#פונקציה לחיזוי אחוז התאמה בין שאלה לתשובה
+def predict_match(text: str, token_weights=None) -> float:
+    #ניקוי ועיבוד ראשוני של הטקסט
+    cleaned_text = my_split(text)
+    #המרת הטקסט לקלט מספרי עבור המודל
+    encoded = encode_pair(tokenizer, cleaned_text, max_len=settings["max_len"], token_weights=token_weights)
+    #העברת הנתונים למכשיר הרצה
     input_ids = encoded["input_ids"].to(device)
     attention_mask = encoded["attention_mask"].to(device)
-
+    token_weights = encoded["token_weights"].to(device)
+    #הרצת המודל ללא אימון וחישוב ציון התאמה
     with torch.no_grad():
         score = model(
             input_ids,
             attention_mask,
+            token_weights=token_weights,
             return_score=True
         )
-
+    #החזרת ציון ההתאמה כמספר רגיל
     return score.item()
 
 
 if __name__ == "__main__":
-    question = "How much does it cost to ship a wireless mouse from Tel Aviv to Jerusalem with ExpressShip in two days for 1 units?"
-    answer = "Shipping a wireless mouse from Tel Aviv to Jerusalem with ExpressShip costs $12 for 1 units and may change during holidays."
+    text = (
+        "topic: pricing , "
+        "question: How much does it cost to fly from Israel to Greece with El Al in April for one person? , "
+        "answer: A flight from Israel to Greece with El Al in April for one person starts at $72 for a one-way ticket and $101 for a round-trip ticket."
+    )
 
-    score = predict_match(question, answer)
+    token_weights = [
+        0.2, 3.0, 1.0, 1.0,
+        1.0, 1.0, 2.5, 2.5,
+        1.0, 1.5, 1.0, 1.5,
+        1.0, 3.0, 3.0,
+        1.0, 1.0, 1.0, 1.0, 1.0
+    ]
+    score = predict_match(
+        text,
+        token_weights=token_weights
+    )
 
-    print("Question:", question)
-    print("Answer:", answer)
+    print("Text:", text)
     print(f"Match score: {score:.4f}")

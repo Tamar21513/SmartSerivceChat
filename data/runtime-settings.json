@@ -2,7 +2,7 @@
   "CSHARP_API_BASE_URL": "http://localhost:5199",
   "localhost:3000": "http://localhost:3000",
   "localhost:5173": "http://localhost:5173",
-  "NUM_TO_ANSWER": 10,
+  "NUM_TO_ANSWER": 6,
   "HALF": 0.5,
   "60_percent": 0.6,
   "80_percent":0.8,
@@ -16,7 +16,7 @@
         "with", "this", "that", "it", "as", "by", "my","help"
     ],
     "question_words": [
-        "what", "who", "whom", "whose", "which", "does", "is",
+        "what", "who", "whom", "whose", "which",
         "when", "where", "why", "how", "how much", "how many",
         "how long", "how far", "how often", "how old", "how soon",
         "how fast", "how late", "how early"
@@ -55,6 +55,22 @@
     "device": "cpu",
     "num_epochs": 20,
     "learning_rate": 5e-5,
-    "batch_size": 8
+    "batch_size": 8,
+    "return_tensors": "pt",
+    "true": "True",
+    "max_length_to_aswer": 1024,
+    "max_new_tokens": 120,
+    "false": "False",
+    "num_beams": 4,
+    "no_repeat_ngram_size": 3,
+    "repetition_penalty":1.2,
+    "NUM_TO_ANSWER_TO_COMPANY": 3,
+    "brand": "brand",
+    "SPEC_SPLIT_WORDS": ["of", "for", "in"],
+    "BRANDS": ["asus", "jbl", "lenovo", "dell", "hp", "apple", "samsung","eged","osem","magnolia"],
+    "STOP_WORDS_FOR_JSON": ["cost","a","an","does","for","from","in","with","!","?","to","there","it"],
+    "WORD_TIME_TO_TYPE": ["today", "tomorrow", "yesterday", "after", "before", "during", "around", "next", "last", "this", "morning", "afternoon", "evening", "night", "noon", "midnight", "week", "month", "year", "weekend", "weekday", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "soon", "later", "early", "late", "daily", "weekly", "monthly", "yearly"],
+    "timeout": 15
+
 
 }

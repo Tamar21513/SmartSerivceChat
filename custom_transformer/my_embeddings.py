@@ -9,8 +9,12 @@ class MyQAMatchingTransformerEmbeddings(nn.Module):
         self.LayerNorm=nn.LayerNorm(hidden_dim)
         self.Dropout=nn.Dropout(p=0.1)
 
-    def forward(self,input_ids):
+    def forward(self,input_ids, token_weights=None):
         word_vec= self.my_Embedding(input_ids)
+
+        if token_weights is not None:
+            word_vec = word_vec * token_weights.unsqueeze(-1)
+
         seq_length = input_ids.size(1)
         word_pos=torch.arange(seq_length,device=input_ids.device)
         pos_vecs = self.my_position_Embedding(word_pos)

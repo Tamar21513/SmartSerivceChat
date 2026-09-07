@@ -58,9 +58,9 @@ def search_catgory(text):
 
 
 #שליפת החברות המתאימות לקטגוריה
-def select_company(topic, company_id, question, user_data, category_id = 0):
+def select_company(topic, company_id, question, user_data, if_has_company, category_id = 0):
     #חיפוש בחברה ספציפית
-    if company_id > 0:
+    if company_id > 0 and if_has_company == True:
         #חיפוש מסד נתונים של חברה מסוימת
         cursor.execute(
             '''
@@ -94,7 +94,7 @@ def select_company(topic, company_id, question, user_data, category_id = 0):
             #זימון מסד הנתונים
             cursor.execute(
                 '''
-                SELECT c.company_name, cd.data_id, cd.content, cd.topic
+                SELECT c.company_name, cd.data_id, cd.content, cd.topic, c.company_id
                 FROM CompanyData cd
                 INNER JOIN Company c
                     ON cd.company_id = c.company_id
@@ -103,6 +103,8 @@ def select_company(topic, company_id, question, user_data, category_id = 0):
                 (row.company_id,)
             )
             result = cursor.fetchone()
+            if result[4] == company_id:
+                continue
             print(result)
             search_in_db(result, topic, question, user_data)
             if len(dic_list_to_answer[user_data["userId"]]) >= settings["NUM_TO_ANSWER"]:
@@ -126,15 +128,16 @@ def split_to_links_description(link_and_description):
             descriptions.append(line.replace("description - ", "", 1).strip())
     return [links,descriptions]
 
+
 #מציאת אחוז התאמה לתאורי לינקים
-def matching_to_description(the_question ,titles ,results, THRESHOLD):
+def matching_to_description(the_question ,titles ,results):
     #מציאת התאמה
     similarity_scores = matching_percentages(the_question[0] , titles)
     print(similarity_scores)
     #יצירת זוגות: אחוז התאמה עם תשובת האינטרנט 
     pairs = list(zip(results, similarity_scores))
     # סינון לפי סף התאמה
-    filtered = [p for p in pairs if p[1] >= THRESHOLD]
+    filtered = [p for p in pairs if p[1]]
     # מיון לפי אחוז התאמה (מהגבוה לנמוך)
     filtered.sort(key=lambda x: x[1], reverse=True)
     return filtered
@@ -165,7 +168,7 @@ def search_in_db(result, topic, question, user_data):
             #חלוקת לרשימת לינקים ולרשימת תיאורים 
             links_description = split_to_links_description(link_and_title)
             #מציאת אחוז התאמה בין תיאורי הלינקים לשאלה וסידורים מהגדול לקטן
-            filtered = matching_to_description(question,  links_description[1], links_description[0], settings["HALF"])
+            filtered = matching_to_description(question,  links_description[1], links_description[0])
             print(filtered)
             urls = []
             for pair in filtered:
@@ -200,20 +203,21 @@ def id_company_from_name_company(name_company):
 
 #חיפוש במסד חברה - main
 #מחזירה רשימה של קטעים נבחרים
-def handling_company_database(question,text,topic,name_company, user_data):
+def handling_company_database(question,item,topic,name_company, user_data):
     print()
     print()
-    print(f"{text}-------------------------------")
+    print(f"{item}-------------------------------")
     dic_list_to_answer[user_data["userId"]] = []
     company_id = 0
     if name_company !="":
         company_id = id_company_from_name_company(name_company)
     if company_id > 0:
-        select_company(topic, company_id, question, user_data)
-    else:
-        category_id = search_catgory(text)
-        print(category_id)
-        select_company(topic, company_id, question, user_data, category_id)
+        select_company(topic, company_id, question, user_data, True)
+        if len(dic_list_to_answer[user_data["userId"]]) < settings["NUM_TO_ANSWER"]:
+            return dic_list_to_answer[user_data["userId"]] 
+    category_id = search_catgory(item)
+    print(category_id)
+    select_company(topic, company_id, question, user_data, False, category_id)
     return dic_list_to_answer[user_data["userId"]] 
 
 
@@ -264,7 +268,7 @@ def handling_Internet_database(the_question):
     #הוצאת הכותרות
     titles = [r["title"].rsplit("-", 1)[0].strip() for r in response["results"]]
     #התאמה בין השאלה לתאורי הלינקים
-    filtered = matching_to_description(the_question, titles, results, settings["THRESHOLD"])
+    filtered = matching_to_description(the_question, titles, results)
     # שלושת התוצאות הטובות ביותר
     #top3 = filtered[:settings["TOP_3"]]
 
@@ -277,6 +281,7 @@ def handling_Internet_database(the_question):
     #פתיחת הURL המתאימים ביותר
     contents = information_from_URL(urls)
     return contents
+
 
 #מציאת המשפטים המתאימים ביותר
 def select_most_suitable_simplifyers(contents, the_question, category, user_data, start = ""):

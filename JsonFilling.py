@@ -87,22 +87,30 @@ def pricing_json_filling(text,json_data):
             #כמות
             if before.lower() == "for":
                 text_clean = TextCleaning.text_cleaning(noun.text)
-                text_clean = text_clean.split(" ")
-                json_data["quantity"] = text_clean[0]
-                json_data["item"] = " ".join(text_clean[1:]).lower()
+                #text_clean = text_clean.split(" ")
+                json_data["quantity"] = text_clean.lower()
+                #if len(noun.text)>2:
+                #    json_data["item"] = " ".join(text_clean[2:]).lower()
             #חברה מותג
             if before.lower() == "with":
                 text_clean = TextCleaning.text_cleaning(noun.text)
-                brand_words = [word for word in text_clean.split()if word.lower() not in ["cost", "price"]]
+                brand_words = [word.lower() for word in text_clean.split()if word.lower() not in ["cost", "price"]]
                 json_data["brand"] = " ".join(brand_words)
         print(noun)
     print("---------------------------------")
 
     for token in doc:
+        before = doc[token.i - 1].text.lower() if token.i > 0 else ""        
         if_has_in_brands = token.text.lower() in settings["BRANDS"]
         #מציאת המותג/החברה
-        if (token.pos_ == "PROPN" and if_has_in_brands == True) and json_data["brand"] =="":
+        if if_has_in_brands == True and json_data["brand"] =="":
             json_data["brand"] = token.text.lower()
+        #מילוי שאלה - שתי מילים
+        if before.lower()+ " " +token.text.lower() in settings["question_words"] and json_data["type"] == "":
+            json_data["type"] = before.lower()+ " "+token.text.lower()
+        #מילוי שאלה מילה אחת
+        if token.text.lower() in settings["question_words"] and json_data["type"] == "":
+            json_data["type"] = token.text.lower()
     
     if json_data["item"] == "":
         list_item = []
@@ -117,6 +125,8 @@ def pricing_json_filling(text,json_data):
             if word not in words_to_item and word not in settings["STOP_WORDS_FOR_JSON"]:
                 list_item.append(word.lower())
         json_data["item"] = " ".join(list_item)
+    if "cost" not in json_data["type"].split(" ") and "price" not in json_data["type"].split(" "):
+        open_list.append("cost")
         
     return json_data
 
@@ -124,6 +134,7 @@ def pricing_json_filling(text,json_data):
 
 #מילוי JSON של השאלת מפרט מוצר.
 def product_specs_json_filling(text,json_data):
+    json_data = json_data.copy()
     doc2 = nlp(text)
     word_split = []
     for token in doc2:
@@ -188,6 +199,7 @@ def product_specs_json_filling(text,json_data):
 
 #מילוי JSON של השאלת  תלונה.
 def complaint_json_filling(text, json_data):
+    json_data = json_data.copy()
     doc = nlp(text)
     for chunk in doc.noun_chunks:
         print()
@@ -201,91 +213,119 @@ def complaint_json_filling(text, json_data):
                 json_data["reference_number"] = token.text
             #מילוי למה התלונה קשורה
             if token.pos_ == "NOUN" and token.text.lower() not in settings["STOP_WORDS_TO_Fill_JSON"]:
-                sen.append(" " +token.text.lower())
+                sen.append(token.text.lower())
 
         if len(sen)>0 and json_data["target"] != "":
             json_data["target"] += " and "
-        json_data["target"] += "".join(sen)
+        json_data["target"] += " ".join(sen)
 
-    bool = False
+    collect_issue  = False
     for token in doc:
-        if bool == True:
+        if collect_issue  == True:
             if token.pos_ == "PUNCT":
-                bool = False
+                collect_issue  = False
             else:
                 json_data["issue"] = json_data["issue"]+" "+token.text.lower()
                 #מציאת הנושא
         if token.text.lower() == settings["KEY_WORD"]:
-            bool = True
+            collect_issue  = True
 
     return json_data 
 
 
 #מילוי JSON של השאלת  זמן-תאריך.
 def date_and_time_json_filling(text, json_data):
+    json_data = json_data.copy()
     doc = nlp(text)
-    for ent in doc.ents:
-        before = doc[ent.start - 1].text.lower() if ent.start > 0 else ""
-        after = doc[ent.end].text.lower() if ent.end < len(doc) else ""
-        print(before ,ent.text, ent.start_char, ent.end_char, ent.label_)
-        #חברה/ספק/ארגון מסוים
-        if before == "with" and ent.label_ == "GPE":
-            json_data["provider"] = ent.text
-            continue
-        #מאיפה
-        if before == "from" and ent.label_ == "GPE":
-            json_data["origin"] = ent.text
-            continue
-        #לאיפה
-        if before == "to" and ent.label_ == "GPE":
-            json_data["destination"] = ent.text
-            continue
-        #תאריך - זמן
-        if before == "in" and ent.label_ == "DATE":
-            json_data["time_type"] = ent.text
-            continue
-        #שעה
-        if ent.label_ == "TIME":
-            json_data["time_reference"] = ent.text
-            continue
-        #כמות
-        if before == "for" and ent.label_ == "CARDINAL":
-            json_data["quantity"] = ent.text +" "+ after
-            continue
-    max_overlap = 0
-    max_token = ""
     print()
     print()
+    print(text)
+    open_list =[]
+    i = 0
+    #מילוי TYPE
+    while i < len(doc) and doc[i].ent_iob_  == "O" and doc[i].text.lower() not in ["the","there"]:
+        if doc[i].text.lower() not in settings["STOP_WORDS_FOR_JSON"]:
+            open_list.append(doc[i].text.lower())
+        i+=1
+    if "the" not in open_list and "there" not in open_list:
+        open_list.append("the")
+    print(open_list)
+    json_data["type"] = " ".join(open_list).lower()
+    content = []
+    #עיקר המשפט
+    while i < len(doc):
+        if doc[i].text.lower() not in settings["STOP_WORDS_FOR_JSON"]:
+            content.append(doc[i].text.lower())
+        i+=1
+    print("content")
+    print(content)
+
+
+    for noun in doc.noun_chunks:
+        if noun[0].i > 0:
+            before = doc[noun.start - 1].text.lower() if noun.start > 0 else ""            
+            #מקור
+            if before.lower() == "from":
+                text_clean = TextCleaning.text_cleaning(noun.text)
+                json_data["origin"] = text_clean.lower()
+            #יעד
+            if before.lower() == "to":
+                text_clean = TextCleaning.text_cleaning(noun.text)
+                json_data["destination"] = text_clean.lower()
+            #זמן/תאריך
+            if before.lower() == "in":
+                text_clean = TextCleaning.text_cleaning(noun.text)
+                json_data["time_type"] = text_clean.lower()
+            #כמות
+            if before.lower() == "for":
+                text_clean = TextCleaning.text_cleaning(noun.text)
+                text_clean = text_clean.split(" ")
+                json_data["quantity"] = text_clean[0]
+                json_data["event"] = " ".join(text_clean[1:]).lower()
+            #חברה מותג
+            if before.lower() == "with":
+                text_clean = TextCleaning.text_cleaning(noun.text)
+                brand_words = [word.lower() for word in text_clean.split()]
+                json_data["brand"] = " ".join(brand_words)
+
+        print(noun.text+ "------------------")
+        for n in noun:
+            print(n.text , n.pos_, n.ent_type_)
+    print("---------------------------------")
+    list_time = []
     for token in doc:
-        print(token.text, token.pos_)
-        after = doc[token.i + 1].text.lower() if token.i + 1 < len(doc) else ""
-        ##מילוי מילת שאלה עם שתי מילים
-        #if token.text.lower() +" "+after.lower() in question_words and json_template["type"] == "":
-        #    json_template["type"] = token.text.lower() +" "+ after
-        #    continue
-        ##מילוי מילת שאלה בודדת
-        #if token.text.lower() in question_words and json_template["type"] == "":
-        #    json_template["type"] = token.text
-        #    continue
+        if_has_in_brands = token.text.lower() in settings["BRANDS"]
+        #מציאת המותג/החברה
+        if (token.pos_ == "PROPN" and if_has_in_brands == True) and json_data["brand"] =="":
+            json_data["brand"] = token.text.lower()
         #מילוי מספר חבילה
         if token.pos_ == "PROPN" and if_reference_number(token.text.lower()) == True:
             json_data["reference_number"] = token.text
             continue
-
-        #מילוי נושא חיפוש
-        if token.pos_ == "NOUN":
-            children_words = [child.text.lower() for child in token.children]
-            overlap = set(children_words) & set(settings["words_to_item"])
-            if len(overlap) >= max_overlap:
-                max_overlap = len(overlap)
-                max_token = token
-                print()
-                print("max-----------")
-                print(max_overlap)
-                print(max_token)
-    str_item = find_item(max_token,json_data)
-    json_data["event"] = str_item
-    return json_data  
+        #מילוי סוג זמן
+        if token.text.lower() in settings["WORD_TIME_TO_TYPE"]:
+            json_data["time_type"] = token.text.lower()
+        #מילוי זמן ספציפי
+        if token.ent_type_ in ["TIME","DATE"]:
+            list_time.append(token.text.lower())
+    json_data["time_reference"] = " ".join(list_time)
+    
+    if json_data["event"] == "":
+        list_item = []
+        #הוצאת הערכים בJSON:
+        keys = list(json_data.keys())
+        selected_keys = keys[keys.index("type"):keys.index("reference_number") + 1]
+        words_to_item = [json_data[key] for key in selected_keys if json_data[key] != ""]
+        words_to_item = " ".join(words_to_item).strip()
+        words_to_item = words_to_item.split(" ")
+        print(words_to_item)
+        for word in content:
+            if word not in words_to_item and word not in settings["STOP_WORDS_FOR_JSON"]:
+                list_item.append(word.lower())
+        json_data["event"] = " ".join(list_item)
+        
+    return json_data
+ 
 
 
 #main
@@ -330,48 +370,44 @@ def json_filling_form_missing_details(json_data,details,detail):
 def filling_all_the_remaining_json(text,json):
     return
 
-#בדיקה
-        
 
-
-
-
-
-#price = {
-#    "topic": "pricing",
-#    "type": "",
-#    "item": "",
-#    "brand": "",
+#date_and_time =  {
+#    "topic": "date_and_time",
+#    "type": "When is there",
+#    "event": "",
+#    "time_type": "",
 #    "origin": "",
 #    "destination": "",
-#    "time": "",
-#    "quantity": ""
+#    "brand": "",
+#    "quantity": "",
+#    "time_reference": "",
+#    "reference_number": ""
 #}
 #print()
 #print()
 #print()
 #print()
-#print(pri("How much does an Asus laptop VivoBook 15 model X515EA cost in today?",price))
+#print(pri("What time does the train from Haifa to Bnei Brak leave in the morning?",date_and_time))
 #print()
 #print()
 #print()
 #print()
-#print(pri("What is the price for three JBL Tune 510BT headphones?",price))
+#print(pri("When is there a bus from Ashdod to Jerusalem with Kavim after 6 PM?", date_and_time))
 #print()
 #print()
 #print()
 #print()
-#print(pri("How much does shipping from Jerusalem to Tel Aviv with eged cost in tomorrow?",price))
+#print(pri("What time is the next ride from Ashdod to Beersheba?",date_and_time))
 #print()
 #print()
 #print()
 #print()
-#print(pri("What is the cost for five bus tickets from Haifa to Bnei Brak in the morning?",price))
+#print(pri("What time does the flight from Tel Aviv to London depart?",date_and_time))
 #print()
 #print()
 #print()
 #print()
-#print(pri("How much does a Samsung Galaxy S24 cost?",price))
+#print(pri("When is the next bus from Jerusalem to Tel Aviv with Egged tomorrow?",date_and_time))
 
 #data = {
 #    "topic": "pricing",

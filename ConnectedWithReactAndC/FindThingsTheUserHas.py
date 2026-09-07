@@ -1,7 +1,6 @@
-from pydantic import BaseModel
-from typing import List
-from ConnectedWithReactAndC.SharedDataStructure import tree_things
+from ConnectedWithReactAndC.SharedDataStructure import dic_tree_things
 from fastapi import APIRouter
+from BinarySearchTree import ThingsTheUserHas,BinarySearchTree
 
 router  = APIRouter()
 
@@ -15,12 +14,6 @@ import FindSimilar
 
 
 
-class ThingsTheUserHas(BaseModel):
-    thingsTheUserHasId: int
-    userId: int
-    thingsTheUserHasTopic: str = ""
-    thingsTheUserHasContent: List[str] = []
-
 
 @router.post("/things-the-user-has")
 def building_tree_things_the_user_has(data: ThingsTheUserHas):
@@ -28,7 +21,7 @@ def building_tree_things_the_user_has(data: ThingsTheUserHas):
     print("Things ID:", data.thingsTheUserHasId)
     print("Topic:", data.thingsTheUserHasTopic)
     print("Content list:", data.thingsTheUserHasContent)
-
+    dic_tree_things[data.userId] = BinarySearchTree()
     degel = False
     for top in data.thingsTheUserHasContent[0].split('\n'):
         if degel == False:
@@ -37,7 +30,7 @@ def building_tree_things_the_user_has(data: ThingsTheUserHas):
             continue
         if len(top)<2:
             degel = False
-            tree_things.insert_to_things(FindSimilar.embeddings_encode(thing.thingsTheUserHasTopic),thing)
+            dic_tree_things[data.userId].insert_to_things(FindSimilar.embeddings_encode(thing.thingsTheUserHasTopic),thing)
             print(thing)
             continue
         if degel == True:
@@ -51,3 +44,14 @@ def building_tree_things_the_user_has(data: ThingsTheUserHas):
         "userId": data.userId,
         "contentCount": len(data.thingsTheUserHasContent)
     }
+
+
+
+
+#לא בשימוש
+#מציאת הצומת המתאימה לנושא והכנסתו לעץ
+#def find_thing_that_user_has_in_tree(topic):
+#    node_tree = tree_things.search_node_in_tree(tree_things.Root,FindSimilar.embeddings_encode(topic.thingsTheUserHasTopic),topic.thingsTheUserHasTopic)
+#    print(node_tree)
+
+
