@@ -44,6 +44,9 @@ checkpoint-*/
 secrets.json
 config.json
 
+# Node dependencies
+node_modules/
+
 # IDE / system files
 .vscode/
 .idea/
