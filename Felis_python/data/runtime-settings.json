@@ -1,0 +1,76 @@
+{
+  "CSHARP_API_BASE_URL": "http://localhost:5199",
+  "localhost:3000": "http://localhost:3000",
+  "localhost:5173": "http://localhost:5173",
+  "NUM_TO_ANSWER": 6,
+  "HALF": 0.5,
+  "60_percent": 0.6,
+  "80_percent":0.8,
+  "N":20,
+  "MAX_ANSWER_LENGTH": 30,
+  "SIMILARITY_THRESHOLD": 0.6,
+  "NUM_SENTENCES": 5,
+  "STOP_WORDS_TO_FIND_TOPIC":[
+        "the", "a", "an", "is", "are", "was", "were",
+        "to", "of", "on", "in", "for", "and", "or",
+        "with", "this", "that", "it", "as", "by", "my","help"
+    ],
+    "question_words": [
+        "what", "who", "whom", "whose", "which",
+        "when", "where", "why", "how", "how much", "how many",
+        "how long", "how far", "how often", "how old", "how soon",
+        "how fast", "how late", "how early"
+    ],
+    "words_to_item": [
+        "from", "to", "for", "with", "in"
+    ],
+    "STOP_WORDS_TO_Fill_JSON":[
+        "the", "a", "an", "is", "are", "was", "were",
+        "to", "of", "on", "in", "for", "and", "or",
+        "with", "this", "that", "it", "as", "by", "my","help","issue"
+    ],
+    "KEY_WORD": "because",
+    "punctuations":[
+        ",", ".", "!", "?"
+    ],
+    "THRESHOLD": 0.6,
+    "NUM_PARAGRAPHS_TO_ANSWER": 5,
+    "TOP_3":3,
+    "src_vocab_size":5000,
+    "tgt_vocab_size": 5000,
+    "d_model":512,
+    "num_heads": 8,
+    "num_layers":6,
+    "d_ff": 2048,
+    "max_seq_length": 100,
+    "dropout":0.1,
+    "chunk_size":120,
+    "overlap":30,
+    "max_len": 128,
+    "hidden_dim": 128,
+    "max_position_embeddings":128,
+    "num_heads_to_predict":4,
+    "num_blocks":2,
+    "num_labels":1,
+    "device": "cpu",
+    "num_epochs": 20,
+    "learning_rate": 5e-5,
+    "batch_size": 8,
+    "return_tensors": "pt",
+    "true": "True",
+    "max_length_to_aswer": 1024,
+    "max_new_tokens": 120,
+    "false": "False",
+    "num_beams": 4,
+    "no_repeat_ngram_size": 3,
+    "repetition_penalty":1.2,
+    "NUM_TO_ANSWER_TO_COMPANY": 3,
+    "brand": "brand",
+    "SPEC_SPLIT_WORDS": ["of", "for", "in"],
+    "BRANDS": ["asus", "jbl", "lenovo", "dell", "hp", "apple", "samsung","eged","osem","magnolia"],
+    "STOP_WORDS_FOR_JSON": ["cost","a","an","does","for","from","in","with","!","?","to","there","it"],
+    "WORD_TIME_TO_TYPE": ["today", "tomorrow", "yesterday", "after", "before", "during", "around", "next", "last", "this", "morning", "afternoon", "evening", "night", "noon", "midnight", "week", "month", "year", "weekend", "weekday", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "soon", "later", "early", "late", "daily", "weekly", "monthly", "yearly"],
+    "timeout": 15
+
+
+}

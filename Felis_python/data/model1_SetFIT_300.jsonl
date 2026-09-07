@@ -1,0 +1,300 @@
+{"id": "m1b_0001", "text": "How much does it cost?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0002", "text": "What is the price of the monthly plan?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0003", "text": "How much is shipping to Haifa?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0004", "text": "What is the total cost for two tickets?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0005", "text": "How much does express delivery cost?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0006", "text": "Is this the cheapest flight available?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0007", "text": "How much is the round-trip fare to Athens?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0008", "text": "What is the fare for April?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0009", "text": "How much would I pay for one subscription month?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0010", "text": "What is the lowest price shown here?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0011", "text": "How much does this product cost?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0012", "text": "What is the price for business class?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0013", "text": "How much is the upgrade fee?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0014", "text": "How much do I pay for one item?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0015", "text": "Is El Al cheaper than Wizz Air here?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0016", "text": "How much does international shipping cost?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0017", "text": "What does this service cost per month?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0018", "text": "How much is the one-way ticket?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0019", "text": "What is the price for one person?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0020", "text": "How much is the basic package?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0021", "text": "I am trying to understand what I would actually need to pay if I book this flight from Israel to Greece with El Al in April for one person, because I am seeing several numbers and I only want the real fare that is relevant to me.", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0022", "text": "Before I decide whether to continue, I need to know how much the premium package really costs per month, because I saw the basic price but I am not sure whether there are extra charges included or not.", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0023", "text": "Can you help me figure out the full cost of shipping this item to Haifa, because I do not want to order it and then discover that the delivery fee changes at checkout?", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0024", "text": "I am comparing a few options and I only want the cheapest price that appears for a flight to Athens, not the average price and not a package deal, just the cheapest fare shown.", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0025", "text": "Please tell me what the price would be for two people if we choose this route in April, because I only see fares per passenger and I want to understand the total amount.", "label": 0, "label_text": "pricing"}
+{"id": "m1b_0026", "text": "How do I place an order?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0027", "text": "Can I order without creating an account?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0028", "text": "What are the steps to complete a purchase?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0029", "text": "How do I buy this item?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0030", "text": "Can I place an order by phone?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0031", "text": "How do I finish checkout?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0032", "text": "What do I need before placing an order?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0033", "text": "Can I order more than one item at once?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0034", "text": "How do I submit my order?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0035", "text": "Where do I start the purchase process?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0036", "text": "How can I order two tickets by phone?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0037", "text": "Can I order through the app?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0038", "text": "How do I complete my purchase online?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0039", "text": "What is the ordering process for this service?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0040", "text": "Can I place an order for someone else?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0041", "text": "How do I order with home delivery?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0042", "text": "Where do I begin the booking process?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0043", "text": "Can I make an order from the website?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0044", "text": "How do I purchase this plan?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0045", "text": "Can I order now and pay later?", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0046", "text": "I have never used this system before, so I want to understand the exact steps I need to follow in order to place the order correctly and not miss anything during checkout.", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0047", "text": "I want to buy this service for someone else, and before I do that I need to know whether I can place the order from my account or whether the other person needs to open their own account first.", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0048", "text": "Could you explain how ordering by phone works, because I am not comfortable completing the purchase online and I want to know whether I can still order the tickets that way.", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0049", "text": "I started the purchase process in the app but I am not sure what the next step is supposed to be, so I want a clear explanation of how to complete the order from start to finish.", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0050", "text": "I need to order several items at once and I want to understand whether I should add everything to one order or place separate orders for each item.", "label": 1, "label_text": "ordering"}
+{"id": "m1b_0051", "text": "How can I track my order?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0052", "text": "Where is my package?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0053", "text": "How do I see the shipping status?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0054", "text": "Why has the tracking not updated?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0055", "text": "Where can I find my tracking number?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0056", "text": "How do I know if the order has shipped?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0057", "text": "Can you tell me where my shipment is?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0058", "text": "Why is the carrier status stuck?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0059", "text": "How do I check delivery progress?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0060", "text": "Where do I see the latest tracking update?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0061", "text": "My package has not moved for 3 days.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0062", "text": "How can I track shipment 54821?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0063", "text": "Where is order 54821 now?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0064", "text": "I do not see any tracking update yet.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0065", "text": "How do I follow my delivery?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0066", "text": "Why is my shipment still in transit?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0067", "text": "Can I track my package without the app?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0068", "text": "Where is the parcel right now?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0069", "text": "Why is there no update on my order?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0070", "text": "How do I find the order status?", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0071", "text": "I placed this order a few days ago and I am trying to understand where the package is right now, because the status I see is vague and I do not know whether it has already left the warehouse.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0072", "text": "The shipment has shown the same message for several days and I am starting to worry that it is stuck somewhere, so I need to know how to check the real status and whether there has been any movement.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0073", "text": "Could you tell me where I am supposed to find the tracking number, because I searched in the order page and in the email and I still cannot see any clear reference for the shipment.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0074", "text": "I want to follow the delivery properly, but I am confused by the information in the account and I need to know where the latest update should appear and how often it normally changes.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0075", "text": "The order says shipped, but I still cannot tell where the package actually is, so I need help understanding the tracking information.", "label": 2, "label_text": "tracking"}
+{"id": "m1b_0076", "text": "How can I cancel my order?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0077", "text": "Can I change the delivery address?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0078", "text": "I entered the wrong address.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0079", "text": "Can I stop my order after placing it?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0080", "text": "How do I change my order before shipping?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0081", "text": "Is it possible to edit my order?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0082", "text": "Can I cancel before the package ships?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0083", "text": "How do I update the shipping address?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0084", "text": "Can support change my order details?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0085", "text": "What do I do if I want to cancel a purchase?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0086", "text": "Can I change the date of my booking?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0087", "text": "I want to change my order to a different product.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0088", "text": "Can I update order 54821 to a new address?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0089", "text": "How do I cancel a shipped order?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0090", "text": "Can I edit my booking details?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0091", "text": "I want to change the delivery date.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0092", "text": "Can I remove one item from my order?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0093", "text": "How do I update my booking information?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0094", "text": "Can I change the selected seat?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0095", "text": "Is it possible to cancel the reservation now?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0096", "text": "I realized right after placing the order that I selected the wrong address, and I need to know whether it is still possible to change it before the package is sent out.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0097", "text": "Please explain whether I can cancel this purchase now, because I completed the order only a short time ago and I do not know if it has already entered shipping preparation.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0098", "text": "I want to keep the order but change one important detail, so I need to know whether support can update the booking date without canceling the entire reservation.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0099", "text": "There is one item in the order that I no longer want, and I am trying to understand whether it can be removed without affecting the rest of the purchase.", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0100", "text": "Can you tell me if it is still possible to edit my order details after payment, or does everything become locked once checkout is complete?", "label": 3, "label_text": "cancel_or_change"}
+{"id": "m1b_0101", "text": "How do I return a product?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0102", "text": "When will I get my refund?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0103", "text": "Why have I not received my refund yet?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0104", "text": "What is the return policy?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0105", "text": "Can I send the item back?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0106", "text": "How many days do I have to return it?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0107", "text": "Does the refund go to the original payment method?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0108", "text": "How long does a refund take?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0109", "text": "Can I return a used item?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0110", "text": "What should I do if my refund is delayed?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0111", "text": "My return was approved last week and I still do not see the refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0112", "text": "Can I return order 54821 within 30 days?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0113", "text": "How do I request a return?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0114", "text": "When does the refund appear in my account?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0115", "text": "Can I get a refund for this order?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0116", "text": "What happens after a return is approved?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0117", "text": "How long does it take to process a return?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0118", "text": "Can I return a damaged item?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0119", "text": "Why is the refund still pending?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0120", "text": "Can I get money back for this purchase?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0121", "text": "I already submitted the return and now I want to understand how long the refund usually takes, because it has been several days and I still do not see the money back in my account.", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0122", "text": "Before I send this item back, I need to know whether it actually qualifies for return, because it has been opened and I am not sure if that changes the policy.", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0123", "text": "Could you explain what I am supposed to do in order to return this product properly, including where the request starts and what happens after approval?", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0124", "text": "The return was approved last week, but I still do not see the refund in the original payment method, so I want to know whether that delay is normal or whether something is wrong.", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0125", "text": "I want to understand whether I can still return this order within the allowed period and what the conditions are for getting the refund.", "label": 4, "label_text": "returns_and_refunds"}
+{"id": "m1b_0126", "text": "I forgot my password.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0127", "text": "How do I reset my password?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0128", "text": "Why is my account locked?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0129", "text": "I cannot sign in to my account.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0130", "text": "How can I recover access to my account?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0131", "text": "The reset link expired, what should I do?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0132", "text": "I no longer have access to my email. How can I log in?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0133", "text": "How do I change my account email?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0134", "text": "Why can't I access my account?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0135", "text": "How do I unlock my account?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0136", "text": "I cannot log into my profile.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0137", "text": "My login keeps failing.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0138", "text": "How can I restore my account access?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0139", "text": "Why was my account blocked?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0140", "text": "I need to update the email linked to my account.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0141", "text": "Can I recover the account without email access?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0142", "text": "I forgot the login details.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0143", "text": "How do I sign in again after being locked out?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0144", "text": "The account says locked after too many attempts.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0145", "text": "How do I get back into my account?", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0146", "text": "I am trying to log in and nothing works anymore, so I need to know whether the problem is my password, the account itself, or something else related to access.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0147", "text": "I no longer have access to the email address connected to the account, and I need to understand whether I can still recover the account or change the login details another way.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0148", "text": "The reset link I received is no longer working, and I want to know the correct next step because I still cannot get back into the account.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0149", "text": "My account appears locked after several attempts, and I need clear instructions about how long I should wait and what I should do next.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0150", "text": "I want to update the email linked to my account, but I am not sure whether I need to log in first or whether support can help me change it directly.", "label": 5, "label_text": "account_access"}
+{"id": "m1b_0151", "text": "How can I update my payment method?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0152", "text": "Why was I charged twice?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0153", "text": "How do I change the card on my account?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0154", "text": "Where can I download my invoice?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0155", "text": "Why is my payment failing?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0156", "text": "Can I replace my billing card?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0157", "text": "How do I add a new payment method?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0158", "text": "Can I pay with a different payment method?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0159", "text": "How do I get the invoice for my order?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0160", "text": "Why did the payment not go through?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0161", "text": "Can I pay with PayPal?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0162", "text": "I was charged twice for order 54821.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0163", "text": "Please add a new credit card to my account.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0164", "text": "How do I pay by bank transfer?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0165", "text": "Where is my billing document?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0166", "text": "Why was my card declined?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0167", "text": "Can I switch from one card to another?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0168", "text": "How do I save a new payment option?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0169", "text": "Why was I billed again this month?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0170", "text": "How do I access the invoice PDF?", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0171", "text": "I need to understand why the payment failed, because I tried more than once with the same card and I still cannot complete the purchase.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0172", "text": "Could you explain how I can replace the saved card on my account, because the old one is no longer valid and I do not want the next payment to fail.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0173", "text": "I was charged twice for the same order and I need to know what this means and how to get the billing issue reviewed.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0174", "text": "Please tell me where I can download the invoice for this purchase, because I need the billing document for my records and I cannot find it in the account.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0175", "text": "I want to know whether I can use a different payment method for the next charge, because I do not want to keep using the same card.", "label": 6, "label_text": "billing_and_payment"}
+{"id": "m1b_0176", "text": "The website is not loading.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0177", "text": "Why am I getting an error message?", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0178", "text": "The link does not open.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0179", "text": "I cannot upload the file.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0180", "text": "The page keeps crashing.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0181", "text": "Why is the app not working?", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0182", "text": "I clicked but nothing happens.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0183", "text": "The system shows an error.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0184", "text": "Why does the site freeze?", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0185", "text": "How do I fix this technical problem?", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0186", "text": "The app keeps crashing on Android.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0187", "text": "The checkout page gives an error.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0188", "text": "I cannot open the confirmation link.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0189", "text": "The upload page is stuck.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0190", "text": "Nothing happens when I press the button.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0191", "text": "The website is very slow and unresponsive.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0192", "text": "Why do I get page not found?", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0193", "text": "I cannot complete the form online.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0194", "text": "The app closes every time I open it.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0195", "text": "The system is not responding.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0196", "text": "I am trying to complete the process on the website, but the page keeps freezing and I cannot tell whether the issue is with the site itself or with something I am doing.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0197", "text": "The app crashes every time I try to open it on my Android phone, so I need help understanding whether this is a known technical problem and what I should do first.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0198", "text": "When I click the confirmation link, nothing useful opens, and I want to know whether the problem is the link itself or the page it is supposed to load.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0199", "text": "I need to upload a file, but the upload screen gets stuck and never finishes, so I want to understand what kind of technical issue this is.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0200", "text": "The checkout page keeps showing an error and I cannot move forward, so I need help identifying what kind of problem I am dealing with.", "label": 7, "label_text": "technical_issue"}
+{"id": "m1b_0201", "text": "Does this phone support wireless charging?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0202", "text": "How much storage does the laptop have?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0203", "text": "What battery size is listed?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0204", "text": "Is a charger brick included in the box?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0205", "text": "Does this model have Bluetooth?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0206", "text": "How much RAM does it have?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0207", "text": "What are the product specifications?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0208", "text": "Does this model support USB-C charging?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0209", "text": "Is this model dual SIM?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0210", "text": "What screen size is listed?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0211", "text": "Does the Galaxy A54 have dual SIM?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0212", "text": "What storage is included in this model?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0213", "text": "Is wireless charging available on this device?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0214", "text": "What is included in the box?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0215", "text": "Does this laptop come with 16GB RAM?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0216", "text": "What camera resolution is listed?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0217", "text": "Does this phone include NFC?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0218", "text": "What processor does the laptop use?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0219", "text": "Is the battery 5000mAh?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0220", "text": "What specs are listed for this product?", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0221", "text": "Before I buy this phone, I want to check whether it supports wireless charging, because that feature is important to me and I do not want to assume it is included if it is not listed.", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0222", "text": "I am comparing laptop options right now, and I need to know how much storage this model has because that will affect whether it is suitable for my work.", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0223", "text": "Could you tell me exactly what is included in the box, because I want to know whether the charger brick comes with the product or whether I would need to buy that separately.", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0224", "text": "I am looking at this model and I want to confirm whether it has dual SIM support, because that is one of the key specifications I need.", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0225", "text": "Please help me understand the main specifications of this product, especially the battery, memory, and connectivity features.", "label": 8, "label_text": "product_specs"}
+{"id": "m1b_0226", "text": "Does the policy allow returns within 30 days?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0227", "text": "Can I return an item if it has been used?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0228", "text": "What does the refund policy say?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0229", "text": "Does the policy mention exceptions?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0230", "text": "Are weekends included in the refund timeline?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0231", "text": "What are the conditions for a return?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0232", "text": "Does the policy say the refund is sent after approval?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0233", "text": "What does the service policy say about complaints?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0234", "text": "Are there exceptions by category?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0235", "text": "What are the rules in the return policy?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0236", "text": "What is the cancellation policy?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0237", "text": "Can I cancel after the order ships according to the policy?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0238", "text": "Does the warranty policy cover damage?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0239", "text": "What does the shipping policy say?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0240", "text": "Can I return an opened item under the policy?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0241", "text": "Are there policy exceptions for special items?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0242", "text": "What are the complaint policy rules?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0243", "text": "Does the return policy apply after 30 days?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0244", "text": "What does the policy say about refunds after approval?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0245", "text": "Is this allowed by the policy?", "label": 9, "label_text": "policy"}
+{"id": "m1b_0246", "text": "I do not want general advice, I only want to know what the policy actually says about returning an item that has already been opened and used.", "label": 9, "label_text": "policy"}
+{"id": "m1b_0247", "text": "Please explain whether the official policy includes exceptions by category, because I need to know if the normal return rules apply to this item.", "label": 9, "label_text": "policy"}
+{"id": "m1b_0248", "text": "I want to understand what the cancellation policy says in the case where the order has already shipped, because that is the part that matters to me now.", "label": 9, "label_text": "policy"}
+{"id": "m1b_0249", "text": "Could you tell me whether the refund policy says that the refund is only sent after approval, because I want to make sure I understood the condition correctly.", "label": 9, "label_text": "policy"}
+{"id": "m1b_0250", "text": "Before I do anything else, I need to know exactly what the service policy says about complaints and how they are handled.", "label": 9, "label_text": "policy"}
+{"id": "m1b_0251", "text": "I was charged twice for the same order and this is unacceptable.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0252", "text": "My package is late and I am very disappointed.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0253", "text": "I received a damaged item and nobody has helped me yet.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0254", "text": "The service was poor and I want this reviewed.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0255", "text": "I contacted support already and no one answered me.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0256", "text": "This has been a terrible experience.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0257", "text": "I got the wrong item and I am really upset.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0258", "text": "The promo code keeps failing and this is very frustrating.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0259", "text": "I cannot find my invoice anywhere and this has been very inconvenient.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0260", "text": "My account is locked again and this is becoming really annoying.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0261", "text": "No one has replied to my case and I am upset.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0262", "text": "The delivery delay is very frustrating.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0263", "text": "I am unhappy with the support I received.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0264", "text": "You sent me the wrong product and this is not acceptable.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0265", "text": "The payment problem has still not been fixed and I am angry.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0266", "text": "This service has been really disappointing.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0267", "text": "I am frustrated because the refund still has not arrived.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0268", "text": "My order arrived broken and I am not satisfied.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0269", "text": "I have had enough of these delays.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0270", "text": "The whole experience has been poor.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0271", "text": "I have already tried to solve this through support, but I still have not received a proper response, and at this point I want it clearly reviewed because the whole experience has been unacceptable.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0272", "text": "My package arrived late and in poor condition, and after all this waiting I am extremely disappointed with how the situation has been handled.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0273", "text": "I was charged twice for the same order, no one has explained why, and this is becoming very frustrating because I should not need to keep chasing support for something so basic.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0274", "text": "You sent me the wrong item, I reported it, and I still do not feel that anyone is actually helping, so I need this complaint taken seriously.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0275", "text": "This has been a terrible customer experience from start to finish, and I want the issue reviewed properly because I am not satisfied with the service at all.", "label": 10, "label_text": "complaint"}
+{"id": "m1b_0276", "text": "When is my flight from Israel to Greece?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0277", "text": "What time does the flight leave?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0278", "text": "When will my order arrive?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0279", "text": "How long does shipping take?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0280", "text": "Is support available tomorrow morning?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0281", "text": "When is booking 54821 scheduled?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0282", "text": "What time is my delivery expected?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0283", "text": "How long does the refund process take?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0284", "text": "When does the store open?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0285", "text": "What date is the departure?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0286", "text": "When will the package be delivered?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0287", "text": "How long is the flight to Athens?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0288", "text": "At what time does support close today?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0289", "text": "What time is check-in?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0290", "text": "When is the next available appointment?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0291", "text": "How long will the shipment take to arrive?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0292", "text": "What is the expected arrival date?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0293", "text": "When is the order supposed to ship?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0294", "text": "How many days does delivery need?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0295", "text": "At what time does the booking start?", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0296", "text": "I need to know when my flight from Israel to Greece is scheduled, because I have several messages with travel details and I cannot tell which date and time are actually mine.", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0297", "text": "Could you tell me how long shipping normally takes, because I want to know whether this delivery window is reasonable or if something is delayed.", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0298", "text": "I am trying to understand when the order is expected to arrive, not just whether it shipped, because I need the actual date or time estimate.", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0299", "text": "Please explain what time support is available tomorrow morning, because I do not want to contact the team outside their working hours.", "label": 11, "label_text": "date_and_time"}
+{"id": "m1b_0300", "text": "I want to know the expected arrival date for the package and, if possible, how many days the delivery is supposed to take from shipment.", "label": 11, "label_text": "date_and_time"}

@@ -1,0 +1,8 @@
+openai-whisper
+pygame
+TTS
+sounddevice
+soundfile
+pydub
+pyodbc
+argon2-cffi
