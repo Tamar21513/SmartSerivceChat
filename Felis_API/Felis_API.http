@@ -1,0 +1,6 @@
+@Felis_API_HostAddress = http://localhost:5199
+
+GET {{Felis_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
