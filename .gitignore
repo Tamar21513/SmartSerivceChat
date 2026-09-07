@@ -6,3 +6,7 @@ Thumbs.db
 
 # Backup of the old standalone Felis_python git history (see README)
 Felis_python/.git-old-standalone-backup/
+
+# Personal / non-project documents that must never be tracked
+/הצעת פרויקט סופי. ת.מ. בס_ד.pdf
+/ציון קלוד.docx
